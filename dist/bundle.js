@@ -47,17 +47,22 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(35);
 	var Header = __webpack_require__(175);
-	var CarouselComp = __webpack_require__(201);
+	var CarouselComp = __webpack_require__(176);
+	var Skills = __webpack_require__(182);
+	var Footer = __webpack_require__(184);
 
 	var Body = React.createClass({
 	  displayName: 'Body',
 
 	  render: function () {
+
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(Header, null),
-	      React.createElement(CarouselComp, null)
+	      React.createElement(CarouselComp, null),
+	      React.createElement(Skills, null),
+	      React.createElement(Footer, null)
 	    );
 	  }
 	});
@@ -21441,22 +21446,27 @@
 	  render: function () {
 	    var headerStyle = {
 	      width: '100%',
-	      borderBottom: '1px solid black'
+	      backgroundColor: 'rgb(255, 255, 255)',
+	      color: 'rgb(41, 72, 134)'
 	    };
 	    var menuStyle = {
 	      paddingTop: '40px',
 	      display: 'flex',
-	      justifyContent: 'space-around'
+	      justifyContent: 'space-between'
+	    };
+	    var linkStyle = {
+	      color: 'rgb(41, 72, 134)',
+	      fontWeight: 'bold'
 	    };
 	    return React.createElement(
 	      'main',
-	      { className: 'row', style: headerStyle },
+	      { className: 'container-fluid', style: headerStyle },
 	      React.createElement(
 	        'div',
 	        { className: 'col-lg-3 col-lg-offset-1' },
 	        React.createElement(
 	          'h1',
-	          null,
+	          { style: linkStyle },
 	          ' Nick MacIntyre '
 	        ),
 	        React.createElement(
@@ -21470,27 +21480,27 @@
 	        { className: 'col-lg-6 col-lg-offset-1', style: menuStyle },
 	        React.createElement(
 	          'a',
-	          { href: '#' },
+	          { href: '#', style: linkStyle },
 	          'PORTFOLIO'
 	        ),
 	        React.createElement(
 	          'a',
-	          { href: '#' },
+	          { href: '#', style: linkStyle },
 	          'GITHUB'
 	        ),
 	        React.createElement(
 	          'a',
-	          { href: '#' },
+	          { href: '#', style: linkStyle },
 	          'RESUME'
 	        ),
 	        React.createElement(
 	          'a',
-	          { href: '#' },
+	          { href: '#', style: linkStyle },
 	          'CONTACT'
 	        ),
 	        React.createElement(
 	          'a',
-	          { href: '#' },
+	          { href: '#', style: linkStyle },
 	          'ABOUT'
 	        )
 	      )
@@ -21501,74 +21511,57 @@
 	module.exports = Header;
 
 /***/ },
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var Carousel = __webpack_require__(177);
 
-	var Carousel = __webpack_require__(202);
-
-	var CarouselComp = React.createClass({
-	  displayName: 'CarouselComp',
+	var App = React.createClass({
+	  displayName: 'App',
 
 	  mixins: [Carousel.ControllerMixin],
 	  render() {
-	    var carouselStyle = {
-	      width: '50%'
+	    var containerStyle = {
+	      backgroundColor: 'rgb(211, 212, 214)',
+	      padding: 20
 	    };
 	    return React.createElement(
-	      Carousel,
-	      { style: carouselStyle },
-	      React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide1' }),
-	      React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide2' }),
-	      React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide3' }),
-	      React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide4' }),
-	      React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide5' }),
-	      React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide6' })
+	      'div',
+	      { className: 'container-fluid', style: containerStyle },
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        React.createElement(
+	          Carousel,
+	          { autoplay: true, wrapAround: true },
+	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide1' }),
+	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide2' }),
+	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide3' }),
+	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide4' }),
+	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide5' }),
+	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide6' })
+	        )
+	      )
 	    );
 	  }
 	});
 
-	module.exports = CarouselComp;
+	module.exports = App;
 
 /***/ },
-/* 202 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Carousel = __webpack_require__(203);
+	var Carousel = __webpack_require__(178);
 
 	module.exports = Carousel;
 
 
 /***/ },
-/* 203 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21589,11 +21582,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _kwReactTweenState = __webpack_require__(204);
+	var _kwReactTweenState = __webpack_require__(179);
 
 	var _kwReactTweenState2 = _interopRequireDefault(_kwReactTweenState);
 
-	var _decorators = __webpack_require__(205);
+	var _decorators = __webpack_require__(180);
 
 	var _decorators2 = _interopRequireDefault(_decorators);
 
@@ -21601,7 +21594,7 @@
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-	var _exenv = __webpack_require__(206);
+	var _exenv = __webpack_require__(181);
 
 	var _exenv2 = _interopRequireDefault(_exenv);
 
@@ -22076,6 +22069,7 @@
 	      slidesToShow = this.state.slidesToScroll;
 	    }
 	    if (this.state.currentSlide >= childrenCount - slidesToShow && !this.props.wrapAround) {
+
 	      return;
 	    }
 
@@ -22500,8 +22494,9 @@
 	exports['default'] = Carousel;
 	module.exports = exports['default'];
 
+
 /***/ },
-/* 204 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -23264,7 +23259,7 @@
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 205 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23285,7 +23280,7 @@
 
 	    render: function render() {
 	      return _react2['default'].createElement(
-	        'div',
+	        'button',
 	        {
 	          style: this.getButtonStyles(this.props.currentSlide === 0 && !this.props.wrapAround),
 	          onClick: this.handleClick },
@@ -23299,8 +23294,11 @@
 	    getButtonStyles: function getButtonStyles(disabled) {
 	      return {
 	        border: 0,
-	        color: 'black',
-	        fontSize:20,
+	        width: '40px',
+	        height: '40px',
+	        borderRadius: '100%',
+	        background: 'rgba(0,0,0,0.4)',
+	        color: 'white',
 	        padding: 10,
 	        outline: 0,
 	        opacity: disabled ? 0.3 : 1,
@@ -23315,7 +23313,7 @@
 
 	    render: function render() {
 	      return _react2['default'].createElement(
-	        'div',
+	        'button',
 	        {
 	          style: this.getButtonStyles(this.props.currentSlide + this.props.slidesToScroll >= this.props.slideCount && !this.props.wrapAround),
 	          onClick: this.handleClick },
@@ -23329,8 +23327,11 @@
 	    getButtonStyles: function getButtonStyles(disabled) {
 	      return {
 	        border: 0,
-	        color: 'black',
-	        fontSize:20,
+	        width: '40px',
+	        height: '40px',
+	        borderRadius: '100%',
+	        background: 'rgba(0,0,0,0.4)',
+	        color: 'white',
 	        padding: 10,
 	        outline: 0,
 	        opacity: disabled ? 0.3 : 1,
@@ -23339,6 +23340,66 @@
 	    }
 	  }),
 	  position: 'CenterRight'
+	}, {
+	  component: _react2['default'].createClass({
+	    displayName: 'component',
+
+	    render: function render() {
+	      var self = this;
+	      var indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
+	      return _react2['default'].createElement(
+	        'ul',
+	        { style: self.getListStyles() },
+	        indexes.map(function (index) {
+	          return _react2['default'].createElement(
+	            'li',
+	            { style: self.getListItemStyles(), key: index },
+	            _react2['default'].createElement(
+	              'button',
+	              {
+	                style: self.getButtonStyles(self.props.currentSlide === index),
+	                onClick: self.props.goToSlide.bind(null, index) },
+	              '•'
+	            )
+	          );
+	        })
+	      );
+	    },
+	    getIndexes: function getIndexes(count, inc) {
+	      var arr = [];
+	      for (var i = 0; i < count; i += inc) {
+	        arr.push(i);
+	      }
+	      return arr;
+	    },
+	    getListStyles: function getListStyles() {
+	      return {
+	        position: 'relative',
+	        margin: 0,
+	        top: -10,
+	        padding: 0
+	      };
+	    },
+	    getListItemStyles: function getListItemStyles() {
+	      return {
+	        listStyleType: 'none',
+	        display: 'inline-block'
+	      };
+	    },
+	    getButtonStyles: function getButtonStyles(active) {
+	      return {
+	        border: 0,
+	        background: 'transparent',
+	        color: 'black',
+	        cursor: 'pointer',
+	        padding: 10,
+	        outline: 0,
+	        fontSize: 24,
+	        opacity: active ? 1 : 0.5
+	      };
+	    }
+	  }),
+	  position: 'BottomCenter'
 	}];
 
 	exports['default'] = DefaultDecorators;
@@ -23346,7 +23407,7 @@
 
 
 /***/ },
-/* 206 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -23390,6 +23451,118 @@
 
 	}());
 
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var SkillsMod = __webpack_require__(183).models;
+
+	var Skills = React.createClass({
+	  displayName: 'Skills',
+
+	  render: function () {
+	    var mainStyle = {
+	      backgroundColor: 'rgb(211, 212, 214)'
+	    };
+	    var thumbNailStyle = {
+	      textAlign: 'center'
+	    };
+	    var spanStyle = {
+	      fontSize: '50px'
+	    };
+	    var i = 0;
+	    var skills = SkillsMod.map(function (skill) {
+	      i++;
+	      var skill = skill.attributes;
+	      return React.createElement(
+	        'div',
+	        { className: 'col-sm-6 col-md-3', style: thumbNailStyle, key: i },
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            'div',
+	            { className: 'caption' },
+	            React.createElement('span', { className: skill.icon, 'aria-hidden': 'true', style: spanStyle }),
+	            React.createElement(
+	              'h3',
+	              null,
+	              skill.title
+	            ),
+	            React.createElement(
+	              'p',
+	              null,
+	              '...'
+	            )
+	          )
+	        )
+	      );
+	    });
+	    return React.createElement(
+	      'div',
+	      { className: 'container-fluid', style: mainStyle },
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        skills
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Skills;
+
+/***/ },
+/* 183 */
+/***/ function(module, exports) {
+
+	var Skill = Backbone.Model.extend({
+	  defaults: {
+	    icon: '',
+	    title: ''
+	  }
+	});
+
+	var education = new Skill({ title: 'education', icon: 'glyphicon glyphicon-fire' });
+	var education1 = new Skill({ title: 'Cool', icon: 'glyphicon glyphicon-fire' });
+	var education2 = new Skill({ title: 'education', icon: 'glyphicon glyphicon-fire' });
+	var education3 = new Skill({ title: 'education', icon: 'glyphicon glyphicon-fire' });
+
+	var Skills = Backbone.Collection.extend({ model: Skill });
+
+	var mySkills = new Skills([education, education1, education2, education3]);
+
+	module.exports = mySkills;
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Footer = React.createClass({
+	  displayName: 'Footer',
+
+	  render: function () {
+	    var footerStyle = {
+	      width: '100%',
+	      borderTop: 'solid black 1px',
+	      padding: 10
+	    };
+	    return React.createElement(
+	      'footer',
+	      { style: footerStyle, className: 'col-lg-12' },
+	      React.createElement(
+	        'p',
+	        null,
+	        'Nick MacIntyre'
+	      )
+	    );
+	  }
+	});
+	module.exports = Footer;
 
 /***/ }
 /******/ ]);
