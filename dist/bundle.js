@@ -23474,8 +23474,26 @@
 	    };
 	    var i = 0;
 	    var skills = SkillsMod.map(function (skill) {
+	      var j = 0;
 	      i++;
 	      var skill = skill.attributes;
+	      var content = skill.content.map(function (content) {
+	        j++;
+	        return React.createElement(
+	          'div',
+	          { key: 'hello' + j + i },
+	          React.createElement(
+	            'h4',
+	            null,
+	            content.title
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            content.content
+	          )
+	        );
+	      });
 	      return React.createElement(
 	        'div',
 	        { className: 'col-sm-6 col-md-3', style: thumbNailStyle, key: i },
@@ -23491,11 +23509,7 @@
 	              null,
 	              skill.title
 	            ),
-	            React.createElement(
-	              'p',
-	              null,
-	              '...'
-	            )
+	            content
 	          )
 	        )
 	      );
@@ -23525,10 +23539,26 @@
 	  }
 	});
 
-	var education = new Skill({ title: 'education', icon: 'glyphicon glyphicon-fire' });
-	var education1 = new Skill({ title: 'Cool', icon: 'glyphicon glyphicon-fire' });
-	var education2 = new Skill({ title: 'education', icon: 'glyphicon glyphicon-fire' });
-	var education3 = new Skill({ title: 'education', icon: 'glyphicon glyphicon-fire' });
+	var education = new Skill({
+	  title: 'EDUCATION',
+	  icon: 'glyphicon glyphicon-apple',
+	  content: [{ title: 'Galvanise', content: 'Full Stack Web Development' }, { title: 'University of Humboldt', content: 'B.S. Geology' }, { title: 'University of Humboldt', content: 'Minir Applied Mathamatics' }]
+	});
+	var education1 = new Skill({
+	  title: 'SKILLS',
+	  icon: 'glyphicon glyphicon-knight',
+	  content: [{ title: 'Programing Langueages', content: 'JavaScript, Node.JS, HTML, CSS' }, { title: 'FrameWorks', content: 'React.JS, Angular.JS, BackBone, BootStrap' }]
+	});
+	var education2 = new Skill({
+	  title: 'education',
+	  icon: 'glyphicon glyphicon-fire',
+	  content: []
+	});
+	var education3 = new Skill({
+	  title: 'education',
+	  icon: 'glyphicon glyphicon-fire',
+	  content: []
+	});
 
 	var Skills = Backbone.Collection.extend({ model: Skill });
 
