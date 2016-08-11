@@ -23,7 +23,7 @@ var Projects = React.createClass({
       return (
         <div className='col-lg-4 col-md-6 col-sm-12' style={divStyle} key={index}>
           <img style={imgStyle} src={proj.picture}/>
-          <ImgFooter content={proj.content} />
+          <Link to={'/project/' + proj.project}><ImgFooter content={proj.content} /></Link>
         </div>
       )
     })
@@ -44,10 +44,20 @@ var ImgFooter = React.createClass({
     }
   },
   handleOver: function () {
-    this.setState({opacity: '0.7'})
+    var self = this
+    for (let i = 0; i < 8; i++) {
+      window.setTimeout(function () {
+        self.setState({opacity: 0 + (i + 1)/10})
+      }, 0 + i*35)
+    }
   },
   handleOut: function () {
-    this.setState({opacity: '0'})
+    var self = this
+    for (let i = 0; i < 8; i++) {
+      window.setTimeout(function () {
+        self.setState({opacity: 0.7 - (i + 1)/10})
+      }, 0 + i*35)
+    }
   },
   render: function () {
     var footerStyle={
@@ -71,13 +81,11 @@ var ImgFooter = React.createClass({
     }
     return (
       <div>
-        <Link to='/'>
           <footer style={footerStyle} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
             <div style={innerDiv}>
               {this.props.content}
             </div>
           </footer>
-        </Link>
       </div>
     )
   }

@@ -53,6 +53,7 @@
 	var Skills = __webpack_require__(245);
 	var Footer = __webpack_require__(247);
 	var Projects = __webpack_require__(248);
+	var Project = __webpack_require__(250);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -90,6 +91,22 @@
 	    );
 	  }
 	});
+	var ProjectPage = React.createClass({
+	  displayName: 'ProjectPage',
+
+	  getInitialState: function () {
+	    return {
+	      page: this.props.params.name
+	    };
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(Project, { name: this.state.page })
+	    );
+	  }
+	});
 
 	ReactDOM.render(React.createElement(
 	  ReactRouter.Router,
@@ -98,7 +115,9 @@
 	    ReactRouter.Route,
 	    { path: '/', component: App },
 	    React.createElement(ReactRouter.IndexRoute, { component: Body }),
-	    React.createElement(ReactRouter.Route, { path: 'portfolio', component: Portfolio })
+	    React.createElement(ReactRouter.Route, { path: 'portfolio', component: Portfolio }),
+	    React.createElement(ReactRouter.Route, { path: '/project(/:name)', component: ProjectPage }),
+	    React.createElement(ReactRouter.Route, { path: '*', component: Body })
 	  )
 	), document.getElementById('body'));
 
@@ -29283,7 +29302,11 @@
 	        'div',
 	        { className: 'col-lg-4 col-md-6 col-sm-12', style: divStyle, key: index },
 	        React.createElement('img', { style: imgStyle, src: proj.picture }),
-	        React.createElement(ImgFooter, { content: proj.content })
+	        React.createElement(
+	          Link,
+	          { to: '/project/' + proj.project },
+	          React.createElement(ImgFooter, { content: proj.content })
+	        )
 	      );
 	    });
 	    return React.createElement(
@@ -29307,10 +29330,20 @@
 	    };
 	  },
 	  handleOver: function () {
-	    this.setState({ opacity: '0.7' });
+	    var self = this;
+	    for (let i = 0; i < 8; i++) {
+	      window.setTimeout(function () {
+	        self.setState({ opacity: 0 + (i + 1) / 10 });
+	      }, 0 + i * 35);
+	    }
 	  },
 	  handleOut: function () {
-	    this.setState({ opacity: '0' });
+	    var self = this;
+	    for (let i = 0; i < 8; i++) {
+	      window.setTimeout(function () {
+	        self.setState({ opacity: 0.7 - (i + 1) / 10 });
+	      }, 0 + i * 35);
+	    }
 	  },
 	  render: function () {
 	    var footerStyle = {
@@ -29336,16 +29369,12 @@
 	      'div',
 	      null,
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        'footer',
+	        { style: footerStyle, onMouseOver: this.handleOver, onMouseOut: this.handleOut },
 	        React.createElement(
-	          'footer',
-	          { style: footerStyle, onMouseOver: this.handleOver, onMouseOut: this.handleOut },
-	          React.createElement(
-	            'div',
-	            { style: innerDiv },
-	            this.props.content
-	          )
+	          'div',
+	          { style: innerDiv },
+	          this.props.content
 	        )
 	      )
 	    );
@@ -29366,26 +29395,32 @@
 	});
 
 	var test = new Project({
+	  project: 'fillMurrays',
 	  picture: 'https://www.fillmurray.com/320/320',
 	  content: 'this is content'
 	});
 	var test1 = new Project({
+	  project: 'fillMurray1',
 	  picture: 'https://www.fillmurray.com/320/320',
 	  content: 'this is content'
 	});
 	var test2 = new Project({
+	  project: 'fillMurray2',
 	  picture: 'https://www.fillmurray.com/320/320',
 	  content: 'this is content'
 	});
 	var test3 = new Project({
+	  project: 'fillMurray',
 	  picture: 'https://www.fillmurray.com/320/320',
 	  content: 'this is content'
 	});
 	var test4 = new Project({
+	  project: 'fillMurray3',
 	  picture: 'https://www.fillmurray.com/320/320',
 	  content: 'this is content'
 	});
 	var test5 = new Project({
+	  project: 'fillMurray4',
 	  picture: 'https://www.fillmurray.com/320/320',
 	  content: 'this is content'
 	});
@@ -29395,6 +29430,27 @@
 	var myProjects = new Projects([test, test1, test2, test3, test4, test5]);
 
 	module.exports = myProjects;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Project = React.createClass({
+	  displayName: 'Project',
+
+	  render: function () {
+	    console.log(this.props);
+	    return React.createElement(
+	      'div',
+	      null,
+	      this.props.name
+	    );
+	  }
+	});
+
+	module.exports = Project;
 
 /***/ }
 /******/ ]);

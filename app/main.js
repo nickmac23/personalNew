@@ -7,6 +7,7 @@ var CarouselComp = require('./components/carousel.js')
 var Skills = require('./components/skillSummary.js')
 var Footer = require('./components/footer.js')
 var Projects = require('./components/projects.js')
+var Project = require('./components/project.js')
 
 var App = React.createClass({
   render: function() {
@@ -38,12 +39,28 @@ var Portfolio = React.createClass({
     )
   }
 })
+var ProjectPage = React.createClass({
+  getInitialState: function () {
+    return {
+      page: this.props.params.name
+    }
+  },
+  render: function() {
+    return (
+      <div>
+        <Project name={this.state.page} />
+      </div>
+    )
+  }
+})
 
 ReactDOM.render(
   <ReactRouter.Router history={ReactRouter.hashHistory}>
     <ReactRouter.Route path="/" component={App}>
       <ReactRouter.IndexRoute component={Body} />
       <ReactRouter.Route path="portfolio" component={Portfolio} />
+      <ReactRouter.Route path='/project(/:name)' component={ProjectPage} />
+      <ReactRouter.Route path='*' component={Body} />
     </ReactRouter.Route>
   </ReactRouter.Router>,
   document.getElementById('body')
