@@ -19,7 +19,8 @@ var education1 = new Skill({
   icon: 'glyphicon glyphicon-knight',
   content: [
     {title: 'Programing Langueages', content: 'JavaScript, Node.JS, HTML, CSS'},
-    {title: 'FrameWorks', content: 'React.JS, Angular.JS, BackBone, BootStrap'},
+    {title: 'FrameWorks', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap'},
+    {title: 'Technologies', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI'},
   ]
 })
 var education2 = new Skill({
