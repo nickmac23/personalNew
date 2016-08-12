@@ -1,43 +1,79 @@
 var Project = Backbone.Model.extend({
   defaults: {
-    picture: '',
+    picture: img + '',
     blurb: '',
   }
 });
 
-var test = new Project ({
-  project: 'fillMurrays',
-  picture: 'https://www.fillmurray.com/320/320',
-  content:'this is content'
+var img ='./app/img/'
+
+var whereAbouts = new Project ({
+  project: 'WhereAbouts',
+  picture: img + 'whereAbouts.png',
+  content:'WhereAbouts',
+  catigories: []
 })
-var test1 = new Project ({
-  project: 'fillMurray1',
-  picture: 'https://www.fillmurray.com/320/320',
-  content:'this is content'
+var asteroidz = new Project ({
+  project: 'Asteroidz',
+  picture: img + 'asteroid.png',
+  content:'Asteroidz',
+  catigories: []
 })
-var test2 = new Project ({
-  project: 'fillMurray2',
-  picture: 'https://www.fillmurray.com/320/320',
-  content:'this is content'
+var socketChat = new Project ({
+  project: 'SocketChat',
+  picture: img + 'socketchat.png',
+  content:'SocketChat',
+  catigories: []
 })
-var test3 = new Project ({
-  project: 'fillMurray',
-  picture: 'https://www.fillmurray.com/320/320',
-  content:'this is content'
+var musicPhone = new Project ({
+  project: 'Ionic Mobile Remote',
+  picture: img + 'musicPhone.png',
+  content:'Ionic Mobile Remote',
+  catigories: []
 })
-var test4 = new Project ({
-  project: 'fillMurray3',
-  picture: 'https://www.fillmurray.com/320/320',
-  content:'this is content'
+var musicElectron = new Project ({
+  project: 'Electron Desktop Music Player',
+  picture: img + 'musicDesktop.png',
+  content:'Electron Desktop Music Player',
+  catigories: []
 })
-var test5 = new Project ({
-  project: 'fillMurray4',
-  picture: 'https://www.fillmurray.com/320/320',
-  content:'this is content'
+var musicWeb = new Project ({
+  project: 'Angular web Music Player',
+  picture: img + 'musicDesktop.png',
+  content:'Electron Desktop Music Player',
+  catigories: []
+})
+var grasp = new Project ({
+  project: 'Grasp',
+  picture: img + 'grasp.png',
+  content:'Grasp',
+  catigories: []
+})
+var graspMobile = new Project ({
+  project: 'Grasp Ionic Mobile App',
+  picture: img + 'graspMobile.png',
+  content:'Grasp Ionic Mobile App',
+  catigories: []
+})
+var redditClone = new Project ({
+  project: 'Reddit Clone',
+  picture: img + 'redditClone.png',
+  content:'Reddit Clone',
+  catigories: []
 })
 
 var Projects = Backbone.Collection.extend({model: Project});
 
-var myProjects = new Projects([test, test1, test2, test3, test4, test5])
+var myProjects = new Projects([
+                              musicPhone,
+                              asteroidz,
+                              socketChat,
+                              whereAbouts,
+                              musicElectron,
+                              grasp,
+                              musicWeb,
+                              graspMobile,
+                              redditClone
+                            ])
 
 module.exports = myProjects;

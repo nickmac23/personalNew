@@ -35,6 +35,7 @@ var Portfolio = React.createClass({
     return (
       <div >
         <Projects />
+        <Footer />  
       </div>
     )
   }

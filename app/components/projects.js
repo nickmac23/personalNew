@@ -8,20 +8,21 @@ var Projects = React.createClass({
       backgroundColor:'rgb(211, 212, 214)',
     }
     var divStyle={
-      marginTop: '20px',
+      padding: '10px',
       display: 'block',
-      position: 'relative',
-      height: '321px'
 
     }
     var imgStyle = {
-      position: 'absolute',
-      left: '7px'
+      width:'100%'
+    }
+    var catigorieStyle ={
+      display:'flex',
+      justifyContent: 'space-around'
     }
     var project = myProjects.map(function (proj, index) {
       proj = proj.attributes
       return (
-        <div className='col-lg-4 col-md-6 col-sm-12' style={divStyle} key={index}>
+        <div className='col-lg-4 col-md-4 col-sm-6' style={divStyle} key={index}>
           <img style={imgStyle} src={proj.picture}/>
           <Link to={'/project/' + proj.project}><ImgFooter content={proj.content} /></Link>
         </div>
@@ -29,8 +30,24 @@ var Projects = React.createClass({
     })
     return (
       <div className='container-fluid' style={containerStyle}>
+        <header className='col-lg-10 col-lg-offset-1'>
+          <h1> Portfolio </h1>
+          <h4> Here is what I can do for you?</h4>
+          <p style={catigorieStyle}>
+            <span>Web Apps</span>
+            <span>|</span>
+            <span>Mobile Apps</span>
+            <span>|</span>
+            <span>Desktop Apps</span>
+            <span>|</span>
+            <span>Real-Time Computing</span>
+            <span>|</span>
+            <span>Database Integration</span>
+          </p>
+          <p>Click on a project to get a more in depth view on technologies and arcitecture </p>
+        </header>
         <div className='col-lg-10 col-lg-offset-1'>
-        {project}
+          {project}
         </div>
       </div>
     )
@@ -62,11 +79,10 @@ var ImgFooter = React.createClass({
   render: function () {
     var footerStyle={
       position: 'absolute',
-      padding: '10px',
-      top: '0px',
+      top: '7px',
       left: '7px',
-      height: '320px',
-      width: '320px',
+      height: '96%',
+      width: '96%',
       backgroundColor:'rgba(0, 0, 0, 0.3)',
       opacity: this.state.opacity,
     }
@@ -74,8 +90,9 @@ var ImgFooter = React.createClass({
       position: 'absolute',
       bottom: '0px',
       left: '0px',
-      width: '320px',
+      width: '100%',
       height:'100px',
+      padding: '10px',
       backgroundColor: 'grey',
       color: 'white'
     }

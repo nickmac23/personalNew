@@ -10,8 +10,8 @@ var App = React.createClass({
     }
     return (
       <div className='container-fluid' style={containerStyle} >
-      <div className='col-lg-10 col-lg-offset-1' >
-        <Carousel autoplay={true} wrapAround={true}>
+      <div className='col-lg-10 col-lg-offset-1'>
+        <Carousel autoplay={true} wrapAround={true} >
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
           <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>

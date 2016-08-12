@@ -87,7 +87,8 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(Projects, null)
+	      React.createElement(Projects, null),
+	      React.createElement(Footer, null)
 	    );
 	  }
 	});
@@ -29286,21 +29287,22 @@
 	      backgroundColor: 'rgb(211, 212, 214)'
 	    };
 	    var divStyle = {
-	      marginTop: '20px',
-	      display: 'block',
-	      position: 'relative',
-	      height: '321px'
+	      padding: '10px',
+	      display: 'block'
 
 	    };
 	    var imgStyle = {
-	      position: 'absolute',
-	      left: '7px'
+	      width: '100%'
+	    };
+	    var catigorieStyle = {
+	      display: 'flex',
+	      justifyContent: 'space-around'
 	    };
 	    var project = myProjects.map(function (proj, index) {
 	      proj = proj.attributes;
 	      return React.createElement(
 	        'div',
-	        { className: 'col-lg-4 col-md-6 col-sm-12', style: divStyle, key: index },
+	        { className: 'col-lg-4 col-md-4 col-sm-6', style: divStyle, key: index },
 	        React.createElement('img', { style: imgStyle, src: proj.picture }),
 	        React.createElement(
 	          Link,
@@ -29312,6 +29314,74 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'container-fluid', style: containerStyle },
+	      React.createElement(
+	        'header',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          ' Portfolio '
+	        ),
+	        React.createElement(
+	          'h4',
+	          null,
+	          ' Here is what I can do for you?'
+	        ),
+	        React.createElement(
+	          'p',
+	          { style: catigorieStyle },
+	          React.createElement(
+	            'span',
+	            null,
+	            'Web Apps'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            'Mobile Apps'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            'Desktop Apps'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            'Real-Time Computing'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            'Database Integration'
+	          )
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'Click on a project to get a more in depth view on technologies and arcitecture '
+	        )
+	      ),
 	      React.createElement(
 	        'div',
 	        { className: 'col-lg-10 col-lg-offset-1' },
@@ -29348,11 +29418,10 @@
 	  render: function () {
 	    var footerStyle = {
 	      position: 'absolute',
-	      padding: '10px',
-	      top: '0px',
+	      top: '7px',
 	      left: '7px',
-	      height: '320px',
-	      width: '320px',
+	      height: '96%',
+	      width: '96%',
 	      backgroundColor: 'rgba(0, 0, 0, 0.3)',
 	      opacity: this.state.opacity
 	    };
@@ -29360,8 +29429,9 @@
 	      position: 'absolute',
 	      bottom: '0px',
 	      left: '0px',
-	      width: '320px',
+	      width: '100%',
 	      height: '100px',
+	      padding: '10px',
 	      backgroundColor: 'grey',
 	      color: 'white'
 	    };
@@ -29389,45 +29459,71 @@
 
 	var Project = Backbone.Model.extend({
 	  defaults: {
-	    picture: '',
+	    picture: img + '',
 	    blurb: ''
 	  }
 	});
 
-	var test = new Project({
-	  project: 'fillMurrays',
-	  picture: 'https://www.fillmurray.com/320/320',
-	  content: 'this is content'
+	var img = './app/img/';
+
+	var whereAbouts = new Project({
+	  project: 'WhereAbouts',
+	  picture: img + 'whereAbouts.png',
+	  content: 'WhereAbouts',
+	  catigories: []
 	});
-	var test1 = new Project({
-	  project: 'fillMurray1',
-	  picture: 'https://www.fillmurray.com/320/320',
-	  content: 'this is content'
+	var asteroidz = new Project({
+	  project: 'Asteroidz',
+	  picture: img + 'asteroid.png',
+	  content: 'Asteroidz',
+	  catigories: []
 	});
-	var test2 = new Project({
-	  project: 'fillMurray2',
-	  picture: 'https://www.fillmurray.com/320/320',
-	  content: 'this is content'
+	var socketChat = new Project({
+	  project: 'SocketChat',
+	  picture: img + 'socketchat.png',
+	  content: 'SocketChat',
+	  catigories: []
 	});
-	var test3 = new Project({
-	  project: 'fillMurray',
-	  picture: 'https://www.fillmurray.com/320/320',
-	  content: 'this is content'
+	var musicPhone = new Project({
+	  project: 'Ionic Mobile Remote',
+	  picture: img + 'musicPhone.png',
+	  content: 'Ionic Mobile Remote',
+	  catigories: []
 	});
-	var test4 = new Project({
-	  project: 'fillMurray3',
-	  picture: 'https://www.fillmurray.com/320/320',
-	  content: 'this is content'
+	var musicElectron = new Project({
+	  project: 'Electron Desktop Music Player',
+	  picture: img + 'musicDesktop.png',
+	  content: 'Electron Desktop Music Player',
+	  catigories: []
 	});
-	var test5 = new Project({
-	  project: 'fillMurray4',
-	  picture: 'https://www.fillmurray.com/320/320',
-	  content: 'this is content'
+	var musicWeb = new Project({
+	  project: 'Angular web Music Player',
+	  picture: img + 'musicDesktop.png',
+	  content: 'Electron Desktop Music Player',
+	  catigories: []
+	});
+	var grasp = new Project({
+	  project: 'Grasp',
+	  picture: img + 'grasp.png',
+	  content: 'Grasp',
+	  catigories: []
+	});
+	var graspMobile = new Project({
+	  project: 'Grasp Ionic Mobile App',
+	  picture: img + 'graspMobile.png',
+	  content: 'Grasp Ionic Mobile App',
+	  catigories: []
+	});
+	var redditClone = new Project({
+	  project: 'Reddit Clone',
+	  picture: img + 'redditClone.png',
+	  content: 'Reddit Clone',
+	  catigories: []
 	});
 
 	var Projects = Backbone.Collection.extend({ model: Project });
 
-	var myProjects = new Projects([test, test1, test2, test3, test4, test5]);
+	var myProjects = new Projects([musicPhone, asteroidz, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
 
 	module.exports = myProjects;
 
