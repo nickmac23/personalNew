@@ -11,55 +11,76 @@ var whereAbouts = new Project ({
   project: 'WhereAbouts',
   picture: img + 'whereAbouts.png',
   content:'WhereAbouts',
-  catigories: []
+  all: true,
+  socket: true,
+  dataBase: true,
+  web: true
 })
 var asteroidz = new Project ({
   project: 'Asteroidz',
   picture: img + 'asteroid.png',
   content:'Asteroidz',
-  catigories: []
+  all: true,
+  web: true
 })
 var socketChat = new Project ({
   project: 'SocketChat',
   picture: img + 'socketchat.png',
   content:'SocketChat',
-  catigories: []
+  all: true,
+  socket: true,
+  dataBase: true,
+  web: true
 })
 var musicPhone = new Project ({
   project: 'Ionic Mobile Remote',
   picture: img + 'musicPhone.png',
   content:'Ionic Mobile Remote',
-  catigories: []
+  all: true,
+  socket: true,
+  mobile: true
 })
 var musicElectron = new Project ({
   project: 'Electron Desktop Music Player',
   picture: img + 'musicDesktop.png',
   content:'Electron Desktop Music Player',
-  catigories: []
+  all: true,
+  socket: true,
+  desktop: true
 })
 var musicWeb = new Project ({
   project: 'Angular web Music Player',
   picture: img + 'musicDesktop.png',
-  content:'Electron Desktop Music Player',
-  catigories: []
+  content:'Angular Desktop Music Player',
+  all: true,
+  socket: true,
+  web: true
 })
 var grasp = new Project ({
   project: 'Grasp',
   picture: img + 'grasp.png',
   content:'Grasp',
-  catigories: []
+  all: true,
+  socket: true,
+  dataBase: true,
+  web: true
 })
 var graspMobile = new Project ({
   project: 'Grasp Ionic Mobile App',
   picture: img + 'graspMobile.png',
   content:'Grasp Ionic Mobile App',
-  catigories: []
+  all: true,
+  socket: true,
+  dataBase: true,
+  mobile: true
 })
 var redditClone = new Project ({
   project: 'Reddit Clone',
   picture: img + 'redditClone.png',
   content:'Reddit Clone',
-  catigories: []
+  all: true,
+  dataBase: true,
+  web: true
 })
 
 var Projects = Backbone.Collection.extend({model: Project});

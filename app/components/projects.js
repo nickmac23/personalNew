@@ -3,46 +3,70 @@ var myProjects = require('../controller/project.controller.js')
 var Link = require('react-router').Link
 
 var Projects = React.createClass({
+  getInitialState: function () {
+    return {
+      filter: 'all'
+    }
+  },
+  handleClick: function (filterBy) {
+    this.setState({filter: filterBy})
+  },
+  filter: function (filter) {
+
+    var container = {
+      padding: '10px'
+    }
+    var none ={
+      opacity: '1',
+      zIndex: '-1'
+    }
+    return (
+      myProjects.map(function (proj, index) {
+        proj = proj.attributes
+        if (proj[filter]) {
+          var divStyle={
+            height: '366px',
+            width: '100%',
+            display: 'inline-block',
+            backgroundImage: 'url('+proj.picture+')',
+            backgroundSize: 'contain',
+             backgroundRepeat: 'no-repeat'
+          }
+          return (
+            <div className='col-lg-4 col-md-4 col-sm-6' style={container}  key={index}>
+              <div style={divStyle}>
+              <Link to={'/project/' + proj.project}><ImgFooter content={proj.content} /></Link>
+              </div>
+            </div>
+          )
+        }
+      })
+    )
+  },
   render: function () {
     var containerStyle ={
       backgroundColor:'rgb(211, 212, 214)',
-    }
-    var divStyle={
-      padding: '10px',
-      display: 'block',
-
-    }
-    var imgStyle = {
-      width:'100%'
     }
     var catigorieStyle ={
       display:'flex',
       justifyContent: 'space-around'
     }
-    var project = myProjects.map(function (proj, index) {
-      proj = proj.attributes
-      return (
-        <div className='col-lg-4 col-md-4 col-sm-6' style={divStyle} key={index}>
-          <img style={imgStyle} src={proj.picture}/>
-          <Link to={'/project/' + proj.project}><ImgFooter content={proj.content} /></Link>
-        </div>
-      )
-    })
+    var project = this.filter(this.state.filter)
     return (
       <div className='container-fluid' style={containerStyle}>
         <header className='col-lg-10 col-lg-offset-1'>
-          <h1> Portfolio </h1>
+          <h1 onClick={this.handleClick.bind(null, 'all')}> Portfolio </h1>
           <h4> Here is what I can do for you?</h4>
           <p style={catigorieStyle}>
-            <span>Web Apps</span>
+            <span onClick={this.handleClick.bind(null, 'web')}>Web Apps</span>
             <span>|</span>
-            <span>Mobile Apps</span>
+            <span onClick={this.handleClick.bind(null, 'mobile')}>Mobile Apps</span>
             <span>|</span>
-            <span>Desktop Apps</span>
+            <span onClick={this.handleClick.bind(null, 'desktop')}>Desktop Apps</span>
             <span>|</span>
-            <span>Real-Time Computing</span>
+            <span onClick={this.handleClick.bind(null, 'socket')}>Real-Time Computing</span>
             <span>|</span>
-            <span>Database Integration</span>
+            <span onClick={this.handleClick.bind(null, 'dataBase')}>Database Integration</span>
           </p>
           <p>Click on a project to get a more in depth view on technologies and arcitecture </p>
         </header>

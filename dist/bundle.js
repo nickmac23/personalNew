@@ -53,7 +53,7 @@
 	var Skills = __webpack_require__(245);
 	var Footer = __webpack_require__(247);
 	var Projects = __webpack_require__(248);
-	var Project = __webpack_require__(250);
+	var Project = __webpack_require__(249);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -29276,41 +29276,65 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var myProjects = __webpack_require__(249);
+	var myProjects = __webpack_require__(250);
 	var Link = __webpack_require__(175).Link;
 
 	var Projects = React.createClass({
 	  displayName: 'Projects',
 
+	  getInitialState: function () {
+	    return {
+	      filter: 'all'
+	    };
+	  },
+	  handleClick: function (filterBy) {
+	    this.setState({ filter: filterBy });
+	  },
+	  filter: function (filter) {
+
+	    var container = {
+	      padding: '10px'
+	    };
+	    var none = {
+	      opacity: '1',
+	      zIndex: '-1'
+	    };
+	    return myProjects.map(function (proj, index) {
+	      proj = proj.attributes;
+	      if (proj[filter]) {
+	        var divStyle = {
+	          height: '366px',
+	          width: '100%',
+	          display: 'inline-block',
+	          backgroundImage: 'url(' + proj.picture + ')',
+	          backgroundSize: 'contain',
+	          backgroundRepeat: 'no-repeat'
+	        };
+	        return React.createElement(
+	          'div',
+	          { className: 'col-lg-4 col-md-4 col-sm-6', style: container, key: index },
+	          React.createElement(
+	            'div',
+	            { style: divStyle },
+	            React.createElement(
+	              Link,
+	              { to: '/project/' + proj.project },
+	              React.createElement(ImgFooter, { content: proj.content })
+	            )
+	          )
+	        );
+	      }
+	    });
+	  },
 	  render: function () {
 	    var containerStyle = {
 	      backgroundColor: 'rgb(211, 212, 214)'
-	    };
-	    var divStyle = {
-	      padding: '10px',
-	      display: 'block'
-
-	    };
-	    var imgStyle = {
-	      width: '100%'
 	    };
 	    var catigorieStyle = {
 	      display: 'flex',
 	      justifyContent: 'space-around'
 	    };
-	    var project = myProjects.map(function (proj, index) {
-	      proj = proj.attributes;
-	      return React.createElement(
-	        'div',
-	        { className: 'col-lg-4 col-md-4 col-sm-6', style: divStyle, key: index },
-	        React.createElement('img', { style: imgStyle, src: proj.picture }),
-	        React.createElement(
-	          Link,
-	          { to: '/project/' + proj.project },
-	          React.createElement(ImgFooter, { content: proj.content })
-	        )
-	      );
-	    });
+	    var project = this.filter(this.state.filter);
 	    return React.createElement(
 	      'div',
 	      { className: 'container-fluid', style: containerStyle },
@@ -29319,7 +29343,7 @@
 	        { className: 'col-lg-10 col-lg-offset-1' },
 	        React.createElement(
 	          'h1',
-	          null,
+	          { onClick: this.handleClick.bind(null, 'all') },
 	          ' Portfolio '
 	        ),
 	        React.createElement(
@@ -29332,7 +29356,7 @@
 	          { style: catigorieStyle },
 	          React.createElement(
 	            'span',
-	            null,
+	            { onClick: this.handleClick.bind(null, 'web') },
 	            'Web Apps'
 	          ),
 	          React.createElement(
@@ -29342,7 +29366,7 @@
 	          ),
 	          React.createElement(
 	            'span',
-	            null,
+	            { onClick: this.handleClick.bind(null, 'mobile') },
 	            'Mobile Apps'
 	          ),
 	          React.createElement(
@@ -29352,7 +29376,7 @@
 	          ),
 	          React.createElement(
 	            'span',
-	            null,
+	            { onClick: this.handleClick.bind(null, 'desktop') },
 	            'Desktop Apps'
 	          ),
 	          React.createElement(
@@ -29362,7 +29386,7 @@
 	          ),
 	          React.createElement(
 	            'span',
-	            null,
+	            { onClick: this.handleClick.bind(null, 'socket') },
 	            'Real-Time Computing'
 	          ),
 	          React.createElement(
@@ -29372,7 +29396,7 @@
 	          ),
 	          React.createElement(
 	            'span',
-	            null,
+	            { onClick: this.handleClick.bind(null, 'dataBase') },
 	            'Database Integration'
 	          )
 	        ),
@@ -29455,80 +29479,6 @@
 
 /***/ },
 /* 249 */
-/***/ function(module, exports) {
-
-	var Project = Backbone.Model.extend({
-	  defaults: {
-	    picture: img + '',
-	    blurb: ''
-	  }
-	});
-
-	var img = './app/img/';
-
-	var whereAbouts = new Project({
-	  project: 'WhereAbouts',
-	  picture: img + 'whereAbouts.png',
-	  content: 'WhereAbouts',
-	  catigories: []
-	});
-	var asteroidz = new Project({
-	  project: 'Asteroidz',
-	  picture: img + 'asteroid.png',
-	  content: 'Asteroidz',
-	  catigories: []
-	});
-	var socketChat = new Project({
-	  project: 'SocketChat',
-	  picture: img + 'socketchat.png',
-	  content: 'SocketChat',
-	  catigories: []
-	});
-	var musicPhone = new Project({
-	  project: 'Ionic Mobile Remote',
-	  picture: img + 'musicPhone.png',
-	  content: 'Ionic Mobile Remote',
-	  catigories: []
-	});
-	var musicElectron = new Project({
-	  project: 'Electron Desktop Music Player',
-	  picture: img + 'musicDesktop.png',
-	  content: 'Electron Desktop Music Player',
-	  catigories: []
-	});
-	var musicWeb = new Project({
-	  project: 'Angular web Music Player',
-	  picture: img + 'musicDesktop.png',
-	  content: 'Electron Desktop Music Player',
-	  catigories: []
-	});
-	var grasp = new Project({
-	  project: 'Grasp',
-	  picture: img + 'grasp.png',
-	  content: 'Grasp',
-	  catigories: []
-	});
-	var graspMobile = new Project({
-	  project: 'Grasp Ionic Mobile App',
-	  picture: img + 'graspMobile.png',
-	  content: 'Grasp Ionic Mobile App',
-	  catigories: []
-	});
-	var redditClone = new Project({
-	  project: 'Reddit Clone',
-	  picture: img + 'redditClone.png',
-	  content: 'Reddit Clone',
-	  catigories: []
-	});
-
-	var Projects = Backbone.Collection.extend({ model: Project });
-
-	var myProjects = new Projects([musicPhone, asteroidz, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
-
-	module.exports = myProjects;
-
-/***/ },
-/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -29547,6 +29497,101 @@
 	});
 
 	module.exports = Project;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	var Project = Backbone.Model.extend({
+	  defaults: {
+	    picture: img + '',
+	    blurb: ''
+	  }
+	});
+
+	var img = './app/img/';
+
+	var whereAbouts = new Project({
+	  project: 'WhereAbouts',
+	  picture: img + 'whereAbouts.png',
+	  content: 'WhereAbouts',
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  web: true
+	});
+	var asteroidz = new Project({
+	  project: 'Asteroidz',
+	  picture: img + 'asteroid.png',
+	  content: 'Asteroidz',
+	  all: true,
+	  web: true
+	});
+	var socketChat = new Project({
+	  project: 'SocketChat',
+	  picture: img + 'socketchat.png',
+	  content: 'SocketChat',
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  web: true
+	});
+	var musicPhone = new Project({
+	  project: 'Ionic Mobile Remote',
+	  picture: img + 'musicPhone.png',
+	  content: 'Ionic Mobile Remote',
+	  all: true,
+	  socket: true,
+	  mobile: true
+	});
+	var musicElectron = new Project({
+	  project: 'Electron Desktop Music Player',
+	  picture: img + 'musicDesktop.png',
+	  content: 'Electron Desktop Music Player',
+	  all: true,
+	  socket: true,
+	  desktop: true
+	});
+	var musicWeb = new Project({
+	  project: 'Angular web Music Player',
+	  picture: img + 'musicDesktop.png',
+	  content: 'Angular Desktop Music Player',
+	  all: true,
+	  socket: true,
+	  web: true
+	});
+	var grasp = new Project({
+	  project: 'Grasp',
+	  picture: img + 'grasp.png',
+	  content: 'Grasp',
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  web: true
+	});
+	var graspMobile = new Project({
+	  project: 'Grasp Ionic Mobile App',
+	  picture: img + 'graspMobile.png',
+	  content: 'Grasp Ionic Mobile App',
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  mobile: true
+	});
+	var redditClone = new Project({
+	  project: 'Reddit Clone',
+	  picture: img + 'redditClone.png',
+	  content: 'Reddit Clone',
+	  all: true,
+	  dataBase: true,
+	  web: true
+	});
+
+	var Projects = Backbone.Collection.extend({ model: Project });
+
+	var myProjects = new Projects([musicPhone, asteroidz, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
+
+	module.exports = myProjects;
 
 /***/ }
 /******/ ]);
