@@ -24,16 +24,23 @@ var education1 = new Skill({
   ]
 })
 var education2 = new Skill({
-  title: 'education',
+  title: 'INTERESTS',
   icon: 'glyphicon glyphicon-fire',
   content: [
-
+    {title: 'Real time Data', content: 'I devoted much of my time to learing and creating app with real time components'},
+    {title: 'Full Stack Development', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap'},
+    {title: 'Software Engineer', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI'},
   ]
 })
 var education3 = new Skill({
-  title: 'education',
-  icon: 'glyphicon glyphicon-fire',
-  content: []
+  title: 'CONTACT',
+  icon: 'glyphicon glyphicon-user',
+  content: [
+    {title: 'Boulder, CO'},
+    {title: 'Email', content: 'NickPMacIntyre@gmail.com'},
+    {title: 'Phone', content: '501-504-2851'},
+
+  ]
 })
 
 var Skills = Backbone.Collection.extend({model: Skill});

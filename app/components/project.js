@@ -1,11 +1,44 @@
 var React = require('react')
+var projects = require('../controller/project.controller.js').models
+var Carousel = require('./carousel.js')
 
 var Project = React.createClass({
   render: function () {
-    console.log(this.props);
+    var containerStyle ={
+      backgroundColor:'rgb(211, 212, 214)',
+    }
+    var style={
+      height: '366px'
+    }
+    var test = {
+      textAlign: 'center'
+    }
+    var self = this
+    var project = projects.filter(function (proj) {
+      return proj.attributes.project === self.props.path
+    })
+    project = project[0].attributes
+    var stack = project.stack.map( (tec, index) => (<span key={index}> {tec} </span>))
     return (
-      <div>
-        {this.props.name}
+      <div className='container-fluid' style={containerStyle}>
+        <div className='col-lg-10 col-lg-offset-1'>
+          <br />
+          <div className='col-lg-4 ' style={style}>
+            <Carousel img={project.picture} />
+          </div>
+          <div className='col-lg-7 col-lg-offset-1' style={test}>
+            <h1>{project.project}</h1>
+            <hr />
+
+            <p>{project.mainContent}</p>
+            <hr />
+            <ul>
+              <li><strong>Technology Stack:</strong> {stack} </li>
+              <li><strong>Live site:</strong> <a href={project.webSite}>{project.webSite}</a></li>
+              <li><strong>Github:</strong> <a href={project.git}>{project.git}</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     )
   }

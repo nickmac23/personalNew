@@ -28,14 +28,14 @@ var Projects = React.createClass({
             height: '366px',
             width: '100%',
             display: 'inline-block',
-            backgroundImage: 'url('+proj.picture+')',
+            backgroundImage: 'url('+proj.picture[0]+')',
             backgroundSize: 'contain',
-             backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat'
           }
           return (
             <div className='col-lg-4 col-md-4 col-sm-6' style={container}  key={index}>
               <div style={divStyle}>
-              <Link to={'/project/' + proj.project}><ImgFooter content={proj.content} /></Link>
+              <Link to={'/project/' + proj.path}><ImgFooter content={proj.footerContent} /></Link>
               </div>
             </div>
           )
@@ -49,14 +49,19 @@ var Projects = React.createClass({
     }
     var catigorieStyle ={
       display:'flex',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      color: 'rgb(41, 72, 134)',
+      textAlign: 'center',
+      fontWeight: 'bold',
+      cursor: 'pointer'
     }
     var project = this.filter(this.state.filter)
     return (
       <div className='container-fluid' style={containerStyle}>
         <header className='col-lg-10 col-lg-offset-1'>
           <h1 onClick={this.handleClick.bind(null, 'all')}> Portfolio </h1>
-          <h4> Here is what I can do for you?</h4>
+          <hr />
+          <h4> Here is what I can do for you:</h4>
           <p style={catigorieStyle}>
             <span onClick={this.handleClick.bind(null, 'web')}>Web Apps</span>
             <span>|</span>
@@ -68,7 +73,7 @@ var Projects = React.createClass({
             <span>|</span>
             <span onClick={this.handleClick.bind(null, 'dataBase')}>Database Integration</span>
           </p>
-          <p>Click on a project to get a more in depth view on technologies and arcitecture </p>
+          <p>Click on a project to get a more in depth view on technologies and arcitecture. </p>
         </header>
         <div className='col-lg-10 col-lg-offset-1'>
           {project}
@@ -103,28 +108,30 @@ var ImgFooter = React.createClass({
   render: function () {
     var footerStyle={
       position: 'absolute',
+      padding:'10px',
       top: '7px',
       left: '7px',
-      height: '96%',
+      height: '94%',
       width: '96%',
       backgroundColor:'rgba(0, 0, 0, 0.3)',
       opacity: this.state.opacity,
     }
     var innerDiv ={
+      textAlign: 'center',
       position: 'absolute',
       bottom: '0px',
-      left: '0px',
+      left: '0',
       width: '100%',
-      height:'100px',
       padding: '10px',
-      backgroundColor: 'grey',
+      backgroundColor: 'black',
       color: 'white'
     }
     return (
       <div>
           <footer style={footerStyle} onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
             <div style={innerDiv}>
-              {this.props.content}
+              <h4>{this.props.content.title}</h4>
+              <p>{this.props.content.content}</p>
             </div>
           </footer>
       </div>

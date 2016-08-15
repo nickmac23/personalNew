@@ -50,10 +50,10 @@
 
 	var Header = __webpack_require__(238);
 	var CarouselComp = __webpack_require__(239);
-	var Skills = __webpack_require__(245);
-	var Footer = __webpack_require__(247);
-	var Projects = __webpack_require__(248);
-	var Project = __webpack_require__(249);
+	var Skills = __webpack_require__(240);
+	var Footer = __webpack_require__(242);
+	var Projects = __webpack_require__(243);
+	var Project = __webpack_require__(245);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -74,7 +74,12 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(CarouselComp, null),
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        React.createElement('br', null),
+	        React.createElement(CarouselComp, null)
+	      ),
 	      React.createElement(Skills, null),
 	      React.createElement(Footer, null)
 	    );
@@ -104,7 +109,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(Project, { name: this.state.page })
+	      React.createElement(Project, { path: this.state.page })
 	    );
 	  }
 	});
@@ -27192,1949 +27197,169 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var Carousel = __webpack_require__(240);
+	var Slider = __webpack_require__(246);
 
-	var App = React.createClass({
-	  displayName: 'App',
+	var SimpleSlider = React.createClass({
+	  displayName: 'SimpleSlider',
 
-	  mixins: [Carousel.ControllerMixin],
-	  render() {
-	    var containerStyle = {
-	      backgroundColor: 'rgb(211, 212, 214)',
-	      padding: 20
+	  render: function () {
+	    var settings = {
+	      infinite: true,
+	      speed: 500,
+	      slidesToShow: 1,
+	      slidesToScroll: 1,
+	      fade: true,
+	      autoplay: true,
+	      arrows: false,
+	      pauseOnHover: true
 	    };
-	    return React.createElement(
-	      'div',
-	      { className: 'container-fluid', style: containerStyle },
-	      React.createElement(
+	    if (!!this.props.img) {
+	      var array = this.props.img.map(function (img, index) {
+	        var style = {
+	          textAlign: 'center',
+	          backgroundImage: 'url(' + img + ')',
+	          backgroundSize: 'contain',
+	          backgroundRepeat: 'no-repeat',
+	          height: '366px'
+	        };
+	        return React.createElement('div', { key: index, style: style });
+	      });
+	    } else {
+	      var style = {
+	        backgroundColor: 'rgb(255, 255, 255)',
+	        minHeight: '300px',
+	        padding: '20px'
+	      };
+	      var array = [React.createElement(
 	        'div',
-	        { className: 'col-lg-10 col-lg-offset-1' },
+	        { key: 1, style: style },
+	        ' ',
 	        React.createElement(
-	          Carousel,
-	          { autoplay: true, wrapAround: true },
-	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide1' }),
-	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide2' }),
-	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide3' }),
-	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide4' }),
-	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide5' }),
-	          React.createElement('img', { src: 'http://placehold.it/1000x400/ffffff/c0392b/&text=slide6' })
+	          'h1',
+	          null,
+	          'Welcome'
+	        ),
+	        React.createElement(
+	          'h2',
+	          null,
+	          'I am a full stack developer specializing in: '
+	        ),
+	        ' '
+	      ), React.createElement(
+	        'div',
+	        { key: 2, style: style },
+	        ' ',
+	        React.createElement(
+	          'h1',
+	          null,
+	          'Welcome'
+	        ),
+	        React.createElement(
+	          'h2',
+	          null,
+	          'I am a full stack developer specializing in: '
+	        ),
+	        ' ',
+	        React.createElement(
+	          'ul',
+	          { className: 'col-lg-offset-6' },
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              'h3',
+	              null,
+	              'JavaScript'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              'h3',
+	              null,
+	              'Node.JS'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              'h3',
+	              null,
+	              'PostgreSQL'
+	            )
+	          )
+	        ),
+	        '  '
+	      ), React.createElement(
+	        'div',
+	        { key: 3, style: style },
+	        ' ',
+	        React.createElement(
+	          'h2',
+	          null,
+	          'What I can do for you is:'
+	        ),
+	        ' '
+	      ), React.createElement(
+	        'div',
+	        { key: 4, style: style },
+	        ' ',
+	        React.createElement(
+	          'h2',
+	          null,
+	          'What I can do for you is:'
+	        ),
+	        React.createElement(
+	          'ul',
+	          { className: 'col-lg-offset-6' },
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              'h3',
+	              null,
+	              'Responsive System Design'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              'h3',
+	              null,
+	              'Database Integration'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              'h3',
+	              null,
+	              'Real-Time Computing'
+	            )
+	          )
 	        )
-	      )
+	      )];
+	    }
+	    return React.createElement(
+	      Slider,
+	      settings,
+	      array
 	    );
 	  }
 	});
 
-	module.exports = App;
+	module.exports = SimpleSlider;
 
 /***/ },
 /* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var Carousel = __webpack_require__(241);
-
-	module.exports = Carousel;
-
-
-/***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(35);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _kwReactTweenState = __webpack_require__(242);
-
-	var _kwReactTweenState2 = _interopRequireDefault(_kwReactTweenState);
-
-	var _decorators = __webpack_require__(243);
-
-	var _decorators2 = _interopRequireDefault(_decorators);
-
-	var _objectAssign = __webpack_require__(4);
-
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _exenv = __webpack_require__(244);
-
-	var _exenv2 = _interopRequireDefault(_exenv);
-
-	var addEvent = function addEvent(elem, type, eventHandle) {
-	  if (elem === null || typeof elem === 'undefined') {
-	    return;
-	  }
-	  if (elem.addEventListener) {
-	    elem.addEventListener(type, eventHandle, false);
-	  } else if (elem.attachEvent) {
-	    elem.attachEvent('on' + type, eventHandle);
-	  } else {
-	    elem['on' + type] = eventHandle;
-	  }
-	};
-
-	var removeEvent = function removeEvent(elem, type, eventHandle) {
-	  if (elem === null || typeof elem === 'undefined') {
-	    return;
-	  }
-	  if (elem.removeEventListener) {
-	    elem.removeEventListener(type, eventHandle, false);
-	  } else if (elem.detachEvent) {
-	    elem.detachEvent('on' + type, eventHandle);
-	  } else {
-	    elem['on' + type] = null;
-	  }
-	};
-
-	var Carousel = _react2['default'].createClass({
-	  displayName: 'Carousel',
-
-	  mixins: [_kwReactTweenState2['default'].Mixin],
-
-	  propTypes: {
-	    afterSlide: _react2['default'].PropTypes.func,
-	    autoplay: _react2['default'].PropTypes.bool,
-	    autoplayInterval: _react2['default'].PropTypes.number,
-	    beforeSlide: _react2['default'].PropTypes.func,
-	    cellAlign: _react2['default'].PropTypes.oneOf(['left', 'center', 'right']),
-	    cellSpacing: _react2['default'].PropTypes.number,
-	    data: _react2['default'].PropTypes.func,
-	    decorators: _react2['default'].PropTypes.arrayOf(_react2['default'].PropTypes.shape({
-	      component: _react2['default'].PropTypes.func,
-	      position: _react2['default'].PropTypes.oneOf(['TopLeft', 'TopCenter', 'TopRight', 'CenterLeft', 'CenterCenter', 'CenterRight', 'BottomLeft', 'BottomCenter', 'BottomRight']),
-	      style: _react2['default'].PropTypes.object
-	    })),
-	    dragging: _react2['default'].PropTypes.bool,
-	    easing: _react2['default'].PropTypes.string,
-	    edgeEasing: _react2['default'].PropTypes.string,
-	    framePadding: _react2['default'].PropTypes.string,
-	    frameOverflow: _react2['default'].PropTypes.string,
-	    initialSlideHeight: _react2['default'].PropTypes.number,
-	    initialSlideWidth: _react2['default'].PropTypes.number,
-	    slideIndex: _react2['default'].PropTypes.number,
-	    slidesToShow: _react2['default'].PropTypes.number,
-	    slidesToScroll: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.number, _react2['default'].PropTypes.oneOf(['auto'])]),
-	    slideWidth: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
-	    speed: _react2['default'].PropTypes.number,
-	    vertical: _react2['default'].PropTypes.bool,
-	    width: _react2['default'].PropTypes.string,
-	    wrapAround: _react2['default'].PropTypes.bool
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      afterSlide: function afterSlide() {},
-	      autoplay: false,
-	      autoplayInterval: 3000,
-	      beforeSlide: function beforeSlide() {},
-	      cellAlign: 'left',
-	      cellSpacing: 0,
-	      data: function data() {},
-	      decorators: _decorators2['default'],
-	      dragging: true,
-	      easing: 'easeOutCirc',
-	      edgeEasing: 'easeOutElastic',
-	      framePadding: '0px',
-	      frameOverflow: 'hidden',
-	      slideIndex: 0,
-	      slidesToScroll: 1,
-	      slidesToShow: 1,
-	      slideWidth: 1,
-	      speed: 500,
-	      vertical: false,
-	      width: '100%',
-	      wrapAround: false
-	    };
-	  },
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      currentSlide: this.props.slideIndex,
-	      dragging: false,
-	      frameWidth: 0,
-	      left: 0,
-	      slideCount: 0,
-	      slidesToScroll: this.props.slidesToScroll,
-	      slideWidth: 0,
-	      top: 0
-	    };
-	  },
-
-	  componentWillMount: function componentWillMount() {
-	    this.setInitialDimensions();
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    this.setDimensions();
-	    this.bindEvents();
-	    this.setExternalData();
-	    if (this.props.autoplay) {
-	      this.startAutoplay();
-	    }
-	  },
-
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-	    this.setState({
-	      slideCount: nextProps.children.length
-	    });
-	    this.setDimensions(nextProps);
-	    if (nextProps.slideIndex && nextProps.slideIndex !== this.state.currentSlide) {
-	      this.goToSlide(nextProps.slideIndex);
-	    }
-	    if (this.props.autoplay !== nextProps.autoplay) {
-	      if (nextProps.autoplay) {
-	        this.startAutoplay();
-	      } else {
-	        this.stopAutoplay();
-	      }
-	    }
-	  },
-
-	  componentWillUnmount: function componentWillUnmount() {
-	    this.unbindEvents();
-	    this.stopAutoplay();
-	  },
-
-	  render: function render() {
-	    var self = this;
-	    var children = _react2['default'].Children.count(this.props.children) > 1 ? this.formatChildren(this.props.children) : this.props.children;
-	    return _react2['default'].createElement(
-	      'div',
-	      { className: ['slider', this.props.className || ''].join(' '), ref: 'slider', style: (0, _objectAssign2['default'])(this.getSliderStyles(), this.props.style || {}) },
-	      _react2['default'].createElement(
-	        'div',
-	        _extends({ className: 'slider-frame',
-	          ref: 'frame',
-	          style: this.getFrameStyles()
-	        }, this.getTouchEvents(), this.getMouseEvents(), {
-	          onClick: this.handleClick }),
-	        _react2['default'].createElement(
-	          'ul',
-	          { className: 'slider-list', ref: 'list', style: this.getListStyles() },
-	          children
-	        )
-	      ),
-	      this.props.decorators ? this.props.decorators.map(function (Decorator, index) {
-	        return _react2['default'].createElement(
-	          'div',
-	          {
-	            style: (0, _objectAssign2['default'])(self.getDecoratorStyles(Decorator.position), Decorator.style || {}),
-	            className: 'slider-decorator-' + index,
-	            key: index },
-	          _react2['default'].createElement(Decorator.component, {
-	            currentSlide: self.state.currentSlide,
-	            slideCount: self.state.slideCount,
-	            frameWidth: self.state.frameWidth,
-	            slideWidth: self.state.slideWidth,
-	            slidesToScroll: self.state.slidesToScroll,
-	            cellSpacing: self.props.cellSpacing,
-	            slidesToShow: self.props.slidesToShow,
-	            wrapAround: self.props.wrapAround,
-	            nextSlide: self.nextSlide,
-	            previousSlide: self.previousSlide,
-	            goToSlide: self.goToSlide })
-	        );
-	      }) : null,
-	      _react2['default'].createElement('style', { type: 'text/css', dangerouslySetInnerHTML: { __html: self.getStyleTagStyles() } })
-	    );
-	  },
-
-	  // Touch Events
-
-	  touchObject: {},
-
-	  getTouchEvents: function getTouchEvents() {
-	    var self = this;
-
-	    return {
-	      onTouchStart: function onTouchStart(e) {
-	        self.touchObject = {
-	          startX: e.touches[0].pageX,
-	          startY: e.touches[0].pageY
-	        };
-	        self.handleMouseOver();
-	      },
-	      onTouchMove: function onTouchMove(e) {
-	        var direction = self.swipeDirection(self.touchObject.startX, e.touches[0].pageX, self.touchObject.startY, e.touches[0].pageY);
-
-	        if (direction !== 0) {
-	          e.preventDefault();
-	        }
-
-	        var length = self.props.vertical ? Math.round(Math.sqrt(Math.pow(e.touches[0].pageY - self.touchObject.startY, 2))) : Math.round(Math.sqrt(Math.pow(e.touches[0].pageX - self.touchObject.startX, 2)));
-
-	        self.touchObject = {
-	          startX: self.touchObject.startX,
-	          startY: self.touchObject.startY,
-	          endX: e.touches[0].pageX,
-	          endY: e.touches[0].pageY,
-	          length: length,
-	          direction: direction
-	        };
-
-	        self.setState({
-	          left: self.props.vertical ? 0 : self.getTargetLeft(self.touchObject.length * self.touchObject.direction),
-	          top: self.props.vertical ? self.getTargetLeft(self.touchObject.length * self.touchObject.direction) : 0
-	        });
-	      },
-	      onTouchEnd: function onTouchEnd(e) {
-	        self.handleSwipe(e);
-	        self.handleMouseOut();
-	      },
-	      onTouchCancel: function onTouchCancel(e) {
-	        self.handleSwipe(e);
-	      }
-	    };
-	  },
-
-	  clickSafe: true,
-
-	  getMouseEvents: function getMouseEvents() {
-	    var self = this;
-
-	    if (this.props.dragging === false) {
-	      return null;
-	    }
-
-	    return {
-	      onMouseOver: function onMouseOver() {
-	        self.handleMouseOver();
-	      },
-	      onMouseOut: function onMouseOut() {
-	        self.handleMouseOut();
-	      },
-	      onMouseDown: function onMouseDown(e) {
-	        self.touchObject = {
-	          startX: e.clientX,
-	          startY: e.clientY
-	        };
-
-	        self.setState({
-	          dragging: true
-	        });
-	      },
-	      onMouseMove: function onMouseMove(e) {
-	        if (!self.state.dragging) {
-	          return;
-	        }
-
-	        var direction = self.swipeDirection(self.touchObject.startX, e.clientX, self.touchObject.startY, e.clientY);
-
-	        if (direction !== 0) {
-	          e.preventDefault();
-	        }
-
-	        var length = self.props.vertical ? Math.round(Math.sqrt(Math.pow(e.clientY - self.touchObject.startY, 2))) : Math.round(Math.sqrt(Math.pow(e.clientX - self.touchObject.startX, 2)));
-
-	        self.touchObject = {
-	          startX: self.touchObject.startX,
-	          startY: self.touchObject.startY,
-	          endX: e.clientX,
-	          endY: e.clientY,
-	          length: length,
-	          direction: direction
-	        };
-
-	        self.setState({
-	          left: self.props.vertical ? 0 : self.getTargetLeft(self.touchObject.length * self.touchObject.direction),
-	          top: self.props.vertical ? self.getTargetLeft(self.touchObject.length * self.touchObject.direction) : 0
-	        });
-	      },
-	      onMouseUp: function onMouseUp(e) {
-	        if (!self.state.dragging) {
-	          return;
-	        }
-
-	        self.handleSwipe(e);
-	      },
-	      onMouseLeave: function onMouseLeave(e) {
-	        if (!self.state.dragging) {
-	          return;
-	        }
-
-	        self.handleSwipe(e);
-	      }
-	    };
-	  },
-
-	  handleMouseOver: function handleMouseOver() {
-	    if (this.props.autoplay) {
-	      this.autoplayPaused = true;
-	      this.stopAutoplay();
-	    }
-	  },
-
-	  handleMouseOut: function handleMouseOut() {
-	    if (this.props.autoplay && this.autoplayPaused) {
-	      this.startAutoplay();
-	      this.autoplayPaused = null;
-	    }
-	  },
-
-	  handleClick: function handleClick(e) {
-	    if (this.clickSafe === true) {
-	      e.preventDefault();
-	      e.stopPropagation();
-
-	      if (e.nativeEvent) {
-	        e.nativeEvent.stopPropagation();
-	      }
-	    }
-	  },
-
-	  handleSwipe: function handleSwipe(e) {
-	    if (typeof this.touchObject.length !== 'undefined' && this.touchObject.length > 44) {
-	      this.clickSafe = true;
-	    } else {
-	      this.clickSafe = false;
-	    }
-
-	    var slidesToShow = this.props.slidesToShow;
-	    if (this.props.slidesToScroll === 'auto') {
-	      slidesToShow = this.state.slidesToScroll;
-	    }
-
-	    if (this.touchObject.length > this.state.slideWidth / slidesToShow / 5) {
-	      if (this.touchObject.direction === 1) {
-	        if (this.state.currentSlide >= _react2['default'].Children.count(this.props.children) - slidesToShow && !this.props.wrapAround) {
-	          this.animateSlide(_kwReactTweenState2['default'].easingTypes[this.props.edgeEasing]);
-	        } else {
-	          this.nextSlide();
-	        }
-	      } else if (this.touchObject.direction === -1) {
-	        if (this.state.currentSlide <= 0 && !this.props.wrapAround) {
-	          this.animateSlide(_kwReactTweenState2['default'].easingTypes[this.props.edgeEasing]);
-	        } else {
-	          this.previousSlide();
-	        }
-	      }
-	    } else {
-	      this.goToSlide(this.state.currentSlide);
-	    }
-
-	    this.touchObject = {};
-
-	    this.setState({
-	      dragging: false
-	    });
-	  },
-
-	  swipeDirection: function swipeDirection(x1, x2, y1, y2) {
-
-	    var xDist, yDist, r, swipeAngle;
-
-	    xDist = x1 - x2;
-	    yDist = y1 - y2;
-	    r = Math.atan2(yDist, xDist);
-
-	    swipeAngle = Math.round(r * 180 / Math.PI);
-	    if (swipeAngle < 0) {
-	      swipeAngle = 360 - Math.abs(swipeAngle);
-	    }
-	    if (swipeAngle <= 45 && swipeAngle >= 0) {
-	      return 1;
-	    }
-	    if (swipeAngle <= 360 && swipeAngle >= 315) {
-	      return 1;
-	    }
-	    if (swipeAngle >= 135 && swipeAngle <= 225) {
-	      return -1;
-	    }
-	    if (this.props.vertical === true) {
-	      if (swipeAngle >= 35 && swipeAngle <= 135) {
-	        return 1;
-	      } else {
-	        return -1;
-	      }
-	    }
-	    return 0;
-	  },
-
-	  autoplayIterator: function autoplayIterator() {
-	    if (this.props.wrapAround) {
-	      return this.nextSlide();
-	    }
-	    if (this.state.currentSlide !== this.state.slideCount - this.state.slidesToShow) {
-	      this.nextSlide();
-	    } else {
-	      this.stopAutoplay();
-	    }
-	  },
-
-	  startAutoplay: function startAutoplay() {
-	    this.autoplayID = setInterval(this.autoplayIterator, this.props.autoplayInterval);
-	  },
-
-	  resetAutoplay: function resetAutoplay() {
-	    if (this.props.autoplay && !this.autoplayPaused) {
-	      this.stopAutoplay();
-	      this.startAutoplay();
-	    }
-	  },
-
-	  stopAutoplay: function stopAutoplay() {
-	    this.autoplayID && clearInterval(this.autoplayID);
-	  },
-
-	  // Action Methods
-
-	  goToSlide: function goToSlide(index) {
-	    var self = this;
-	    if (index >= _react2['default'].Children.count(this.props.children) || index < 0) {
-	      if (!this.props.wrapAround) {
-	        return;
-	      };
-	      if (index >= _react2['default'].Children.count(this.props.children)) {
-	        this.props.beforeSlide(this.state.currentSlide, 0);
-	        return this.setState({
-	          currentSlide: 0
-	        }, function () {
-	          self.animateSlide(null, null, self.getTargetLeft(null, index), function () {
-	            self.animateSlide(null, 0.01);
-	            self.props.afterSlide(0);
-	            self.resetAutoplay();
-	            self.setExternalData();
-	          });
-	        });
-	      } else {
-	        var endSlide = _react2['default'].Children.count(this.props.children) - this.state.slidesToScroll;
-	        this.props.beforeSlide(this.state.currentSlide, endSlide);
-	        return this.setState({
-	          currentSlide: endSlide
-	        }, function () {
-	          self.animateSlide(null, null, self.getTargetLeft(null, index), function () {
-	            self.animateSlide(null, 0.01);
-	            self.props.afterSlide(endSlide);
-	            self.resetAutoplay();
-	            self.setExternalData();
-	          });
-	        });
-	      }
-	    }
-
-	    this.props.beforeSlide(this.state.currentSlide, index);
-
-	    this.setState({
-	      currentSlide: index
-	    }, function () {
-	      self.animateSlide();
-	      this.props.afterSlide(index);
-	      self.resetAutoplay();
-	      self.setExternalData();
-	    });
-	  },
-
-	  nextSlide: function nextSlide() {
-	    var childrenCount = _react2['default'].Children.count(this.props.children);
-	    var slidesToShow = this.props.slidesToShow;
-	    if (this.props.slidesToScroll === 'auto') {
-	      slidesToShow = this.state.slidesToScroll;
-	    }
-	    if (this.state.currentSlide >= childrenCount - slidesToShow && !this.props.wrapAround) {
-
-	      return;
-	    }
-
-	    if (this.props.wrapAround) {
-	      this.goToSlide(this.state.currentSlide + this.state.slidesToScroll);
-	    } else {
-	      if (this.props.slideWidth !== 1) {
-	        return this.goToSlide(this.state.currentSlide + this.state.slidesToScroll);
-	      }
-	      this.goToSlide(Math.min(this.state.currentSlide + this.state.slidesToScroll, childrenCount - slidesToShow));
-	    }
-	  },
-
-	  previousSlide: function previousSlide() {
-	    if (this.state.currentSlide <= 0 && !this.props.wrapAround) {
-	      return;
-	    }
-
-	    if (this.props.wrapAround) {
-	      this.goToSlide(this.state.currentSlide - this.state.slidesToScroll);
-	    } else {
-	      this.goToSlide(Math.max(0, this.state.currentSlide - this.state.slidesToScroll));
-	    }
-	  },
-
-	  // Animation
-
-	  animateSlide: function animateSlide(easing, duration, endValue, callback) {
-	    this.tweenState(this.props.vertical ? 'top' : 'left', {
-	      easing: easing || _kwReactTweenState2['default'].easingTypes[this.props.easing],
-	      duration: duration || this.props.speed,
-	      endValue: endValue || this.getTargetLeft(),
-	      onEnd: callback || null
-	    });
-	  },
-
-	  getTargetLeft: function getTargetLeft(touchOffset, slide) {
-	    var offset;
-	    var target = slide || this.state.currentSlide;
-	    switch (this.props.cellAlign) {
-	      case 'left':
-	        {
-	          offset = 0;
-	          offset -= this.props.cellSpacing * target;
-	          break;
-	        }
-	      case 'center':
-	        {
-	          offset = (this.state.frameWidth - this.state.slideWidth) / 2;
-	          offset -= this.props.cellSpacing * target;
-	          break;
-	        }
-	      case 'right':
-	        {
-	          offset = this.state.frameWidth - this.state.slideWidth;
-	          offset -= this.props.cellSpacing * target;
-	          break;
-	        }
-	    }
-
-	    var left = this.state.slideWidth * target;
-
-	    var lastSlide = target + this.state.slidesToScroll >= this.state.slideCount;
-
-	    if (lastSlide && this.props.slideWidth !== 1 && !this.props.wrapAround && this.props.slidesToScroll === 'auto') {
-	      left = this.state.slideWidth * this.state.slideCount - this.state.frameWidth;
-	      offset = 0;
-	      offset -= this.props.cellSpacing * (this.state.slideCount - 1);
-	    }
-
-	    offset -= touchOffset || 0;
-
-	    return (left - offset) * -1;
-	  },
-
-	  // Bootstrapping
-
-	  bindEvents: function bindEvents() {
-	    var self = this;
-	    if (_exenv2['default'].canUseDOM) {
-	      addEvent(window, 'resize', self.onResize);
-	      addEvent(document, 'readystatechange', self.onReadyStateChange);
-	    }
-	  },
-
-	  onResize: function onResize() {
-	    this.setDimensions();
-	  },
-
-	  onReadyStateChange: function onReadyStateChange() {
-	    this.setDimensions();
-	  },
-
-	  unbindEvents: function unbindEvents() {
-	    var self = this;
-	    if (_exenv2['default'].canUseDOM) {
-	      removeEvent(window, 'resize', self.onResize);
-	      removeEvent(document, 'readystatechange', self.onReadyStateChange);
-	    }
-	  },
-
-	  formatChildren: function formatChildren(children) {
-	    var self = this;
-	    var positionValue = this.props.vertical ? this.getTweeningValue('top') : this.getTweeningValue('left');
-	    return _react2['default'].Children.map(children, function (child, index) {
-	      return _react2['default'].createElement(
-	        'li',
-	        { className: 'slider-slide', style: self.getSlideStyles(index, positionValue), key: index },
-	        child
-	      );
-	    });
-	  },
-
-	  setInitialDimensions: function setInitialDimensions() {
-	    var self = this,
-	        slideWidth,
-	        frameHeight,
-	        slideHeight;
-
-	    slideWidth = this.props.vertical ? this.props.initialSlideHeight || 0 : this.props.initialSlideWidth || 0;
-	    slideHeight = this.props.initialSlideHeight ? this.props.initialSlideHeight * this.props.slidesToShow : 0;
-
-	    frameHeight = slideHeight + this.props.cellSpacing * (this.props.slidesToShow - 1);
-
-	    this.setState({
-	      slideHeight: slideHeight,
-	      frameWidth: this.props.vertical ? frameHeight : '100%',
-	      slideCount: _react2['default'].Children.count(this.props.children),
-	      slideWidth: slideWidth
-	    }, function () {
-	      self.setLeft();
-	      self.setExternalData();
-	    });
-	  },
-
-	  setDimensions: function setDimensions(props) {
-	    props = props || this.props;
-
-	    var self = this,
-	        slideWidth,
-	        slidesToScroll,
-	        firstSlide,
-	        frame,
-	        frameWidth,
-	        frameHeight,
-	        slideHeight;
-
-	    slidesToScroll = props.slidesToScroll;
-	    frame = this.refs.frame;
-	    firstSlide = frame.childNodes[0].childNodes[0];
-	    if (firstSlide) {
-	      firstSlide.style.height = 'auto';
-	      slideHeight = this.props.vertical ? firstSlide.offsetHeight * props.slidesToShow : firstSlide.offsetHeight;
-	    } else {
-	      slideHeight = 100;
-	    }
-
-	    if (typeof props.slideWidth !== 'number') {
-	      slideWidth = parseInt(props.slideWidth);
-	    } else {
-	      if (props.vertical) {
-	        slideWidth = slideHeight / props.slidesToShow * props.slideWidth;
-	      } else {
-	        slideWidth = frame.offsetWidth / props.slidesToShow * props.slideWidth;
-	      }
-	    }
-
-	    if (!props.vertical) {
-	      slideWidth -= props.cellSpacing * ((100 - 100 / props.slidesToShow) / 100);
-	    }
-
-	    frameHeight = slideHeight + props.cellSpacing * (props.slidesToShow - 1);
-	    frameWidth = props.vertical ? frameHeight : frame.offsetWidth;
-
-	    if (props.slidesToScroll === 'auto') {
-	      slidesToScroll = Math.floor(frameWidth / (slideWidth + props.cellSpacing));
-	    }
-
-	    this.setState({
-	      slideHeight: slideHeight,
-	      frameWidth: frameWidth,
-	      slideWidth: slideWidth,
-	      slidesToScroll: slidesToScroll,
-	      left: props.vertical ? 0 : this.getTargetLeft(),
-	      top: props.vertical ? this.getTargetLeft() : 0
-	    }, function () {
-	      self.setLeft();
-	    });
-	  },
-
-	  setLeft: function setLeft() {
-	    this.setState({
-	      left: this.props.vertical ? 0 : this.getTargetLeft(),
-	      top: this.props.vertical ? this.getTargetLeft() : 0
-	    });
-	  },
-
-	  // Data
-
-	  setExternalData: function setExternalData() {
-	    if (this.props.data) {
-	      this.props.data();
-	    }
-	  },
-
-	  // Styles
-
-	  getListStyles: function getListStyles() {
-	    var listWidth = this.state.slideWidth * _react2['default'].Children.count(this.props.children);
-	    var spacingOffset = this.props.cellSpacing * _react2['default'].Children.count(this.props.children);
-	    var transform = 'translate3d(' + this.getTweeningValue('left') + 'px, ' + this.getTweeningValue('top') + 'px, 0)';
-	    return {
-	      transform: transform,
-	      WebkitTransform: transform,
-	      msTransform: 'translate(' + this.getTweeningValue('left') + 'px, ' + this.getTweeningValue('top') + 'px)',
-	      position: 'relative',
-	      display: 'block',
-	      margin: this.props.vertical ? this.props.cellSpacing / 2 * -1 + 'px 0px' : '0px ' + this.props.cellSpacing / 2 * -1 + 'px',
-	      padding: 0,
-	      height: this.props.vertical ? listWidth + spacingOffset : this.state.slideHeight,
-	      width: this.props.vertical ? 'auto' : listWidth + spacingOffset,
-	      cursor: this.state.dragging === true ? 'pointer' : 'inherit',
-	      boxSizing: 'border-box',
-	      MozBoxSizing: 'border-box'
-	    };
-	  },
-
-	  getFrameStyles: function getFrameStyles() {
-	    return {
-	      position: 'relative',
-	      display: 'block',
-	      overflow: this.props.frameOverflow,
-	      height: this.props.vertical ? this.state.frameWidth || 'initial' : 'auto',
-	      margin: this.props.framePadding,
-	      padding: 0,
-	      transform: 'translate3d(0, 0, 0)',
-	      WebkitTransform: 'translate3d(0, 0, 0)',
-	      msTransform: 'translate(0, 0)',
-	      boxSizing: 'border-box',
-	      MozBoxSizing: 'border-box'
-	    };
-	  },
-
-	  getSlideStyles: function getSlideStyles(index, positionValue) {
-	    var targetPosition = this.getSlideTargetPosition(index, positionValue);
-	    return {
-	      position: 'absolute',
-	      left: this.props.vertical ? 0 : targetPosition,
-	      top: this.props.vertical ? targetPosition : 0,
-	      display: this.props.vertical ? 'block' : 'inline-block',
-	      listStyleType: 'none',
-	      verticalAlign: 'top',
-	      width: this.props.vertical ? '100%' : this.state.slideWidth,
-	      height: 'auto',
-	      boxSizing: 'border-box',
-	      MozBoxSizing: 'border-box',
-	      marginLeft: this.props.vertical ? 'auto' : this.props.cellSpacing / 2,
-	      marginRight: this.props.vertical ? 'auto' : this.props.cellSpacing / 2,
-	      marginTop: this.props.vertical ? this.props.cellSpacing / 2 : 'auto',
-	      marginBottom: this.props.vertical ? this.props.cellSpacing / 2 : 'auto'
-	    };
-	  },
-
-	  getSlideTargetPosition: function getSlideTargetPosition(index, positionValue) {
-	    var slidesToShow = this.state.frameWidth / this.state.slideWidth;
-	    var targetPosition = (this.state.slideWidth + this.props.cellSpacing) * index;
-	    var end = (this.state.slideWidth + this.props.cellSpacing) * slidesToShow * -1;
-
-	    if (this.props.wrapAround) {
-	      var slidesBefore = Math.ceil(positionValue / this.state.slideWidth);
-	      if (this.state.slideCount - slidesBefore <= index) {
-	        return (this.state.slideWidth + this.props.cellSpacing) * (this.state.slideCount - index) * -1;
-	      }
-
-	      var slidesAfter = Math.ceil((Math.abs(positionValue) - Math.abs(end)) / this.state.slideWidth);
-
-	      if (this.state.slideWidth !== 1) {
-	        slidesAfter = Math.ceil((Math.abs(positionValue) - this.state.slideWidth) / this.state.slideWidth);
-	      }
-
-	      if (index <= slidesAfter - 1) {
-	        return (this.state.slideWidth + this.props.cellSpacing) * (this.state.slideCount + index);
-	      }
-	    }
-
-	    return targetPosition;
-	  },
-
-	  getSliderStyles: function getSliderStyles() {
-	    return {
-	      position: 'relative',
-	      display: 'block',
-	      width: this.props.width,
-	      height: 'auto',
-	      boxSizing: 'border-box',
-	      MozBoxSizing: 'border-box',
-	      visibility: this.state.slideWidth ? 'visible' : 'hidden'
-	    };
-	  },
-
-	  getStyleTagStyles: function getStyleTagStyles() {
-	    return '.slider-slide > img {width: 100%; display: block;}';
-	  },
-
-	  getDecoratorStyles: function getDecoratorStyles(position) {
-	    switch (position) {
-	      case 'TopLeft':
-	        {
-	          return {
-	            position: 'absolute',
-	            top: 0,
-	            left: 0
-	          };
-	        }
-	      case 'TopCenter':
-	        {
-	          return {
-	            position: 'absolute',
-	            top: 0,
-	            left: '50%',
-	            transform: 'translateX(-50%)',
-	            WebkitTransform: 'translateX(-50%)',
-	            msTransform: 'translateX(-50%)'
-	          };
-	        }
-	      case 'TopRight':
-	        {
-	          return {
-	            position: 'absolute',
-	            top: 0,
-	            right: 0
-	          };
-	        }
-	      case 'CenterLeft':
-	        {
-	          return {
-	            position: 'absolute',
-	            top: '50%',
-	            left: 0,
-	            transform: 'translateY(-50%)',
-	            WebkitTransform: 'translateY(-50%)',
-	            msTransform: 'translateY(-50%)'
-	          };
-	        }
-	      case 'CenterCenter':
-	        {
-	          return {
-	            position: 'absolute',
-	            top: '50%',
-	            left: '50%',
-	            transform: 'translate(-50%,-50%)',
-	            WebkitTransform: 'translate(-50%, -50%)',
-	            msTransform: 'translate(-50%, -50%)'
-	          };
-	        }
-	      case 'CenterRight':
-	        {
-	          return {
-	            position: 'absolute',
-	            top: '50%',
-	            right: 0,
-	            transform: 'translateY(-50%)',
-	            WebkitTransform: 'translateY(-50%)',
-	            msTransform: 'translateY(-50%)'
-	          };
-	        }
-	      case 'BottomLeft':
-	        {
-	          return {
-	            position: 'absolute',
-	            bottom: 0,
-	            left: 0
-	          };
-	        }
-	      case 'BottomCenter':
-	        {
-	          return {
-	            position: 'absolute',
-	            bottom: 0,
-	            left: '50%',
-	            transform: 'translateX(-50%)',
-	            WebkitTransform: 'translateX(-50%)',
-	            msTransform: 'translateX(-50%)'
-	          };
-	        }
-	      case 'BottomRight':
-	        {
-	          return {
-	            position: 'absolute',
-	            bottom: 0,
-	            right: 0
-	          };
-	        }
-	      default:
-	        {
-	          return {
-	            position: 'absolute',
-	            top: 0,
-	            left: 0
-	          };
-	        }
-	    }
-	  }
-
-	});
-
-	Carousel.ControllerMixin = {
-	  getInitialState: function getInitialState() {
-	    return {
-	      carousels: {}
-	    };
-	  },
-	  setCarouselData: function setCarouselData(carousel) {
-	    var data = this.state.carousels;
-	    data[carousel] = this.refs[carousel];
-	    this.setState({
-	      carousels: data
-	    });
-	  }
-	};
-
-	exports['default'] = Carousel;
-	module.exports = exports['default'];
-
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	(function webpackUniversalModuleDefinition(root, factory) {
-		if(true)
-			module.exports = factory();
-		else if(typeof define === 'function' && define.amd)
-			define([], factory);
-		else if(typeof exports === 'object')
-			exports["tweenState"] = factory();
-		else
-			root["tweenState"] = factory();
-	})(this, function() {
-	return /******/ (function(modules) { // webpackBootstrap
-	/******/ 	// The module cache
-	/******/ 	var installedModules = {};
-	/******/
-	/******/ 	// The require function
-	/******/ 	function __webpack_require__(moduleId) {
-	/******/
-	/******/ 		// Check if module is in cache
-	/******/ 		if(installedModules[moduleId])
-	/******/ 			return installedModules[moduleId].exports;
-	/******/
-	/******/ 		// Create a new module (and put it into the cache)
-	/******/ 		var module = installedModules[moduleId] = {
-	/******/ 			exports: {},
-	/******/ 			id: moduleId,
-	/******/ 			loaded: false
-	/******/ 		};
-	/******/
-	/******/ 		// Execute the module function
-	/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-	/******/
-	/******/ 		// Flag the module as loaded
-	/******/ 		module.loaded = true;
-	/******/
-	/******/ 		// Return the exports of the module
-	/******/ 		return module.exports;
-	/******/ 	}
-	/******/
-	/******/
-	/******/ 	// expose the modules object (__webpack_modules__)
-	/******/ 	__webpack_require__.m = modules;
-	/******/
-	/******/ 	// expose the module cache
-	/******/ 	__webpack_require__.c = installedModules;
-	/******/
-	/******/ 	// __webpack_public_path__
-	/******/ 	__webpack_require__.p = "";
-	/******/
-	/******/ 	// Load entry module and return exports
-	/******/ 	return __webpack_require__(0);
-	/******/ })
-	/************************************************************************/
-	/******/ ({
-
-	/***/ 0:
-	/*!*****************!*\
-	  !*** multi lib ***!
-	  \*****************/
-	/***/ function(module, exports, __webpack_require__) {
-
-		module.exports = __webpack_require__(/*! ./index.js */169);
-
-
-	/***/ },
-
-	/***/ 5:
-	/*!******************************!*\
-	  !*** ./~/process/browser.js ***!
-	  \******************************/
-	/***/ function(module, exports) {
-
-		// shim for using process in browser
-		
-		var process = module.exports = {};
-		var queue = [];
-		var draining = false;
-		var currentQueue;
-		var queueIndex = -1;
-		
-		function cleanUpNextTick() {
-		    draining = false;
-		    if (currentQueue.length) {
-		        queue = currentQueue.concat(queue);
-		    } else {
-		        queueIndex = -1;
-		    }
-		    if (queue.length) {
-		        drainQueue();
-		    }
-		}
-		
-		function drainQueue() {
-		    if (draining) {
-		        return;
-		    }
-		    var timeout = setTimeout(cleanUpNextTick);
-		    draining = true;
-		
-		    var len = queue.length;
-		    while(len) {
-		        currentQueue = queue;
-		        queue = [];
-		        while (++queueIndex < len) {
-		            if (currentQueue) {
-		                currentQueue[queueIndex].run();
-		            }
-		        }
-		        queueIndex = -1;
-		        len = queue.length;
-		    }
-		    currentQueue = null;
-		    draining = false;
-		    clearTimeout(timeout);
-		}
-		
-		process.nextTick = function (fun) {
-		    var args = new Array(arguments.length - 1);
-		    if (arguments.length > 1) {
-		        for (var i = 1; i < arguments.length; i++) {
-		            args[i - 1] = arguments[i];
-		        }
-		    }
-		    queue.push(new Item(fun, args));
-		    if (queue.length === 1 && !draining) {
-		        setTimeout(drainQueue, 0);
-		    }
-		};
-		
-		// v8 likes predictible objects
-		function Item(fun, array) {
-		    this.fun = fun;
-		    this.array = array;
-		}
-		Item.prototype.run = function () {
-		    this.fun.apply(null, this.array);
-		};
-		process.title = 'browser';
-		process.browser = true;
-		process.env = {};
-		process.argv = [];
-		process.version = ''; // empty string to avoid regexp issues
-		process.versions = {};
-		
-		function noop() {}
-		
-		process.on = noop;
-		process.addListener = noop;
-		process.once = noop;
-		process.off = noop;
-		process.removeListener = noop;
-		process.removeAllListeners = noop;
-		process.emit = noop;
-		
-		process.binding = function (name) {
-		    throw new Error('process.binding is not supported');
-		};
-		
-		process.cwd = function () { return '/' };
-		process.chdir = function (dir) {
-		    throw new Error('process.chdir is not supported');
-		};
-		process.umask = function() { return 0; };
-
-
-	/***/ },
-
-	/***/ 169:
-	/*!******************!*\
-	  !*** ./index.js ***!
-	  \******************/
-	/***/ function(module, exports, __webpack_require__) {
-
-		'use strict';
-		
-		Object.defineProperty(exports, '__esModule', {
-		  value: true
-		});
-		
-		function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-		
-		var _tweenFunctions = __webpack_require__(/*! tween-functions */ 170);
-		
-		var _tweenFunctions2 = _interopRequireDefault(_tweenFunctions);
-		
-		var _raf = __webpack_require__(/*! raf */ 171);
-		
-		var _raf2 = _interopRequireDefault(_raf);
-		
-		// additive is the new iOS 8 default. In most cases it simulates a physics-
-		// looking overshoot behavior (especially with easeInOut. You can test that in
-		// the example
-		var DEFAULT_STACK_BEHAVIOR = 'ADDITIVE';
-		var DEFAULT_EASING = _tweenFunctions.easeInOutQuad;
-		var DEFAULT_DURATION = 300;
-		var DEFAULT_DELAY = 0;
-		
-		var stackBehavior = {
-		  ADDITIVE: 'ADDITIVE',
-		  DESTRUCTIVE: 'DESTRUCTIVE'
-		};
-		
-		var Mixin = {
-		  _rafID: null,
-		
-		  getInitialState: function getInitialState() {
-		    return {
-		      tweenQueue: []
-		    };
-		  },
-		
-		  componentWillUnmount: function componentWillUnmount() {
-		    _raf2['default'].cancel(this._rafID);
-		    this._rafID = -1;
-		  },
-		
-		  tweenState: function tweenState(path, _ref) {
-		    var _this = this;
-		
-		    var easing = _ref.easing;
-		    var duration = _ref.duration;
-		    var delay = _ref.delay;
-		    var beginValue = _ref.beginValue;
-		    var endValue = _ref.endValue;
-		    var onEnd = _ref.onEnd;
-		    var configSB = _ref.stackBehavior;
-		
-		    this.setState(function (state) {
-		      var cursor = state;
-		      var stateName = undefined;
-		      // see comment below on pash hash
-		      var pathHash = undefined;
-		      if (typeof path === 'string') {
-		        stateName = path;
-		        pathHash = path;
-		      } else {
-		        for (var i = 0; i < path.length - 1; i++) {
-		          cursor = cursor[path[i]];
-		        }
-		        stateName = path[path.length - 1];
-		        pathHash = path.join('|');
-		      }
-		      // see the reasoning for these defaults at the top of file
-		      var newConfig = {
-		        easing: easing || DEFAULT_EASING,
-		        duration: duration == null ? DEFAULT_DURATION : duration,
-		        delay: delay == null ? DEFAULT_DELAY : delay,
-		        beginValue: beginValue == null ? cursor[stateName] : beginValue,
-		        endValue: endValue,
-		        onEnd: onEnd,
-		        stackBehavior: configSB || DEFAULT_STACK_BEHAVIOR
-		      };
-		
-		      var newTweenQueue = state.tweenQueue;
-		      if (newConfig.stackBehavior === stackBehavior.DESTRUCTIVE) {
-		        newTweenQueue = state.tweenQueue.filter(function (item) {
-		          return item.pathHash !== pathHash;
-		        });
-		      }
-		
-		      // we store path hash, so that during value retrieval we can use hash
-		      // comparison to find the path. See the kind of shitty thing you have to
-		      // do when you don't have value comparison for collections?
-		      newTweenQueue.push({
-		        pathHash: pathHash,
-		        config: newConfig,
-		        initTime: Date.now() + newConfig.delay
-		      });
-		
-		      // sorry for mutating. For perf reasons we don't want to deep clone.
-		      // guys, can we please all start using persistent collections so that
-		      // we can stop worrying about nonesense like this
-		      cursor[stateName] = newConfig.endValue;
-		      if (newTweenQueue.length === 1) {
-		        _this._rafID = (0, _raf2['default'])(_this._rafCb);
-		      }
-		
-		      // this will also include the above mutated update
-		      return { tweenQueue: newTweenQueue };
-		    });
-		  },
-		
-		  getTweeningValue: function getTweeningValue(path) {
-		    var state = this.state;
-		
-		    var tweeningValue = undefined;
-		    var pathHash = undefined;
-		    if (typeof path === 'string') {
-		      tweeningValue = state[path];
-		      pathHash = path;
-		    } else {
-		      tweeningValue = state;
-		      for (var i = 0; i < path.length; i++) {
-		        tweeningValue = tweeningValue[path[i]];
-		      }
-		      pathHash = path.join('|');
-		    }
-		    var now = Date.now();
-		
-		    for (var i = 0; i < state.tweenQueue.length; i++) {
-		      var _state$tweenQueue$i = state.tweenQueue[i];
-		      var itemPathHash = _state$tweenQueue$i.pathHash;
-		      var initTime = _state$tweenQueue$i.initTime;
-		      var config = _state$tweenQueue$i.config;
-		
-		      if (itemPathHash !== pathHash) {
-		        continue;
-		      }
-		
-		      var progressTime = now - initTime > config.duration ? config.duration : Math.max(0, now - initTime);
-		      // `now - initTime` can be negative if initTime is scheduled in the
-		      // future by a delay. In this case we take 0
-		
-		      // if duration is 0, consider that as jumping to endValue directly. This
-		      // is needed because the easing functino might have undefined behavior for
-		      // duration = 0
-		      var easeValue = config.duration === 0 ? config.endValue : config.easing(progressTime, config.beginValue, config.endValue, config.duration);
-		
-		      // TODO: some funcs accept a 5th param
-		      var contrib = easeValue - config.endValue;
-		      tweeningValue += contrib;
-		    }
-		
-		    return tweeningValue;
-		  },
-		
-		  _rafCb: function _rafCb() {
-		    var state = this.state;
-		    if (state.tweenQueue.length === 0) {
-		      return;
-		    }
-		
-		    var now = Date.now();
-		    var newTweenQueue = [];
-		
-		    for (var i = 0; i < state.tweenQueue.length; i++) {
-		      var item = state.tweenQueue[i];
-		      var initTime = item.initTime;
-		      var config = item.config;
-		
-		      if (now - initTime < config.duration) {
-		        newTweenQueue.push(item);
-		      } else {
-		        config.onEnd && config.onEnd();
-		      }
-		    }
-		
-		    // onEnd might trigger a parent callback that removes this component
-		    // -1 means we've canceled it in componentWillUnmount
-		    if (this._rafID === -1) {
-		      return;
-		    }
-		
-		    this.setState({
-		      tweenQueue: newTweenQueue
-		    });
-		
-		    this._rafID = (0, _raf2['default'])(this._rafCb);
-		  }
-		};
-		
-		exports['default'] = {
-		  Mixin: Mixin,
-		  easingTypes: _tweenFunctions2['default'],
-		  stackBehavior: stackBehavior
-		};
-		module.exports = exports['default'];
-
-	/***/ },
-
-	/***/ 170:
-	/*!************************************!*\
-	  !*** ./~/tween-functions/index.js ***!
-	  \************************************/
-	/***/ function(module, exports) {
-
-		'use strict';
-		
-		// t: current time, b: beginning value, _c: final value, d: total duration
-		var tweenFunctions = {
-		  linear: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * t / d + b;
-		  },
-		  easeInQuad: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * (t /= d) * t + b;
-		  },
-		  easeOutQuad: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return -c * (t /= d) * (t - 2) + b;
-		  },
-		  easeInOutQuad: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if ((t /= d / 2) < 1) {
-		      return c / 2 * t * t + b;
-		    } else {
-		      return -c / 2 * ((--t) * (t - 2) - 1) + b;
-		    }
-		  },
-		  easeInCubic: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * (t /= d) * t * t + b;
-		  },
-		  easeOutCubic: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * ((t = t / d - 1) * t * t + 1) + b;
-		  },
-		  easeInOutCubic: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if ((t /= d / 2) < 1) {
-		      return c / 2 * t * t * t + b;
-		    } else {
-		      return c / 2 * ((t -= 2) * t * t + 2) + b;
-		    }
-		  },
-		  easeInQuart: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * (t /= d) * t * t * t + b;
-		  },
-		  easeOutQuart: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return -c * ((t = t / d - 1) * t * t * t - 1) + b;
-		  },
-		  easeInOutQuart: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if ((t /= d / 2) < 1) {
-		      return c / 2 * t * t * t * t + b;
-		    } else {
-		      return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
-		    }
-		  },
-		  easeInQuint: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * (t /= d) * t * t * t * t + b;
-		  },
-		  easeOutQuint: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
-		  },
-		  easeInOutQuint: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if ((t /= d / 2) < 1) {
-		      return c / 2 * t * t * t * t * t + b;
-		    } else {
-		      return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
-		    }
-		  },
-		  easeInSine: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
-		  },
-		  easeOutSine: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * Math.sin(t / d * (Math.PI / 2)) + b;
-		  },
-		  easeInOutSine: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
-		  },
-		  easeInExpo: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
-		  },
-		  easeOutExpo: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-		  },
-		  easeInOutExpo: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if (t === 0) {
-		      return b;
-		    }
-		    if (t === d) {
-		      return b + c;
-		    }
-		    if ((t /= d / 2) < 1) {
-		      return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
-		    } else {
-		      return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
-		    }
-		  },
-		  easeInCirc: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
-		  },
-		  easeOutCirc: function(t, b, _c, d) {
-		    var c = _c - b;
-		    return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
-		  },
-		  easeInOutCirc: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if ((t /= d / 2) < 1) {
-		      return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
-		    } else {
-		      return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
-		    }
-		  },
-		  easeInElastic: function(t, b, _c, d) {
-		    var c = _c - b;
-		    var a, p, s;
-		    s = 1.70158;
-		    p = 0;
-		    a = c;
-		    if (t === 0) {
-		      return b;
-		    } else if ((t /= d) === 1) {
-		      return b + c;
-		    }
-		    if (!p) {
-		      p = d * 0.3;
-		    }
-		    if (a < Math.abs(c)) {
-		      a = c;
-		      s = p / 4;
-		    } else {
-		      s = p / (2 * Math.PI) * Math.asin(c / a);
-		    }
-		    return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
-		  },
-		  easeOutElastic: function(t, b, _c, d) {
-		    var c = _c - b;
-		    var a, p, s;
-		    s = 1.70158;
-		    p = 0;
-		    a = c;
-		    if (t === 0) {
-		      return b;
-		    } else if ((t /= d) === 1) {
-		      return b + c;
-		    }
-		    if (!p) {
-		      p = d * 0.3;
-		    }
-		    if (a < Math.abs(c)) {
-		      a = c;
-		      s = p / 4;
-		    } else {
-		      s = p / (2 * Math.PI) * Math.asin(c / a);
-		    }
-		    return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
-		  },
-		  easeInOutElastic: function(t, b, _c, d) {
-		    var c = _c - b;
-		    var a, p, s;
-		    s = 1.70158;
-		    p = 0;
-		    a = c;
-		    if (t === 0) {
-		      return b;
-		    } else if ((t /= d / 2) === 2) {
-		      return b + c;
-		    }
-		    if (!p) {
-		      p = d * (0.3 * 1.5);
-		    }
-		    if (a < Math.abs(c)) {
-		      a = c;
-		      s = p / 4;
-		    } else {
-		      s = p / (2 * Math.PI) * Math.asin(c / a);
-		    }
-		    if (t < 1) {
-		      return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
-		    } else {
-		      return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
-		    }
-		  },
-		  easeInBack: function(t, b, _c, d, s) {
-		    var c = _c - b;
-		    if (s === void 0) {
-		      s = 1.70158;
-		    }
-		    return c * (t /= d) * t * ((s + 1) * t - s) + b;
-		  },
-		  easeOutBack: function(t, b, _c, d, s) {
-		    var c = _c - b;
-		    if (s === void 0) {
-		      s = 1.70158;
-		    }
-		    return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
-		  },
-		  easeInOutBack: function(t, b, _c, d, s) {
-		    var c = _c - b;
-		    if (s === void 0) {
-		      s = 1.70158;
-		    }
-		    if ((t /= d / 2) < 1) {
-		      return c / 2 * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
-		    } else {
-		      return c / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
-		    }
-		  },
-		  easeInBounce: function(t, b, _c, d) {
-		    var c = _c - b;
-		    var v;
-		    v = tweenFunctions.easeOutBounce(d - t, 0, c, d);
-		    return c - v + b;
-		  },
-		  easeOutBounce: function(t, b, _c, d) {
-		    var c = _c - b;
-		    if ((t /= d) < 1 / 2.75) {
-		      return c * (7.5625 * t * t) + b;
-		    } else if (t < 2 / 2.75) {
-		      return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
-		    } else if (t < 2.5 / 2.75) {
-		      return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
-		    } else {
-		      return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
-		    }
-		  },
-		  easeInOutBounce: function(t, b, _c, d) {
-		    var c = _c - b;
-		    var v;
-		    if (t < d / 2) {
-		      v = tweenFunctions.easeInBounce(t * 2, 0, c, d);
-		      return v * 0.5 + b;
-		    } else {
-		      v = tweenFunctions.easeOutBounce(t * 2 - d, 0, c, d);
-		      return v * 0.5 + c * 0.5 + b;
-		    }
-		  }
-		};
-		
-		module.exports = tweenFunctions;
-
-
-	/***/ },
-
-	/***/ 171:
-	/*!************************!*\
-	  !*** ./~/raf/index.js ***!
-	  \************************/
-	/***/ function(module, exports, __webpack_require__) {
-
-		/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(/*! performance-now */ 172)
-		  , root = typeof window === 'undefined' ? global : window
-		  , vendors = ['moz', 'webkit']
-		  , suffix = 'AnimationFrame'
-		  , raf = root['request' + suffix]
-		  , caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
-		
-		for(var i = 0; !raf && i < vendors.length; i++) {
-		  raf = root[vendors[i] + 'Request' + suffix]
-		  caf = root[vendors[i] + 'Cancel' + suffix]
-		      || root[vendors[i] + 'CancelRequest' + suffix]
-		}
-		
-		// Some versions of FF have rAF but not cAF
-		if(!raf || !caf) {
-		  var last = 0
-		    , id = 0
-		    , queue = []
-		    , frameDuration = 1000 / 60
-		
-		  raf = function(callback) {
-		    if(queue.length === 0) {
-		      var _now = now()
-		        , next = Math.max(0, frameDuration - (_now - last))
-		      last = next + _now
-		      setTimeout(function() {
-		        var cp = queue.slice(0)
-		        // Clear queue here to prevent
-		        // callbacks from appending listeners
-		        // to the current frame's queue
-		        queue.length = 0
-		        for(var i = 0; i < cp.length; i++) {
-		          if(!cp[i].cancelled) {
-		            try{
-		              cp[i].callback(last)
-		            } catch(e) {
-		              setTimeout(function() { throw e }, 0)
-		            }
-		          }
-		        }
-		      }, Math.round(next))
-		    }
-		    queue.push({
-		      handle: ++id,
-		      callback: callback,
-		      cancelled: false
-		    })
-		    return id
-		  }
-		
-		  caf = function(handle) {
-		    for(var i = 0; i < queue.length; i++) {
-		      if(queue[i].handle === handle) {
-		        queue[i].cancelled = true
-		      }
-		    }
-		  }
-		}
-		
-		module.exports = function(fn) {
-		  // Wrap in a new function to prevent
-		  // `cancel` potentially being assigned
-		  // to the native rAF function
-		  return raf.call(root, fn)
-		}
-		module.exports.cancel = function() {
-		  caf.apply(root, arguments)
-		}
-		module.exports.polyfill = function() {
-		  root.requestAnimationFrame = raf
-		  root.cancelAnimationFrame = caf
-		}
-		
-		/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-	/***/ },
-
-	/***/ 172:
-	/*!**************************************************!*\
-	  !*** ./~/performance-now/lib/performance-now.js ***!
-	  \**************************************************/
-	/***/ function(module, exports, __webpack_require__) {
-
-		/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
-		(function() {
-		  var getNanoSeconds, hrtime, loadTime;
-		
-		  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
-		    module.exports = function() {
-		      return performance.now();
-		    };
-		  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
-		    module.exports = function() {
-		      return (getNanoSeconds() - loadTime) / 1e6;
-		    };
-		    hrtime = process.hrtime;
-		    getNanoSeconds = function() {
-		      var hr;
-		      hr = hrtime();
-		      return hr[0] * 1e9 + hr[1];
-		    };
-		    loadTime = getNanoSeconds();
-		  } else if (Date.now) {
-		    module.exports = function() {
-		      return Date.now() - loadTime;
-		    };
-		    loadTime = Date.now();
-		  } else {
-		    module.exports = function() {
-		      return new Date().getTime() - loadTime;
-		    };
-		    loadTime = new Date().getTime();
-		  }
-		
-		}).call(this);
-		
-		/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 5)))
-
-	/***/ }
-
-	/******/ })
-	});
-	;
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var DefaultDecorators = [{
-	  component: _react2['default'].createClass({
-	    displayName: 'component',
-
-	    render: function render() {
-	      return _react2['default'].createElement(
-	        'button',
-	        {
-	          style: this.getButtonStyles(this.props.currentSlide === 0 && !this.props.wrapAround),
-	          onClick: this.handleClick },
-	        '<'
-	      );
-	    },
-	    handleClick: function handleClick(e) {
-	      e.preventDefault();
-	      this.props.previousSlide();
-	    },
-	    getButtonStyles: function getButtonStyles(disabled) {
-	      return {
-	        border: 0,
-	        width: '40px',
-	        height: '40px',
-	        borderRadius: '100%',
-	        background: 'rgba(0,0,0,0.4)',
-	        color: 'white',
-	        padding: 10,
-	        outline: 0,
-	        opacity: disabled ? 0.3 : 1,
-	        cursor: 'pointer'
-	      };
-	    }
-	  }),
-	  position: 'CenterLeft'
-	}, {
-	  component: _react2['default'].createClass({
-	    displayName: 'component',
-
-	    render: function render() {
-	      return _react2['default'].createElement(
-	        'button',
-	        {
-	          style: this.getButtonStyles(this.props.currentSlide + this.props.slidesToScroll >= this.props.slideCount && !this.props.wrapAround),
-	          onClick: this.handleClick },
-	        '>'
-	      );
-	    },
-	    handleClick: function handleClick(e) {
-	      e.preventDefault();
-	      this.props.nextSlide();
-	    },
-	    getButtonStyles: function getButtonStyles(disabled) {
-	      return {
-	        border: 0,
-	        width: '40px',
-	        height: '40px',
-	        borderRadius: '100%',
-	        background: 'rgba(0,0,0,0.4)',
-	        color: 'white',
-	        padding: 10,
-	        outline: 0,
-	        opacity: disabled ? 0.3 : 1,
-	        cursor: 'pointer'
-	      };
-	    }
-	  }),
-	  position: 'CenterRight'
-	}, {
-	  component: _react2['default'].createClass({
-	    displayName: 'component',
-
-	    render: function render() {
-	      var self = this;
-	      var indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
-	      return _react2['default'].createElement(
-	        'ul',
-	        { style: self.getListStyles() },
-	        indexes.map(function (index) {
-	          return _react2['default'].createElement(
-	            'li',
-	            { style: self.getListItemStyles(), key: index },
-	            _react2['default'].createElement(
-	              'button',
-	              {
-	                style: self.getButtonStyles(self.props.currentSlide === index),
-	                onClick: self.props.goToSlide.bind(null, index) },
-	              '•'
-	            )
-	          );
-	        })
-	      );
-	    },
-	    getIndexes: function getIndexes(count, inc) {
-	      var arr = [];
-	      for (var i = 0; i < count; i += inc) {
-	        arr.push(i);
-	      }
-	      return arr;
-	    },
-	    getListStyles: function getListStyles() {
-	      return {
-	        position: 'relative',
-	        margin: 0,
-	        top: -10,
-	        padding: 0
-	      };
-	    },
-	    getListItemStyles: function getListItemStyles() {
-	      return {
-	        listStyleType: 'none',
-	        display: 'inline-block'
-	      };
-	    },
-	    getButtonStyles: function getButtonStyles(active) {
-	      return {
-	        border: 0,
-	        background: 'transparent',
-	        color: 'black',
-	        cursor: 'pointer',
-	        padding: 10,
-	        outline: 0,
-	        fontSize: 24,
-	        opacity: active ? 1 : 0.5
-	      };
-	    }
-	  }),
-	  position: 'BottomCenter'
-	}];
-
-	exports['default'] = DefaultDecorators;
-	module.exports = exports['default'];
-
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2015 Jed Watson.
-	  Based on code that is Copyright 2013-2015, Facebook, Inc.
-	  All rights reserved.
-	*/
-	/* global define */
-
-	(function () {
-		'use strict';
-
-		var canUseDOM = !!(
-			typeof window !== 'undefined' &&
-			window.document &&
-			window.document.createElement
-		);
-
-		var ExecutionEnvironment = {
-
-			canUseDOM: canUseDOM,
-
-			canUseWorkers: typeof Worker !== 'undefined',
-
-			canUseEventListeners:
-				canUseDOM && !!(window.addEventListener || window.attachEvent),
-
-			canUseViewport: canUseDOM && !!window.screen
-
-		};
-
-		if (true) {
-			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return ExecutionEnvironment;
-			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else if (typeof module !== 'undefined' && module.exports) {
-			module.exports = ExecutionEnvironment;
-		} else {
-			window.ExecutionEnvironment = ExecutionEnvironment;
-		}
-
-	}());
-
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var React = __webpack_require__(1);
-	var SkillsMod = __webpack_require__(246).models;
+	var SkillsMod = __webpack_require__(241).models;
 
 	var Skills = React.createClass({
 	  displayName: 'Skills',
@@ -29206,7 +27431,7 @@
 	module.exports = Skills;
 
 /***/ },
-/* 246 */
+/* 241 */
 /***/ function(module, exports) {
 
 	var Skill = Backbone.Model.extend({
@@ -29227,14 +27452,14 @@
 	  content: [{ title: 'Programing Langueages', content: 'JavaScript, Node.JS, HTML, CSS' }, { title: 'FrameWorks', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap' }, { title: 'Technologies', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI' }]
 	});
 	var education2 = new Skill({
-	  title: 'education',
+	  title: 'INTERESTS',
 	  icon: 'glyphicon glyphicon-fire',
-	  content: []
+	  content: [{ title: 'Real time Data', content: 'I devoted much of my time to learing and creating app with real time components' }, { title: 'Full Stack Development', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap' }, { title: 'Software Engineer', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI' }]
 	});
 	var education3 = new Skill({
-	  title: 'education',
-	  icon: 'glyphicon glyphicon-fire',
-	  content: []
+	  title: 'CONTACT',
+	  icon: 'glyphicon glyphicon-user',
+	  content: [{ title: 'Boulder, CO' }, { title: 'Email', content: 'NickPMacIntyre@gmail.com' }, { title: 'Phone', content: '501-504-2851' }]
 	});
 
 	var Skills = Backbone.Collection.extend({ model: Skill });
@@ -29244,7 +27469,7 @@
 	module.exports = mySkills;
 
 /***/ },
-/* 247 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -29272,11 +27497,11 @@
 	module.exports = Footer;
 
 /***/ },
-/* 248 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var myProjects = __webpack_require__(250);
+	var myProjects = __webpack_require__(244);
 	var Link = __webpack_require__(175).Link;
 
 	var Projects = React.createClass({
@@ -29306,7 +27531,7 @@
 	          height: '366px',
 	          width: '100%',
 	          display: 'inline-block',
-	          backgroundImage: 'url(' + proj.picture + ')',
+	          backgroundImage: 'url(' + proj.picture[0] + ')',
 	          backgroundSize: 'contain',
 	          backgroundRepeat: 'no-repeat'
 	        };
@@ -29318,8 +27543,8 @@
 	            { style: divStyle },
 	            React.createElement(
 	              Link,
-	              { to: '/project/' + proj.project },
-	              React.createElement(ImgFooter, { content: proj.content })
+	              { to: '/project/' + proj.path },
+	              React.createElement(ImgFooter, { content: proj.footerContent })
 	            )
 	          )
 	        );
@@ -29332,7 +27557,11 @@
 	    };
 	    var catigorieStyle = {
 	      display: 'flex',
-	      justifyContent: 'space-around'
+	      justifyContent: 'space-around',
+	      color: 'rgb(41, 72, 134)',
+	      textAlign: 'center',
+	      fontWeight: 'bold',
+	      cursor: 'pointer'
 	    };
 	    var project = this.filter(this.state.filter);
 	    return React.createElement(
@@ -29346,10 +27575,11 @@
 	          { onClick: this.handleClick.bind(null, 'all') },
 	          ' Portfolio '
 	        ),
+	        React.createElement('hr', null),
 	        React.createElement(
 	          'h4',
 	          null,
-	          ' Here is what I can do for you?'
+	          ' Here is what I can do for you:'
 	        ),
 	        React.createElement(
 	          'p',
@@ -29403,7 +27633,7 @@
 	        React.createElement(
 	          'p',
 	          null,
-	          'Click on a project to get a more in depth view on technologies and arcitecture '
+	          'Click on a project to get a more in depth view on technologies and arcitecture. '
 	        )
 	      ),
 	      React.createElement(
@@ -29442,21 +27672,22 @@
 	  render: function () {
 	    var footerStyle = {
 	      position: 'absolute',
+	      padding: '10px',
 	      top: '7px',
 	      left: '7px',
-	      height: '96%',
+	      height: '94%',
 	      width: '96%',
 	      backgroundColor: 'rgba(0, 0, 0, 0.3)',
 	      opacity: this.state.opacity
 	    };
 	    var innerDiv = {
+	      textAlign: 'center',
 	      position: 'absolute',
 	      bottom: '0px',
-	      left: '0px',
+	      left: '0',
 	      width: '100%',
-	      height: '100px',
 	      padding: '10px',
-	      backgroundColor: 'grey',
+	      backgroundColor: 'black',
 	      color: 'white'
 	    };
 	    return React.createElement(
@@ -29468,7 +27699,16 @@
 	        React.createElement(
 	          'div',
 	          { style: innerDiv },
-	          this.props.content
+	          React.createElement(
+	            'h4',
+	            null,
+	            this.props.content.title
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            this.props.content.content
+	          )
 	        )
 	      )
 	    );
@@ -29478,28 +27718,7 @@
 	module.exports = Projects;
 
 /***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-	var Project = React.createClass({
-	  displayName: 'Project',
-
-	  render: function () {
-	    console.log(this.props);
-	    return React.createElement(
-	      'div',
-	      null,
-	      this.props.name
-	    );
-	  }
-	});
-
-	module.exports = Project;
-
-/***/ },
-/* 250 */
+/* 244 */
 /***/ function(module, exports) {
 
 	var Project = Backbone.Model.extend({
@@ -29513,24 +27732,39 @@
 
 	var whereAbouts = new Project({
 	  project: 'WhereAbouts',
-	  picture: img + 'whereAbouts.png',
-	  content: 'WhereAbouts',
+	  path: 'WhereAbouts',
+	  picture: [img + 'whereAbouts.png', img + 'where1.png', img + 'where2.png'],
+	  site: '',
+	  git: '',
+	  footerContent: { title: 'WhereAbouts', content: 'A community-powered map for overlooked points-of-interests' },
+	  mainContent: '  Whereabouts is a community-powered map for overlooked points-of-interest that was created as part of a week long group project. It captures hidden gems that only a true local would know, giving the user a more authentic experience than what other travel sites can offer. To create an entry a user can simply whip out their phone, and use Google maps API to lock onto their location. All posts are saved in a postgresql database which can be filtered and viewed by location and distance. Popular posts are upvoted allowing for community reliability and more exciting points of interest to be displayed to the user quicker.I created this project prior to me learning Angular. With the goal to seamlessly render new information to the page without a refresh I utilized socket.io and jQuery. Whereabouts gets its charm from its content and is in desperate need of more. Please visit the site and add your own. For more information about where I have been visit',
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  socket: true,
 	  dataBase: true,
 	  web: true
 	});
-	var asteroidz = new Project({
-	  project: 'Asteroidz',
-	  picture: img + 'asteroid.png',
-	  content: 'Asteroidz',
+	var asteroids = new Project({
+	  project: 'Asteroids',
+	  path: 'Asteroids',
+	  picture: [img + 'asteroid.png', img + 'asteroid1.png', img + 'asteroid2.png'],
+	  footerContent: { title: 'Asteroids', content: 'A remake of Atari\'s asteroids' },
+	  mainContent: "Thank you for your interest in Asteroid Field, my very first project. This game is a remake of Atari's Asteroids, an arcade style game in which a spaceship fights for survival in an asteroid field. Gameplay was made entirely using the HTML5 canvas element and JavaScript. Additionally I used CSS, SASS and Jquery for styling the site. The game includes four different ships, three asteroid types with different behaviors and an updating score tally. User’s high scores  are saved and compared in a Firebase database which I utilize for creating a high score leader board. Click below to visit the site and see if you can get the new high score. I hope you enjoy the game.",
+	  webSite: 'https://astroidz.firebaseapp.com/',
+	  git: 'https://github.com/nickmac23/astroid',
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
 	  all: true,
 	  web: true
 	});
 	var socketChat = new Project({
 	  project: 'SocketChat',
-	  picture: img + 'socketchat.png',
-	  content: 'SocketChat',
+	  path: 'SocketChat',
+	  picture: [img + 'socketchat.png'],
+	  footerContent: { title: 'SocketChat', content: 'Real time messaging Chat App' },
+	  mainContent: "SocketChat was created in a day as part of a hackathon. In this project I worked with one other person to create an instant messaging CRUD app with the intent of learning socket.io. Users can create new chat rooms and message each other in real time. All messages are then saved and displayed only in the chat room in which they were created. Additional features include Google OAuth and Cookie based authentication.",
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
 	  all: true,
 	  socket: true,
 	  dataBase: true,
@@ -29538,32 +27772,45 @@
 	});
 	var musicPhone = new Project({
 	  project: 'Ionic Mobile Remote',
-	  picture: img + 'musicPhone.png',
-	  content: 'Ionic Mobile Remote',
+	  path: 'Music Player',
+	  picture: [img + 'musicPhone.png'],
+	  footerContent: { title: 'Music Project Mobile Remote', content: 'Mobile remote for a Network of Music Player Apps' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  socket: true,
 	  mobile: true
 	});
 	var musicElectron = new Project({
 	  project: 'Electron Desktop Music Player',
-	  picture: img + 'musicDesktop.png',
-	  content: 'Electron Desktop Music Player',
+	  path: 'Music Player',
+	  picture: [img + 'musicPrj.png'],
+	  footerContent: { title: 'Music Project Desktop App', content: 'Desktop music player' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  socket: true,
 	  desktop: true
 	});
 	var musicWeb = new Project({
-	  project: 'Angular web Music Player',
-	  picture: img + 'musicDesktop.png',
-	  content: 'Angular Desktop Music Player',
+	  project: 'Music Player',
+	  path: 'Music Player',
+	  picture: [img + 'musicPrj.png', img + 'musicPhone.png', img + 'system.png', img + 'music1.png', img + 'music2.png'],
+	  footerContent: { title: 'Music Project Web App', content: 'Web app compoent to a network of music player Apps' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  socket: true,
 	  web: true
 	});
 	var grasp = new Project({
 	  project: 'Grasp',
-	  picture: img + 'grasp.png',
-	  content: 'Grasp',
+	  path: 'Grasp',
+	  picture: [img + 'grasp.png', img + 'graspMobile.png', img + 'grasp1.png', img + 'grasp2.png', img + 'grasp3.png', img + 'grasp4.png'],
+	  footerContent: { title: 'Grasp Web App', content: 'A web app that monitors Student\'s understandings of a lecture' },
+	  mainContent: 'Grasp is an educational app. It utilizes socket.io and google charts api inorder to give teachers a realtime look at how much their class understands the lecture. By utilizing the web or phone app, students can indicate whether they understand the lecture or not. Every time a student changes state the graph is updated. ',
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  socket: true,
 	  dataBase: true,
@@ -29571,8 +27818,11 @@
 	});
 	var graspMobile = new Project({
 	  project: 'Grasp Ionic Mobile App',
-	  picture: img + 'graspMobile.png',
-	  content: 'Grasp Ionic Mobile App',
+	  path: 'Grasp',
+	  picture: [img + 'graspMobile.png'],
+	  footerContent: { title: 'Grasp Mobile App', content: 'A mobile app for students to share their understandings of a lecture' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  socket: true,
 	  dataBase: true,
@@ -29580,8 +27830,12 @@
 	});
 	var redditClone = new Project({
 	  project: 'Reddit Clone',
-	  picture: img + 'redditClone.png',
-	  content: 'Reddit Clone',
+	  path: 'Reddit Clone',
+	  picture: [img + 'redditClone.png', img + 'reddit1.png', img + 'reddit2.png'],
+	  footerContent: { title: 'Reddit Clone', content: 'A remake of reddit' },
+	  content: "Reddit clone was created as a way to hone my Angular skills. I designed the site to look and feel like Reddit in order to give this unassuming CRUD app more flare. Security was a big interest of mine and as a result Reddit clone utilizes JSON Web Tokens and HTTP interceptors to check for user validity. ",
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
 	  all: true,
 	  dataBase: true,
 	  web: true
@@ -29589,9 +27843,2063 @@
 
 	var Projects = Backbone.Collection.extend({ model: Project });
 
-	var myProjects = new Projects([musicPhone, asteroidz, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
+	var myProjects = new Projects([musicPhone, asteroids, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
 
 	module.exports = myProjects;
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var projects = __webpack_require__(244).models;
+	var Carousel = __webpack_require__(239);
+
+	var Project = React.createClass({
+	  displayName: 'Project',
+
+	  render: function () {
+	    var containerStyle = {
+	      backgroundColor: 'rgb(211, 212, 214)'
+	    };
+	    var style = {
+	      height: '366px'
+	    };
+	    var test = {
+	      textAlign: 'center'
+	    };
+	    var self = this;
+	    var project = projects.filter(function (proj) {
+	      return proj.attributes.project === self.props.path;
+	    });
+	    project = project[0].attributes;
+	    var stack = project.stack.map((tec, index) => React.createElement(
+	      'span',
+	      { key: index },
+	      ' ',
+	      tec,
+	      ' '
+	    ));
+	    return React.createElement(
+	      'div',
+	      { className: 'container-fluid', style: containerStyle },
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        React.createElement('br', null),
+	        React.createElement(
+	          'div',
+	          { className: 'col-lg-4 ', style: style },
+	          React.createElement(Carousel, { img: project.picture })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'col-lg-7 col-lg-offset-1', style: test },
+	          React.createElement(
+	            'h1',
+	            null,
+	            project.project
+	          ),
+	          React.createElement('hr', null),
+	          React.createElement(
+	            'p',
+	            null,
+	            project.mainContent
+	          ),
+	          React.createElement('hr', null),
+	          React.createElement(
+	            'ul',
+	            null,
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'strong',
+	                null,
+	                'Technology Stack:'
+	              ),
+	              ' ',
+	              stack,
+	              ' '
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'strong',
+	                null,
+	                'Live site:'
+	              ),
+	              ' ',
+	              React.createElement(
+	                'a',
+	                { href: project.webSite },
+	                project.webSite
+	              )
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'strong',
+	                null,
+	                'Github:'
+	              ),
+	              ' ',
+	              React.createElement(
+	                'a',
+	                { href: project.git },
+	                project.git
+	              )
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Project;
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(247);
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _innerSlider = __webpack_require__(248);
+
+	var _objectAssign = __webpack_require__(4);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _json2mq = __webpack_require__(259);
+
+	var _json2mq2 = _interopRequireDefault(_json2mq);
+
+	var _reactResponsiveMixin = __webpack_require__(261);
+
+	var _reactResponsiveMixin2 = _interopRequireDefault(_reactResponsiveMixin);
+
+	var _defaultProps = __webpack_require__(254);
+
+	var _defaultProps2 = _interopRequireDefault(_defaultProps);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Slider = _react2.default.createClass({
+	  displayName: 'Slider',
+
+	  mixins: [_reactResponsiveMixin2.default],
+	  getInitialState: function getInitialState() {
+	    return {
+	      breakpoint: null
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+
+	    if (this.props.responsive) {
+	      var breakpoints = this.props.responsive.map(function (breakpt) {
+	        return breakpt.breakpoint;
+	      });
+	      breakpoints.sort(function (x, y) {
+	        return x - y;
+	      });
+
+	      breakpoints.forEach(function (breakpoint, index) {
+	        var bQuery;
+	        if (index === 0) {
+	          bQuery = (0, _json2mq2.default)({ minWidth: 0, maxWidth: breakpoint });
+	        } else {
+	          bQuery = (0, _json2mq2.default)({ minWidth: breakpoints[index - 1], maxWidth: breakpoint });
+	        }
+	        _this.media(bQuery, function () {
+	          _this.setState({ breakpoint: breakpoint });
+	        });
+	      });
+
+	      // Register media query for full screen. Need to support resize from small to large
+	      var query = (0, _json2mq2.default)({ minWidth: breakpoints.slice(-1)[0] });
+
+	      this.media(query, function () {
+	        _this.setState({ breakpoint: null });
+	      });
+	    }
+	  },
+	  render: function render() {
+	    var _this2 = this;
+
+	    var settings;
+	    var newProps;
+	    if (this.state.breakpoint) {
+	      newProps = this.props.responsive.filter(function (resp) {
+	        return resp.breakpoint === _this2.state.breakpoint;
+	      });
+	      settings = newProps[0].settings === 'unslick' ? 'unslick' : (0, _objectAssign2.default)({}, this.props, newProps[0].settings);
+	    } else {
+	      settings = (0, _objectAssign2.default)({}, _defaultProps2.default, this.props);
+	    }
+
+	    var children = this.props.children;
+	    if (!Array.isArray(children)) {
+	      children = [children];
+	    }
+
+	    // Children may contain false or null, so we should filter them
+	    children = children.filter(function (child) {
+	      return !!child;
+	    });
+
+	    if (settings === 'unslick') {
+	      // if 'unslick' responsive breakpoint setting used, just return the <Slider> tag nested HTML
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        children
+	      );
+	    } else {
+	      return _react2.default.createElement(
+	        _innerSlider.InnerSlider,
+	        settings,
+	        children
+	      );
+	    }
+	  }
+	});
+
+	module.exports = Slider;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.InnerSlider = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _eventHandlers = __webpack_require__(249);
+
+	var _eventHandlers2 = _interopRequireDefault(_eventHandlers);
+
+	var _helpers = __webpack_require__(251);
+
+	var _helpers2 = _interopRequireDefault(_helpers);
+
+	var _initialState = __webpack_require__(253);
+
+	var _initialState2 = _interopRequireDefault(_initialState);
+
+	var _defaultProps = __webpack_require__(254);
+
+	var _defaultProps2 = _interopRequireDefault(_defaultProps);
+
+	var _classnames = __webpack_require__(255);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _track = __webpack_require__(256);
+
+	var _dots = __webpack_require__(257);
+
+	var _arrows = __webpack_require__(258);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var InnerSlider = exports.InnerSlider = _react2.default.createClass({
+	  displayName: 'InnerSlider',
+
+	  mixins: [_helpers2.default, _eventHandlers2.default],
+	  getInitialState: function getInitialState() {
+	    return _initialState2.default;
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return _defaultProps2.default;
+	  },
+	  componentWillMount: function componentWillMount() {
+	    if (this.props.init) {
+	      this.props.init();
+	    }
+	    this.setState({
+	      mounted: true
+	    });
+	    var lazyLoadedList = [];
+	    for (var i = 0; i < _react2.default.Children.count(this.props.children); i++) {
+	      if (i >= this.state.currentSlide && i < this.state.currentSlide + this.props.slidesToShow) {
+	        lazyLoadedList.push(i);
+	      }
+	    }
+
+	    if (this.props.lazyLoad && this.state.lazyLoadedList.length === 0) {
+	      this.setState({
+	        lazyLoadedList: lazyLoadedList
+	      });
+	    }
+	  },
+	  componentDidMount: function componentDidMount() {
+	    // Hack for autoplay -- Inspect Later
+	    this.initialize(this.props);
+	    this.adaptHeight();
+	    if (window.addEventListener) {
+	      window.addEventListener('resize', this.onWindowResized);
+	    } else {
+	      window.attachEvent('onresize', this.onWindowResized);
+	    }
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    if (window.addEventListener) {
+	      window.removeEventListener('resize', this.onWindowResized);
+	    } else {
+	      window.detachEvent('onresize', this.onWindowResized);
+	    }
+	    if (this.state.autoPlayTimer) {
+	      window.clearInterval(this.state.autoPlayTimer);
+	    }
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (this.props.slickGoTo != nextProps.slickGoTo) {
+	      this.changeSlide({
+	        message: 'index',
+	        index: nextProps.slickGoTo,
+	        currentSlide: this.state.currentSlide
+	      });
+	    } else {
+	      this.update(nextProps);
+	    }
+	  },
+	  componentDidUpdate: function componentDidUpdate() {
+	    this.adaptHeight();
+	  },
+	  onWindowResized: function onWindowResized() {
+	    this.update(this.props);
+	  },
+	  render: function render() {
+	    var className = (0, _classnames2.default)('slick-initialized', 'slick-slider', this.props.className);
+
+	    var trackProps = {
+	      fade: this.props.fade,
+	      cssEase: this.props.cssEase,
+	      speed: this.props.speed,
+	      infinite: this.props.infinite,
+	      centerMode: this.props.centerMode,
+	      currentSlide: this.state.currentSlide,
+	      lazyLoad: this.props.lazyLoad,
+	      lazyLoadedList: this.state.lazyLoadedList,
+	      rtl: this.props.rtl,
+	      slideWidth: this.state.slideWidth,
+	      slidesToShow: this.props.slidesToShow,
+	      slideCount: this.state.slideCount,
+	      trackStyle: this.state.trackStyle,
+	      variableWidth: this.props.variableWidth
+	    };
+
+	    var dots;
+
+	    if (this.props.dots === true && this.state.slideCount >= this.props.slidesToShow) {
+	      var dotProps = {
+	        dotsClass: this.props.dotsClass,
+	        slideCount: this.state.slideCount,
+	        slidesToShow: this.props.slidesToShow,
+	        currentSlide: this.state.currentSlide,
+	        slidesToScroll: this.props.slidesToScroll,
+	        clickHandler: this.changeSlide
+	      };
+
+	      dots = _react2.default.createElement(_dots.Dots, dotProps);
+	    }
+
+	    var prevArrow, nextArrow;
+
+	    var arrowProps = {
+	      infinite: this.props.infinite,
+	      centerMode: this.props.centerMode,
+	      currentSlide: this.state.currentSlide,
+	      slideCount: this.state.slideCount,
+	      slidesToShow: this.props.slidesToShow,
+	      prevArrow: this.props.prevArrow,
+	      nextArrow: this.props.nextArrow,
+	      clickHandler: this.changeSlide
+	    };
+
+	    if (this.props.arrows) {
+	      prevArrow = _react2.default.createElement(_arrows.PrevArrow, arrowProps);
+	      nextArrow = _react2.default.createElement(_arrows.NextArrow, arrowProps);
+	    }
+
+	    var centerPaddingStyle = null;
+
+	    if (this.props.vertical === false) {
+	      if (this.props.centerMode === true) {
+	        centerPaddingStyle = {
+	          padding: '0px ' + this.props.centerPadding
+	        };
+	      }
+	    } else {
+	      if (this.props.centerMode === true) {
+	        centerPaddingStyle = {
+	          padding: this.props.centerPadding + ' 0px'
+	        };
+	      }
+	    }
+
+	    return _react2.default.createElement(
+	      'div',
+	      { className: className, onMouseEnter: this.onInnerSliderEnter, onMouseLeave: this.onInnerSliderLeave },
+	      _react2.default.createElement(
+	        'div',
+	        {
+	          ref: 'list',
+	          className: 'slick-list',
+	          style: centerPaddingStyle,
+	          onMouseDown: this.swipeStart,
+	          onMouseMove: this.state.dragging ? this.swipeMove : null,
+	          onMouseUp: this.swipeEnd,
+	          onMouseLeave: this.state.dragging ? this.swipeEnd : null,
+	          onTouchStart: this.swipeStart,
+	          onTouchMove: this.state.dragging ? this.swipeMove : null,
+	          onTouchEnd: this.swipeEnd,
+	          onTouchCancel: this.state.dragging ? this.swipeEnd : null },
+	        _react2.default.createElement(
+	          _track.Track,
+	          _extends({ ref: 'track' }, trackProps),
+	          this.props.children
+	        )
+	      ),
+	      prevArrow,
+	      nextArrow,
+	      dots
+	    );
+	  }
+	});
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _trackHelper = __webpack_require__(250);
+
+	var _helpers = __webpack_require__(251);
+
+	var _helpers2 = _interopRequireDefault(_helpers);
+
+	var _objectAssign = __webpack_require__(4);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var EventHandlers = {
+	  // Event handler for previous and next
+	  changeSlide: function changeSlide(options) {
+	    var indexOffset, previousInt, slideOffset, unevenOffset, targetSlide;
+	    var _props = this.props;
+	    var slidesToScroll = _props.slidesToScroll;
+	    var slidesToShow = _props.slidesToShow;
+	    var _state = this.state;
+	    var slideCount = _state.slideCount;
+	    var currentSlide = _state.currentSlide;
+
+	    unevenOffset = slideCount % slidesToScroll !== 0;
+	    indexOffset = unevenOffset ? 0 : (slideCount - currentSlide) % slidesToScroll;
+
+	    if (options.message === 'previous') {
+	      slideOffset = indexOffset === 0 ? slidesToScroll : slidesToShow - indexOffset;
+	      targetSlide = currentSlide - slideOffset;
+	      if (this.props.lazyLoad) {
+	        previousInt = currentSlide - slideOffset;
+	        targetSlide = previousInt === -1 ? slideCount - 1 : previousInt;
+	      }
+	    } else if (options.message === 'next') {
+	      slideOffset = indexOffset === 0 ? slidesToScroll : indexOffset;
+	      targetSlide = currentSlide + slideOffset;
+	    } else if (options.message === 'dots') {
+	      // Click on dots
+	      targetSlide = options.index * options.slidesToScroll;
+	      if (targetSlide === options.currentSlide) {
+	        return;
+	      }
+	    } else if (options.message === 'index') {
+	      targetSlide = options.index;
+	      if (targetSlide === options.currentSlide) {
+	        return;
+	      }
+	    }
+
+	    this.slideHandler(targetSlide);
+	  },
+	  // Accessiblity handler for previous and next
+	  keyHandler: function keyHandler(e) {},
+	  // Focus on selecting a slide (click handler on track)
+	  selectHandler: function selectHandler(e) {},
+	  swipeStart: function swipeStart(e) {
+	    var touches, posX, posY;
+
+	    if (this.props.swipe === false || 'ontouchend' in document && this.props.swipe === false) {
+	      return;
+	    } else if (this.props.draggable === false && e.type.indexOf('mouse') !== -1) {
+	      return;
+	    }
+	    posX = e.touches !== undefined ? e.touches[0].pageX : e.clientX;
+	    posY = e.touches !== undefined ? e.touches[0].pageY : e.clientY;
+	    this.setState({
+	      dragging: true,
+	      touchObject: {
+	        startX: posX,
+	        startY: posY,
+	        curX: posX,
+	        curY: posY
+	      }
+	    });
+	  },
+	  swipeMove: function swipeMove(e) {
+	    if (!this.state.dragging) {
+	      return;
+	    }
+	    if (this.state.animating) {
+	      return;
+	    }
+	    var swipeLeft;
+	    var curLeft, positionOffset;
+	    var touchObject = this.state.touchObject;
+
+	    curLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
+	      slideIndex: this.state.currentSlide,
+	      trackRef: this.refs.track
+	    }, this.props, this.state));
+	    touchObject.curX = e.touches ? e.touches[0].pageX : e.clientX;
+	    touchObject.curY = e.touches ? e.touches[0].pageY : e.clientY;
+	    touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curX - touchObject.startX, 2)));
+
+	    positionOffset = (this.props.rtl === false ? 1 : -1) * (touchObject.curX > touchObject.startX ? 1 : -1);
+
+	    var currentSlide = this.state.currentSlide;
+	    var dotCount = Math.ceil(this.state.slideCount / this.props.slidesToScroll);
+	    var swipeDirection = this.swipeDirection(this.state.touchObject);
+	    var touchSwipeLength = touchObject.swipeLength;
+
+	    if (this.props.infinite === false) {
+	      if (currentSlide === 0 && swipeDirection === 'right' || currentSlide + 1 >= dotCount && swipeDirection === 'left') {
+	        touchSwipeLength = touchObject.swipeLength * this.props.edgeFriction;
+
+	        if (this.state.edgeDragged === false && this.props.edgeEvent) {
+	          this.props.edgeEvent(swipeDirection);
+	          this.setState({ edgeDragged: true });
+	        }
+	      }
+	    }
+
+	    if (this.state.swiped === false && this.props.swipeEvent) {
+	      this.props.swipeEvent(swipeDirection);
+	      this.setState({ swiped: true });
+	    }
+
+	    swipeLeft = curLeft + touchSwipeLength * positionOffset;
+	    this.setState({
+	      touchObject: touchObject,
+	      swipeLeft: swipeLeft,
+	      trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: swipeLeft }, this.props, this.state))
+	    });
+
+	    if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8) {
+	      return;
+	    }
+	    if (touchObject.swipeLength > 4) {
+	      e.preventDefault();
+	    }
+	  },
+	  swipeEnd: function swipeEnd(e) {
+	    if (!this.state.dragging) {
+	      return;
+	    }
+	    var touchObject = this.state.touchObject;
+	    var minSwipe = this.state.listWidth / this.props.touchThreshold;
+	    var swipeDirection = this.swipeDirection(touchObject);
+
+	    // reset the state of touch related state variables.
+	    this.setState({
+	      dragging: false,
+	      edgeDragged: false,
+	      swiped: false,
+	      swipeLeft: null,
+	      touchObject: {}
+	    });
+	    // Fix for #13
+	    if (!touchObject.swipeLength) {
+	      return;
+	    }
+	    if (touchObject.swipeLength > minSwipe) {
+	      e.preventDefault();
+	      if (swipeDirection === 'left') {
+	        this.slideHandler(this.state.currentSlide + this.props.slidesToScroll);
+	      } else if (swipeDirection === 'right') {
+	        this.slideHandler(this.state.currentSlide - this.props.slidesToScroll);
+	      } else {
+	        this.slideHandler(this.state.currentSlide);
+	      }
+	    } else {
+	      // Adjust the track back to it's original position.
+	      var currentLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
+	        slideIndex: this.state.currentSlide,
+	        trackRef: this.refs.track
+	      }, this.props, this.state));
+
+	      this.setState({
+	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state))
+	      });
+	    }
+	  },
+	  onInnerSliderEnter: function onInnerSliderEnter(e) {
+	    if (this.props.autoplay && this.props.pauseOnHover) {
+	      this.pause();
+	    }
+	  },
+	  onInnerSliderLeave: function onInnerSliderLeave(e) {
+	    if (this.props.autoplay && this.props.pauseOnHover) {
+	      this.autoPlay();
+	    }
+	  }
+	};
+
+	exports.default = EventHandlers;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.getTrackLeft = exports.getTrackAnimateCSS = exports.getTrackCSS = undefined;
+
+	var _reactDom = __webpack_require__(35);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var checkSpecKeys = function checkSpecKeys(spec, keysArray) {
+	  return keysArray.reduce(function (value, key) {
+	    return value && spec.hasOwnProperty(key);
+	  }, true) ? null : console.error('Keys Missing', spec);
+	};
+
+	var getTrackCSS = exports.getTrackCSS = function getTrackCSS(spec) {
+	  checkSpecKeys(spec, ['left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth']);
+
+	  var trackWidth;
+
+	  if (spec.variableWidth) {
+	    trackWidth = (spec.slideCount + 2 * spec.slidesToShow) * spec.slideWidth;
+	  } else if (spec.centerMode) {
+	    trackWidth = (spec.slideCount + 2 * (spec.slidesToShow + 1)) * spec.slideWidth;
+	  } else {
+	    trackWidth = (spec.slideCount + 2 * spec.slidesToShow) * spec.slideWidth;
+	  }
+
+	  var style = {
+	    opacity: 1,
+	    width: trackWidth,
+	    WebkitTransform: 'translate3d(' + spec.left + 'px, 0px, 0px)',
+	    transform: 'translate3d(' + spec.left + 'px, 0px, 0px)',
+	    transition: '',
+	    WebkitTransition: '',
+	    msTransform: 'translateX(' + spec.left + 'px)'
+	  };
+
+	  // Fallback for IE8
+	  if (!window.addEventListener && window.attachEvent) {
+	    style.marginLeft = spec.left + 'px';
+	  }
+
+	  return style;
+	};
+
+	var getTrackAnimateCSS = exports.getTrackAnimateCSS = function getTrackAnimateCSS(spec) {
+	  checkSpecKeys(spec, ['left', 'variableWidth', 'slideCount', 'slidesToShow', 'slideWidth', 'speed', 'cssEase']);
+
+	  var style = getTrackCSS(spec);
+	  // useCSS is true by default so it can be undefined
+	  style.WebkitTransition = '-webkit-transform ' + spec.speed + 'ms ' + spec.cssEase;
+	  style.transition = 'transform ' + spec.speed + 'ms ' + spec.cssEase;
+	  return style;
+	};
+
+	var getTrackLeft = exports.getTrackLeft = function getTrackLeft(spec) {
+
+	  checkSpecKeys(spec, ['slideIndex', 'trackRef', 'infinite', 'centerMode', 'slideCount', 'slidesToShow', 'slidesToScroll', 'slideWidth', 'listWidth', 'variableWidth']);
+
+	  var slideOffset = 0;
+	  var targetLeft;
+	  var targetSlide;
+
+	  if (spec.fade) {
+	    return 0;
+	  }
+
+	  if (spec.infinite) {
+	    if (spec.slideCount > spec.slidesToShow) {
+	      slideOffset = spec.slideWidth * spec.slidesToShow * -1;
+	    }
+	    if (spec.slideCount % spec.slidesToScroll !== 0) {
+	      if (spec.slideIndex + spec.slidesToScroll > spec.slideCount && spec.slideCount > spec.slidesToShow) {
+	        if (spec.slideIndex > spec.slideCount) {
+	          slideOffset = (spec.slidesToShow - (spec.slideIndex - spec.slideCount)) * spec.slideWidth * -1;
+	        } else {
+	          slideOffset = spec.slideCount % spec.slidesToScroll * spec.slideWidth * -1;
+	        }
+	      }
+	    }
+	  }
+
+	  if (spec.centerMode) {
+	    if (spec.infinite) {
+	      slideOffset += spec.slideWidth * Math.floor(spec.slidesToShow / 2);
+	    } else {
+	      slideOffset = spec.slideWidth * Math.floor(spec.slidesToShow / 2);
+	    }
+	  }
+
+	  targetLeft = spec.slideIndex * spec.slideWidth * -1 + slideOffset;
+
+	  if (spec.variableWidth === true) {
+	    var targetSlideIndex;
+	    if (spec.slideCount <= spec.slidesToShow || spec.infinite === false) {
+	      targetSlide = _reactDom2.default.findDOMNode(spec.trackRef).childNodes[spec.slideIndex];
+	    } else {
+	      targetSlideIndex = spec.slideIndex + spec.slidesToShow;
+	      targetSlide = _reactDom2.default.findDOMNode(spec.trackRef).childNodes[targetSlideIndex];
+	    }
+	    targetLeft = targetSlide ? targetSlide.offsetLeft * -1 : 0;
+	    if (spec.centerMode === true) {
+	      if (spec.infinite === false) {
+	        targetSlide = _reactDom2.default.findDOMNode(spec.trackRef).children[spec.slideIndex];
+	      } else {
+	        targetSlide = _reactDom2.default.findDOMNode(spec.trackRef).children[spec.slideIndex + spec.slidesToShow + 1];
+	      }
+
+	      targetLeft = targetSlide ? targetSlide.offsetLeft * -1 : 0;
+	      targetLeft += (spec.listWidth - targetSlide.offsetWidth) / 2;
+	    }
+	  }
+
+	  return targetLeft;
+	};
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(35);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _ReactTransitionEvents = __webpack_require__(252);
+
+	var _ReactTransitionEvents2 = _interopRequireDefault(_ReactTransitionEvents);
+
+	var _trackHelper = __webpack_require__(250);
+
+	var _objectAssign = __webpack_require__(4);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var helpers = {
+	  initialize: function initialize(props) {
+	    var slideCount = _react2.default.Children.count(props.children);
+	    var listWidth = this.getWidth(_reactDom2.default.findDOMNode(this.refs.list));
+	    var trackWidth = this.getWidth(_reactDom2.default.findDOMNode(this.refs.track));
+	    var slideWidth = trackWidth / props.slidesToShow;
+
+	    var currentSlide = props.rtl ? slideCount - 1 - props.initialSlide : props.initialSlide;
+
+	    this.setState({
+	      slideCount: slideCount,
+	      slideWidth: slideWidth,
+	      listWidth: listWidth,
+	      trackWidth: trackWidth,
+	      currentSlide: currentSlide
+	    }, function () {
+
+	      var targetLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
+	        slideIndex: this.state.currentSlide,
+	        trackRef: this.refs.track
+	      }, props, this.state));
+	      // getCSS function needs previously set state
+	      var trackStyle = (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: targetLeft }, props, this.state));
+
+	      this.setState({ trackStyle: trackStyle });
+
+	      this.autoPlay(); // once we're set up, trigger the initial autoplay.
+	    });
+	  },
+	  update: function update(props) {
+	    // This method has mostly same code as initialize method.
+	    // Refactor it
+	    var slideCount = _react2.default.Children.count(props.children);
+	    var listWidth = this.getWidth(_reactDom2.default.findDOMNode(this.refs.list));
+	    var trackWidth = this.getWidth(_reactDom2.default.findDOMNode(this.refs.track));
+	    var slideWidth = this.getWidth(_reactDom2.default.findDOMNode(this)) / props.slidesToShow;
+
+	    // pause slider if autoplay is set to false
+	    if (!props.autoplay) this.pause();
+
+	    this.setState({
+	      slideCount: slideCount,
+	      slideWidth: slideWidth,
+	      listWidth: listWidth,
+	      trackWidth: trackWidth
+	    }, function () {
+
+	      var targetLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
+	        slideIndex: this.state.currentSlide,
+	        trackRef: this.refs.track
+	      }, props, this.state));
+	      // getCSS function needs previously set state
+	      var trackStyle = (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: targetLeft }, props, this.state));
+
+	      this.setState({ trackStyle: trackStyle });
+	    });
+	  },
+	  getWidth: function getWidth(elem) {
+	    return elem.getBoundingClientRect().width || elem.offsetWidth;
+	  },
+	  adaptHeight: function adaptHeight() {
+	    if (this.props.adaptiveHeight) {
+	      var selector = '[data-index="' + this.state.currentSlide + '"]';
+	      if (this.refs.list) {
+	        var slickList = _reactDom2.default.findDOMNode(this.refs.list);
+	        slickList.style.height = slickList.querySelector(selector).offsetHeight + 'px';
+	      }
+	    }
+	  },
+	  slideHandler: function slideHandler(index) {
+	    var _this = this;
+
+	    // Functionality of animateSlide and postSlide is merged into this function
+	    // console.log('slideHandler', index);
+	    var targetSlide, currentSlide;
+	    var targetLeft, currentLeft;
+	    var _callback2;
+
+	    if (this.props.waitForAnimate && this.state.animating) {
+	      return;
+	    }
+
+	    if (this.props.fade) {
+	      currentSlide = this.state.currentSlide;
+
+	      //  Shifting targetSlide back into the range
+	      if (index < 0) {
+	        targetSlide = index + this.state.slideCount;
+	      } else if (index >= this.state.slideCount) {
+	        targetSlide = index - this.state.slideCount;
+	      } else {
+	        targetSlide = index;
+	      }
+
+	      if (this.props.lazyLoad && this.state.lazyLoadedList.indexOf(targetSlide) < 0) {
+	        this.setState({
+	          lazyLoadedList: this.state.lazyLoadedList.concat(targetSlide)
+	        });
+	      }
+
+	      _callback2 = function callback() {
+	        _this.setState({
+	          animating: false
+	        });
+	        if (_this.props.afterChange) {
+	          _this.props.afterChange(targetSlide);
+	        }
+	        _ReactTransitionEvents2.default.removeEndEventListener(_reactDom2.default.findDOMNode(_this.refs.track).children[currentSlide], _callback2);
+	      };
+
+	      this.setState({
+	        animating: true,
+	        currentSlide: targetSlide
+	      }, function () {
+	        _ReactTransitionEvents2.default.addEndEventListener(_reactDom2.default.findDOMNode(this.refs.track).children[currentSlide], _callback2);
+	      });
+
+	      if (this.props.beforeChange) {
+	        this.props.beforeChange(this.state.currentSlide, targetSlide);
+	      }
+
+	      this.autoPlay();
+	      return;
+	    }
+
+	    targetSlide = index;
+	    if (targetSlide < 0) {
+	      if (this.props.infinite === false) {
+	        currentSlide = 0;
+	      } else if (this.state.slideCount % this.props.slidesToScroll !== 0) {
+	        currentSlide = this.state.slideCount - this.state.slideCount % this.props.slidesToScroll;
+	      } else {
+	        currentSlide = this.state.slideCount + targetSlide;
+	      }
+	    } else if (targetSlide >= this.state.slideCount) {
+	      if (this.props.infinite === false) {
+	        currentSlide = this.state.slideCount - this.props.slidesToShow;
+	      } else if (this.state.slideCount % this.props.slidesToScroll !== 0) {
+	        currentSlide = 0;
+	      } else {
+	        currentSlide = targetSlide - this.state.slideCount;
+	      }
+	    } else {
+	      currentSlide = targetSlide;
+	    }
+
+	    targetLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
+	      slideIndex: targetSlide,
+	      trackRef: this.refs.track
+	    }, this.props, this.state));
+
+	    currentLeft = (0, _trackHelper.getTrackLeft)((0, _objectAssign2.default)({
+	      slideIndex: currentSlide,
+	      trackRef: this.refs.track
+	    }, this.props, this.state));
+
+	    if (this.props.infinite === false) {
+	      targetLeft = currentLeft;
+	    }
+
+	    if (this.props.beforeChange) {
+	      this.props.beforeChange(this.state.currentSlide, currentSlide);
+	    }
+
+	    if (this.props.lazyLoad) {
+	      var loaded = true;
+	      var slidesToLoad = [];
+	      for (var i = targetSlide; i < targetSlide + this.props.slidesToShow; i++) {
+	        loaded = loaded && this.state.lazyLoadedList.indexOf(i) >= 0;
+	        if (!loaded) {
+	          slidesToLoad.push(i);
+	        }
+	      }
+	      if (!loaded) {
+	        this.setState({
+	          lazyLoadedList: this.state.lazyLoadedList.concat(slidesToLoad)
+	        });
+	      }
+	    }
+
+	    // Slide Transition happens here.
+	    // animated transition happens to target Slide and
+	    // non - animated transition happens to current Slide
+	    // If CSS transitions are false, directly go the current slide.
+
+	    if (this.props.useCSS === false) {
+
+	      this.setState({
+	        currentSlide: currentSlide,
+	        trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state))
+	      }, function () {
+	        if (this.props.afterChange) {
+	          this.props.afterChange(currentSlide);
+	        }
+	      });
+	    } else {
+
+	      var nextStateChanges = {
+	        animating: false,
+	        currentSlide: currentSlide,
+	        trackStyle: (0, _trackHelper.getTrackCSS)((0, _objectAssign2.default)({ left: currentLeft }, this.props, this.state)),
+	        swipeLeft: null
+	      };
+
+	      _callback2 = function _callback() {
+	        _this.setState(nextStateChanges);
+	        if (_this.props.afterChange) {
+	          _this.props.afterChange(currentSlide);
+	        }
+	        _ReactTransitionEvents2.default.removeEndEventListener(_reactDom2.default.findDOMNode(_this.refs.track), _callback2);
+	      };
+
+	      this.setState({
+	        animating: true,
+	        currentSlide: currentSlide,
+	        trackStyle: (0, _trackHelper.getTrackAnimateCSS)((0, _objectAssign2.default)({ left: targetLeft }, this.props, this.state))
+	      }, function () {
+	        _ReactTransitionEvents2.default.addEndEventListener(_reactDom2.default.findDOMNode(this.refs.track), _callback2);
+	      });
+	    }
+
+	    this.autoPlay();
+	  },
+	  swipeDirection: function swipeDirection(touchObject) {
+	    var xDist, yDist, r, swipeAngle;
+
+	    xDist = touchObject.startX - touchObject.curX;
+	    yDist = touchObject.startY - touchObject.curY;
+	    r = Math.atan2(yDist, xDist);
+
+	    swipeAngle = Math.round(r * 180 / Math.PI);
+	    if (swipeAngle < 0) {
+	      swipeAngle = 360 - Math.abs(swipeAngle);
+	    }
+	    if (swipeAngle <= 45 && swipeAngle >= 0 || swipeAngle <= 360 && swipeAngle >= 315) {
+	      return this.props.rtl === false ? 'left' : 'right';
+	    }
+	    if (swipeAngle >= 135 && swipeAngle <= 225) {
+	      return this.props.rtl === false ? 'right' : 'left';
+	    }
+
+	    return 'vertical';
+	  },
+	  autoPlay: function autoPlay() {
+	    var _this2 = this;
+
+	    if (this.state.autoPlayTimer) {
+	      return;
+	    }
+	    var play = function play() {
+	      if (_this2.state.mounted) {
+	        var nextIndex = _this2.props.rtl ? _this2.state.currentSlide - _this2.props.slidesToScroll : _this2.state.currentSlide + _this2.props.slidesToScroll;
+	        _this2.slideHandler(nextIndex);
+	      }
+	    };
+	    if (this.props.autoplay) {
+	      this.setState({
+	        autoPlayTimer: window.setInterval(play, this.props.autoplaySpeed)
+	      });
+	    }
+	  },
+	  pause: function pause() {
+	    if (this.state.autoPlayTimer) {
+	      window.clearInterval(this.state.autoPlayTimer);
+	      this.setState({
+	        autoPlayTimer: null
+	      });
+	    }
+	  }
+	};
+
+	exports.default = helpers;
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactTransitionEvents
+	 */
+
+	'use strict';
+
+	var ExecutionEnvironment = __webpack_require__(50);
+
+	var getVendorPrefixedEventName = __webpack_require__(114);
+
+	var endEvents = [];
+
+	function detectEvents() {
+	  var animEnd = getVendorPrefixedEventName('animationend');
+	  var transEnd = getVendorPrefixedEventName('transitionend');
+
+	  if (animEnd) {
+	    endEvents.push(animEnd);
+	  }
+
+	  if (transEnd) {
+	    endEvents.push(transEnd);
+	  }
+	}
+
+	if (ExecutionEnvironment.canUseDOM) {
+	  detectEvents();
+	}
+
+	// We use the raw {add|remove}EventListener() call because EventListener
+	// does not know how to remove event listeners and we really should
+	// clean up. Also, these events are not triggered in older browsers
+	// so we should be A-OK here.
+
+	function addEventListener(node, eventName, eventListener) {
+	  node.addEventListener(eventName, eventListener, false);
+	}
+
+	function removeEventListener(node, eventName, eventListener) {
+	  node.removeEventListener(eventName, eventListener, false);
+	}
+
+	var ReactTransitionEvents = {
+	  addEndEventListener: function (node, eventListener) {
+	    if (endEvents.length === 0) {
+	      // If CSS transitions are not supported, trigger an "end animation"
+	      // event immediately.
+	      window.setTimeout(eventListener, 0);
+	      return;
+	    }
+	    endEvents.forEach(function (endEvent) {
+	      addEventListener(node, endEvent, eventListener);
+	    });
+	  },
+
+	  removeEndEventListener: function (node, eventListener) {
+	    if (endEvents.length === 0) {
+	      return;
+	    }
+	    endEvents.forEach(function (endEvent) {
+	      removeEventListener(node, endEvent, eventListener);
+	    });
+	  }
+	};
+
+	module.exports = ReactTransitionEvents;
+
+/***/ },
+/* 253 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	var initialState = {
+	    animating: false,
+	    dragging: false,
+	    autoPlayTimer: null,
+	    currentDirection: 0,
+	    currentLeft: null,
+	    currentSlide: 0,
+	    direction: 1,
+	    // listWidth: null,
+	    // listHeight: null,
+	    // loadIndex: 0,
+	    slideCount: null,
+	    slideWidth: null,
+	    // sliding: false,
+	    // slideOffset: 0,
+	    swipeLeft: null,
+	    touchObject: {
+	        startX: 0,
+	        startY: 0,
+	        curX: 0,
+	        curY: 0
+	    },
+
+	    lazyLoadedList: [],
+
+	    // added for react
+	    initialized: false,
+	    edgeDragged: false,
+	    swiped: false, // used by swipeEvent. differentites between touch and swipe.
+	    trackStyle: {},
+	    trackWidth: 0
+
+	    // Removed
+	    // transformsEnabled: false,
+	    // $nextArrow: null,
+	    // $prevArrow: null,
+	    // $dots: null,
+	    // $list: null,
+	    // $slideTrack: null,
+	    // $slides: null,
+	};
+
+	module.exports = initialState;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var defaultProps = {
+	    className: '',
+	    // accessibility: true,
+	    adaptiveHeight: false,
+	    arrows: true,
+	    autoplay: false,
+	    autoplaySpeed: 3000,
+	    centerMode: false,
+	    centerPadding: '50px',
+	    cssEase: 'ease',
+	    dots: false,
+	    dotsClass: 'slick-dots',
+	    draggable: true,
+	    easing: 'linear',
+	    edgeFriction: 0.35,
+	    fade: false,
+	    focusOnSelect: false,
+	    infinite: true,
+	    initialSlide: 0,
+	    lazyLoad: false,
+	    pauseOnHover: false,
+	    responsive: null,
+	    rtl: false,
+	    slide: 'div',
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	    speed: 500,
+	    swipe: true,
+	    swipeToSlide: false,
+	    touchMove: true,
+	    touchThreshold: 5,
+	    useCSS: true,
+	    variableWidth: false,
+	    vertical: false,
+	    waitForAnimate: true,
+	    afterChange: null,
+	    beforeChange: null,
+	    edgeEvent: null,
+	    init: null,
+	    swipeEvent: null,
+	    // nextArrow, prevArrow are react componets
+	    nextArrow: null,
+	    prevArrow: null
+	};
+
+	module.exports = defaultProps;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.Track = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _objectAssign = __webpack_require__(4);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _classnames = __webpack_require__(255);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var getSlideClasses = function getSlideClasses(spec) {
+	  var slickActive, slickCenter, slickCloned;
+	  var centerOffset, index;
+
+	  if (spec.rtl) {
+	    index = spec.slideCount - 1 - spec.index;
+	  } else {
+	    index = spec.index;
+	  }
+
+	  slickCloned = index < 0 || index >= spec.slideCount;
+	  if (spec.centerMode) {
+	    centerOffset = Math.floor(spec.slidesToShow / 2);
+	    slickCenter = (index - spec.currentSlide) % spec.slideCount === 0;
+	    if (index > spec.currentSlide - centerOffset - 1 && index <= spec.currentSlide + centerOffset) {
+	      slickActive = true;
+	    }
+	  } else {
+	    slickActive = spec.currentSlide <= index && index < spec.currentSlide + spec.slidesToShow;
+	  }
+	  return (0, _classnames2.default)({
+	    'slick-slide': true,
+	    'slick-active': slickActive,
+	    'slick-center': slickCenter,
+	    'slick-cloned': slickCloned
+	  });
+	};
+
+	var getSlideStyle = function getSlideStyle(spec) {
+	  var style = {};
+
+	  if (spec.variableWidth === undefined || spec.variableWidth === false) {
+	    style.width = spec.slideWidth;
+	  }
+
+	  if (spec.fade) {
+	    style.position = 'relative';
+	    style.left = -spec.index * spec.slideWidth;
+	    style.opacity = spec.currentSlide === spec.index ? 1 : 0;
+	    style.transition = 'opacity ' + spec.speed + 'ms ' + spec.cssEase;
+	    style.WebkitTransition = 'opacity ' + spec.speed + 'ms ' + spec.cssEase;
+	  }
+
+	  return style;
+	};
+
+	var getKey = function getKey(child, fallbackKey) {
+	  // key could be a zero
+	  return child.key === null || child.key === undefined ? fallbackKey : child.key;
+	};
+
+	var renderSlides = function renderSlides(spec) {
+	  var key;
+	  var slides = [];
+	  var preCloneSlides = [];
+	  var postCloneSlides = [];
+	  var count = _react2.default.Children.count(spec.children);
+	  var child;
+
+	  _react2.default.Children.forEach(spec.children, function (elem, index) {
+	    if (!spec.lazyLoad | (spec.lazyLoad && spec.lazyLoadedList.indexOf(index) >= 0)) {
+	      child = elem;
+	    } else {
+	      child = _react2.default.createElement('div', null);
+	    }
+	    var childStyle = getSlideStyle((0, _objectAssign2.default)({}, spec, { index: index }));
+	    var slickClasses = getSlideClasses((0, _objectAssign2.default)({ index: index }, spec));
+	    var cssClasses;
+
+	    if (child.props.className) {
+	      cssClasses = (0, _classnames2.default)(slickClasses, child.props.className);
+	    } else {
+	      cssClasses = slickClasses;
+	    }
+
+	    slides.push(_react2.default.cloneElement(child, {
+	      key: 'original' + getKey(child, index),
+	      'data-index': index,
+	      className: cssClasses,
+	      style: (0, _objectAssign2.default)({}, child.props.style || {}, childStyle)
+	    }));
+
+	    // variableWidth doesn't wrap properly.
+	    if (spec.infinite && spec.fade === false) {
+	      var infiniteCount = spec.variableWidth ? spec.slidesToShow + 1 : spec.slidesToShow;
+
+	      if (index >= count - infiniteCount) {
+	        key = -(count - index);
+	        preCloneSlides.push(_react2.default.cloneElement(child, {
+	          key: 'precloned' + getKey(child, key),
+	          'data-index': key,
+	          className: cssClasses,
+	          style: (0, _objectAssign2.default)({}, child.props.style || {}, childStyle)
+	        }));
+	      }
+
+	      if (index < infiniteCount) {
+	        key = count + index;
+	        postCloneSlides.push(_react2.default.cloneElement(child, {
+	          key: 'postcloned' + getKey(child, key),
+	          'data-index': key,
+	          className: cssClasses,
+	          style: (0, _objectAssign2.default)({}, child.props.style || {}, childStyle)
+	        }));
+	      }
+	    }
+	  });
+
+	  if (spec.rtl) {
+	    return preCloneSlides.concat(slides, postCloneSlides).reverse();
+	  } else {
+	    return preCloneSlides.concat(slides, postCloneSlides);
+	  }
+	};
+
+	var Track = exports.Track = _react2.default.createClass({
+	  displayName: 'Track',
+
+	  render: function render() {
+	    var slides = renderSlides(this.props);
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'slick-track', style: this.props.trackStyle },
+	      slides
+	    );
+	  }
+	});
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.Dots = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(255);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var getDotCount = function getDotCount(spec) {
+	  var dots;
+	  dots = Math.ceil(spec.slideCount / spec.slidesToScroll);
+	  return dots;
+	};
+
+	var Dots = exports.Dots = _react2.default.createClass({
+	  displayName: 'Dots',
+
+
+	  clickHandler: function clickHandler(options, e) {
+	    // In Autoplay the focus stays on clicked button even after transition
+	    // to next slide. That only goes away by click somewhere outside
+	    e.preventDefault();
+	    this.props.clickHandler(options);
+	  },
+	  render: function render() {
+	    var _this = this;
+
+	    var dotCount = getDotCount({
+	      slideCount: this.props.slideCount,
+	      slidesToScroll: this.props.slidesToScroll
+	    });
+
+	    // Apply join & split to Array to pre-fill it for IE8
+	    //
+	    // Credit: http://stackoverflow.com/a/13735425/1849458
+	    var dots = Array.apply(null, Array(dotCount + 1).join('0').split('')).map(function (x, i) {
+
+	      var className = (0, _classnames2.default)({
+	        'slick-active': _this.props.currentSlide === i * _this.props.slidesToScroll
+	      });
+
+	      var dotOptions = {
+	        message: 'dots',
+	        index: i,
+	        slidesToScroll: _this.props.slidesToScroll,
+	        currentSlide: _this.props.currentSlide
+	      };
+
+	      return _react2.default.createElement(
+	        'li',
+	        { key: i, className: className },
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: _this.clickHandler.bind(_this, dotOptions) },
+	          i + 1
+	        )
+	      );
+	    });
+
+	    return _react2.default.createElement(
+	      'ul',
+	      { className: this.props.dotsClass, style: { display: 'block' } },
+	      dots
+	    );
+	  }
+	});
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.NextArrow = exports.PrevArrow = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(255);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var PrevArrow = exports.PrevArrow = _react2.default.createClass({
+	  displayName: 'PrevArrow',
+
+
+	  clickHandler: function clickHandler(options, e) {
+	    e.preventDefault();
+	    this.props.clickHandler(options, e);
+	  },
+	  render: function render() {
+	    var prevClasses = { 'slick-arrow': true, 'slick-prev': true };
+	    var prevHandler = this.clickHandler.bind(this, { message: 'previous' });
+
+	    if (!this.props.infinite && (this.props.currentSlide === 0 || this.props.slideCount <= this.props.slidesToShow)) {
+	      prevClasses['slick-disabled'] = true;
+	      prevHandler = null;
+	    }
+
+	    var prevArrowProps = {
+	      key: '0',
+	      'data-role': 'none',
+	      className: (0, _classnames2.default)(prevClasses),
+	      style: { display: 'block' },
+	      onClick: prevHandler
+	    };
+	    var prevArrow;
+
+	    if (this.props.prevArrow) {
+	      prevArrow = _react2.default.cloneElement(this.props.prevArrow, prevArrowProps);
+	    } else {
+	      prevArrow = _react2.default.createElement(
+	        'button',
+	        _extends({ key: '0', type: 'button' }, prevArrowProps),
+	        ' Previous'
+	      );
+	    }
+
+	    return prevArrow;
+	  }
+	});
+
+	var NextArrow = exports.NextArrow = _react2.default.createClass({
+	  displayName: 'NextArrow',
+
+	  clickHandler: function clickHandler(options, e) {
+	    e.preventDefault();
+	    this.props.clickHandler(options, e);
+	  },
+	  render: function render() {
+	    var nextClasses = { 'slick-arrow': true, 'slick-next': true };
+	    var nextHandler = this.clickHandler.bind(this, { message: 'next' });
+
+	    if (!this.props.infinite) {
+	      if (this.props.centerMode && this.props.currentSlide >= this.props.slideCount - 1) {
+	        nextClasses['slick-disabled'] = true;
+	        nextHandler = null;
+	      } else {
+	        if (this.props.currentSlide >= this.props.slideCount - this.props.slidesToShow) {
+	          nextClasses['slick-disabled'] = true;
+	          nextHandler = null;
+	        }
+	      }
+
+	      if (this.props.slideCount <= this.props.slidesToShow) {
+	        nextClasses['slick-disabled'] = true;
+	        nextHandler = null;
+	      }
+	    }
+
+	    var nextArrowProps = {
+	      key: '1',
+	      'data-role': 'none',
+	      className: (0, _classnames2.default)(nextClasses),
+	      style: { display: 'block' },
+	      onClick: nextHandler
+	    };
+
+	    var nextArrow;
+
+	    if (this.props.nextArrow) {
+	      nextArrow = _react2.default.cloneElement(this.props.nextArrow, nextArrowProps);
+	    } else {
+	      nextArrow = _react2.default.createElement(
+	        'button',
+	        _extends({ key: '1', type: 'button' }, nextArrowProps),
+	        ' Next'
+	      );
+	    }
+
+	    return nextArrow;
+	  }
+	});
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var camel2hyphen = __webpack_require__(260);
+
+	var isDimension = function (feature) {
+	  var re = /[height|width]$/;
+	  return re.test(feature);
+	};
+
+	var obj2mq = function (obj) {
+	  var mq = '';
+	  var features = Object.keys(obj);
+	  features.forEach(function (feature, index) {
+	    var value = obj[feature];
+	    feature = camel2hyphen(feature);
+	    // Add px to dimension features
+	    if (isDimension(feature) && typeof value === 'number') {
+	      value = value + 'px';
+	    }
+	    if (value === true) {
+	      mq += feature;
+	    } else if (value === false) {
+	      mq += 'not ' + feature;
+	    } else {
+	      mq += '(' + feature + ': ' + value + ')';
+	    }
+	    if (index < features.length-1) {
+	      mq += ' and '
+	    }
+	  });
+	  return mq;
+	};
+
+	var json2mq = function (query) {
+	  var mq = '';
+	  if (typeof query === 'string') {
+	    return query;
+	  }
+	  // Handling array of media queries
+	  if (query instanceof Array) {
+	    query.forEach(function (q, index) {
+	      mq += obj2mq(q);
+	      if (index < query.length-1) {
+	        mq += ', '
+	      }
+	    });
+	    return mq;
+	  }
+	  // Handling single media query
+	  return obj2mq(query);
+	};
+
+	module.exports = json2mq;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports) {
+
+	var camel2hyphen = function (str) {
+	  return str
+	          .replace(/[A-Z]/g, function (match) {
+	            return '-' + match.toLowerCase();
+	          })
+	          .toLowerCase();
+	};
+
+	module.exports = camel2hyphen;
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var canUseDOM = __webpack_require__(262);
+	var enquire = canUseDOM && __webpack_require__(263);
+	var json2mq = __webpack_require__(259);
+
+	var ResponsiveMixin = {
+	  media: function (query, handler) {
+	    query = json2mq(query);
+	    if (typeof handler === 'function') {
+	      handler = {
+	        match: handler
+	      };
+	    }
+	    enquire.register(query, handler);
+
+	    // Queue the handlers to unregister them at unmount  
+	    if (! this._responsiveMediaHandlers) {
+	      this._responsiveMediaHandlers = [];
+	    }
+	    this._responsiveMediaHandlers.push({query: query, handler: handler});
+	  },
+	  componentWillUnmount: function () {
+	    if (this._responsiveMediaHandlers) {
+	      this._responsiveMediaHandlers.forEach(function(obj) {
+	        enquire.unregister(obj.query, obj.handler);
+	      });
+	    }
+	  }
+	};
+
+	module.exports = ResponsiveMixin;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	var canUseDOM = !!(
+	  typeof window !== 'undefined' &&
+	  window.document &&
+	  window.document.createElement
+	);
+
+	module.exports = canUseDOM;
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * enquire.js v2.1.1 - Awesome Media Queries in JavaScript
+	 * Copyright (c) 2014 Nick Williams - http://wicky.nillia.ms/enquire.js
+	 * License: MIT (http://www.opensource.org/licenses/mit-license.php)
+	 */
+
+	;(function (name, context, factory) {
+		var matchMedia = window.matchMedia;
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = factory(matchMedia);
+		}
+		else if (true) {
+			!(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
+				return (context[name] = factory(matchMedia));
+			}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		}
+		else {
+			context[name] = factory(matchMedia);
+		}
+	}('enquire', this, function (matchMedia) {
+
+		'use strict';
+
+	    /*jshint unused:false */
+	    /**
+	     * Helper function for iterating over a collection
+	     *
+	     * @param collection
+	     * @param fn
+	     */
+	    function each(collection, fn) {
+	        var i      = 0,
+	            length = collection.length,
+	            cont;
+
+	        for(i; i < length; i++) {
+	            cont = fn(collection[i], i);
+	            if(cont === false) {
+	                break; //allow early exit
+	            }
+	        }
+	    }
+
+	    /**
+	     * Helper function for determining whether target object is an array
+	     *
+	     * @param target the object under test
+	     * @return {Boolean} true if array, false otherwise
+	     */
+	    function isArray(target) {
+	        return Object.prototype.toString.apply(target) === '[object Array]';
+	    }
+
+	    /**
+	     * Helper function for determining whether target object is a function
+	     *
+	     * @param target the object under test
+	     * @return {Boolean} true if function, false otherwise
+	     */
+	    function isFunction(target) {
+	        return typeof target === 'function';
+	    }
+
+	    /**
+	     * Delegate to handle a media query being matched and unmatched.
+	     *
+	     * @param {object} options
+	     * @param {function} options.match callback for when the media query is matched
+	     * @param {function} [options.unmatch] callback for when the media query is unmatched
+	     * @param {function} [options.setup] one-time callback triggered the first time a query is matched
+	     * @param {boolean} [options.deferSetup=false] should the setup callback be run immediately, rather than first time query is matched?
+	     * @constructor
+	     */
+	    function QueryHandler(options) {
+	        this.options = options;
+	        !options.deferSetup && this.setup();
+	    }
+	    QueryHandler.prototype = {
+
+	        /**
+	         * coordinates setup of the handler
+	         *
+	         * @function
+	         */
+	        setup : function() {
+	            if(this.options.setup) {
+	                this.options.setup();
+	            }
+	            this.initialised = true;
+	        },
+
+	        /**
+	         * coordinates setup and triggering of the handler
+	         *
+	         * @function
+	         */
+	        on : function() {
+	            !this.initialised && this.setup();
+	            this.options.match && this.options.match();
+	        },
+
+	        /**
+	         * coordinates the unmatch event for the handler
+	         *
+	         * @function
+	         */
+	        off : function() {
+	            this.options.unmatch && this.options.unmatch();
+	        },
+
+	        /**
+	         * called when a handler is to be destroyed.
+	         * delegates to the destroy or unmatch callbacks, depending on availability.
+	         *
+	         * @function
+	         */
+	        destroy : function() {
+	            this.options.destroy ? this.options.destroy() : this.off();
+	        },
+
+	        /**
+	         * determines equality by reference.
+	         * if object is supplied compare options, if function, compare match callback
+	         *
+	         * @function
+	         * @param {object || function} [target] the target for comparison
+	         */
+	        equals : function(target) {
+	            return this.options === target || this.options.match === target;
+	        }
+
+	    };
+	    /**
+	     * Represents a single media query, manages it's state and registered handlers for this query
+	     *
+	     * @constructor
+	     * @param {string} query the media query string
+	     * @param {boolean} [isUnconditional=false] whether the media query should run regardless of whether the conditions are met. Primarily for helping older browsers deal with mobile-first design
+	     */
+	    function MediaQuery(query, isUnconditional) {
+	        this.query = query;
+	        this.isUnconditional = isUnconditional;
+	        this.handlers = [];
+	        this.mql = matchMedia(query);
+
+	        var self = this;
+	        this.listener = function(mql) {
+	            self.mql = mql;
+	            self.assess();
+	        };
+	        this.mql.addListener(this.listener);
+	    }
+	    MediaQuery.prototype = {
+
+	        /**
+	         * add a handler for this query, triggering if already active
+	         *
+	         * @param {object} handler
+	         * @param {function} handler.match callback for when query is activated
+	         * @param {function} [handler.unmatch] callback for when query is deactivated
+	         * @param {function} [handler.setup] callback for immediate execution when a query handler is registered
+	         * @param {boolean} [handler.deferSetup=false] should the setup callback be deferred until the first time the handler is matched?
+	         */
+	        addHandler : function(handler) {
+	            var qh = new QueryHandler(handler);
+	            this.handlers.push(qh);
+
+	            this.matches() && qh.on();
+	        },
+
+	        /**
+	         * removes the given handler from the collection, and calls it's destroy methods
+	         * 
+	         * @param {object || function} handler the handler to remove
+	         */
+	        removeHandler : function(handler) {
+	            var handlers = this.handlers;
+	            each(handlers, function(h, i) {
+	                if(h.equals(handler)) {
+	                    h.destroy();
+	                    return !handlers.splice(i,1); //remove from array and exit each early
+	                }
+	            });
+	        },
+
+	        /**
+	         * Determine whether the media query should be considered a match
+	         * 
+	         * @return {Boolean} true if media query can be considered a match, false otherwise
+	         */
+	        matches : function() {
+	            return this.mql.matches || this.isUnconditional;
+	        },
+
+	        /**
+	         * Clears all handlers and unbinds events
+	         */
+	        clear : function() {
+	            each(this.handlers, function(handler) {
+	                handler.destroy();
+	            });
+	            this.mql.removeListener(this.listener);
+	            this.handlers.length = 0; //clear array
+	        },
+
+	        /*
+	         * Assesses the query, turning on all handlers if it matches, turning them off if it doesn't match
+	         */
+	        assess : function() {
+	            var action = this.matches() ? 'on' : 'off';
+
+	            each(this.handlers, function(handler) {
+	                handler[action]();
+	            });
+	        }
+	    };
+	    /**
+	     * Allows for registration of query handlers.
+	     * Manages the query handler's state and is responsible for wiring up browser events
+	     *
+	     * @constructor
+	     */
+	    function MediaQueryDispatch () {
+	        if(!matchMedia) {
+	            throw new Error('matchMedia not present, legacy browsers require a polyfill');
+	        }
+
+	        this.queries = {};
+	        this.browserIsIncapable = !matchMedia('only all').matches;
+	    }
+
+	    MediaQueryDispatch.prototype = {
+
+	        /**
+	         * Registers a handler for the given media query
+	         *
+	         * @param {string} q the media query
+	         * @param {object || Array || Function} options either a single query handler object, a function, or an array of query handlers
+	         * @param {function} options.match fired when query matched
+	         * @param {function} [options.unmatch] fired when a query is no longer matched
+	         * @param {function} [options.setup] fired when handler first triggered
+	         * @param {boolean} [options.deferSetup=false] whether setup should be run immediately or deferred until query is first matched
+	         * @param {boolean} [shouldDegrade=false] whether this particular media query should always run on incapable browsers
+	         */
+	        register : function(q, options, shouldDegrade) {
+	            var queries         = this.queries,
+	                isUnconditional = shouldDegrade && this.browserIsIncapable;
+
+	            if(!queries[q]) {
+	                queries[q] = new MediaQuery(q, isUnconditional);
+	            }
+
+	            //normalise to object in an array
+	            if(isFunction(options)) {
+	                options = { match : options };
+	            }
+	            if(!isArray(options)) {
+	                options = [options];
+	            }
+	            each(options, function(handler) {
+	                queries[q].addHandler(handler);
+	            });
+
+	            return this;
+	        },
+
+	        /**
+	         * unregisters a query and all it's handlers, or a specific handler for a query
+	         *
+	         * @param {string} q the media query to target
+	         * @param {object || function} [handler] specific handler to unregister
+	         */
+	        unregister : function(q, handler) {
+	            var query = this.queries[q];
+
+	            if(query) {
+	                if(handler) {
+	                    query.removeHandler(handler);
+	                }
+	                else {
+	                    query.clear();
+	                    delete this.queries[q];
+	                }
+	            }
+
+	            return this;
+	        }
+	    };
+
+		return new MediaQueryDispatch();
+
+	}));
 
 /***/ }
 /******/ ]);

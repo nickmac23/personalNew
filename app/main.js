@@ -23,7 +23,10 @@ var Body = React.createClass({
   render: function() {
     return (
       <div >
+        <div className='col-lg-10 col-lg-offset-1'>
+        <br />
         <CarouselComp />
+        </div>
         <Skills />
         <Footer />
       </div>
@@ -35,7 +38,7 @@ var Portfolio = React.createClass({
     return (
       <div >
         <Projects />
-        <Footer />  
+        <Footer />
       </div>
     )
   }
@@ -49,7 +52,7 @@ var ProjectPage = React.createClass({
   render: function() {
     return (
       <div>
-        <Project name={this.state.page} />
+        <Project path={this.state.page} />
       </div>
     )
   }
