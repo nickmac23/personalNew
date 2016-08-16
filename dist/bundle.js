@@ -50,10 +50,10 @@
 
 	var Header = __webpack_require__(238);
 	var CarouselComp = __webpack_require__(239);
-	var Skills = __webpack_require__(240);
-	var Footer = __webpack_require__(242);
-	var Projects = __webpack_require__(243);
-	var Project = __webpack_require__(245);
+	var Skills = __webpack_require__(258);
+	var Footer = __webpack_require__(260);
+	var Projects = __webpack_require__(261);
+	var Project = __webpack_require__(263);
 
 	var App = React.createClass({
 	  displayName: 'App',
@@ -27174,16 +27174,6 @@
 	          'a',
 	          { href: 'http://linkedin.com/in/nickmacintyre', style: linkStyle },
 	          'LINKEDIN'
-	        ),
-	        React.createElement(
-	          'a',
-	          { href: '#', style: linkStyle },
-	          'RESUME'
-	        ),
-	        React.createElement(
-	          'a',
-	          { href: '#', style: linkStyle },
-	          'CONTACT'
 	        )
 	      )
 	    );
@@ -27197,7 +27187,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var Slider = __webpack_require__(246);
+	var Slider = __webpack_require__(240);
 
 	var SimpleSlider = React.createClass({
 	  displayName: 'SimpleSlider',
@@ -27226,9 +27216,22 @@
 	      });
 	    } else {
 	      var style = {
-	        backgroundColor: 'rgb(255, 255, 255)',
+	        backgroundColorImage: 'rgb(211, 212, 214)',
 	        minHeight: '300px',
-	        padding: '20px'
+	        padding: '20px',
+	        textAlign: 'center',
+	        display: 'flex',
+	        justifyContent: 'space-around',
+	        flexDirection: 'column'
+	      };
+	      var h1Style = {
+	        fontSize: '60px'
+	      };
+	      var h2Style = {
+	        color: 'rgb(211, 212, 214)'
+	      };
+	      var blue = {
+	        color: 'rgb(41, 72, 134)'
 	      };
 	      var array = [React.createElement(
 	        'div',
@@ -27236,70 +27239,54 @@
 	        ' ',
 	        React.createElement(
 	          'h1',
-	          null,
-	          'Welcome'
-	        ),
-	        React.createElement(
-	          'h2',
-	          null,
-	          'I am a full stack developer specializing in: '
+	          { style: h1Style },
+	          React.createElement(
+	            'span',
+	            { style: blue },
+	            'Hello,'
+	          ),
+	          ' I am Nick MacIntyre'
 	        ),
 	        ' '
 	      ), React.createElement(
 	        'div',
 	        { key: 2, style: style },
-	        ' ',
 	        React.createElement(
 	          'h1',
 	          null,
-	          'Welcome'
+	          'I am a ',
+	          React.createElement(
+	            'span',
+	            { style: blue },
+	            'full stack web developer'
+	          ),
+	          ' specializing in:'
 	        ),
 	        React.createElement(
 	          'h2',
-	          null,
-	          'I am a full stack developer specializing in: '
+	          { style: h2Style },
+	          'Node.js | JavaScript | PostgreSQL'
 	        ),
-	        ' ',
-	        React.createElement(
-	          'ul',
-	          { className: 'col-lg-offset-6' },
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'h3',
-	              null,
-	              'JavaScript'
-	            )
-	          ),
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'h3',
-	              null,
-	              'Node.JS'
-	            )
-	          ),
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'h3',
-	              null,
-	              'PostgreSQL'
-	            )
-	          )
-	        ),
-	        '  '
+	        ' '
 	      ), React.createElement(
 	        'div',
 	        { key: 3, style: style },
+	        React.createElement(
+	          'h1',
+	          null,
+	          'I am a ',
+	          React.createElement(
+	            'span',
+	            { style: blue },
+	            'full stack web developer'
+	          ),
+	          ' specializing in:'
+	        ),
 	        ' ',
 	        React.createElement(
 	          'h2',
 	          null,
-	          'What I can do for you is:'
+	          'Node.js | JavaScript | PostgreSQL'
 	        ),
 	        ' '
 	      ), React.createElement(
@@ -27307,40 +27294,71 @@
 	        { key: 4, style: style },
 	        ' ',
 	        React.createElement(
-	          'h2',
+	          'h1',
 	          null,
-	          'What I can do for you is:'
+	          'What I can do for ',
+	          React.createElement(
+	            'span',
+	            { style: blue },
+	            'you'
+	          ),
+	          ' is:'
+	        ),
+	        ' ',
+	        React.createElement(
+	          'h2',
+	          { style: h2Style },
+	          'Responsive System Design | Database Integration | Real-Time Computing'
+	        )
+	      ), React.createElement(
+	        'div',
+	        { key: 5, style: style },
+	        ' ',
+	        React.createElement(
+	          'h1',
+	          null,
+	          'What I can do for ',
+	          React.createElement(
+	            'span',
+	            { style: blue },
+	            'you'
+	          ),
+	          ' is:'
 	        ),
 	        React.createElement(
-	          'ul',
-	          { className: 'col-lg-offset-6' },
+	          'h2',
+	          null,
+	          'Responsive System Design | Database Integration | Real-Time Computing'
+	        )
+	      ), React.createElement(
+	        'div',
+	        { key: 6, style: style },
+	        ' ',
+	        React.createElement(
+	          'h1',
+	          null,
+	          'Click on the ',
 	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'h3',
-	              null,
-	              'Responsive System Design'
-	            )
+	            'span',
+	            { style: blue },
+	            'portfolio'
 	          ),
+	          ' tab to see my projects.'
+	        )
+	      ), React.createElement(
+	        'div',
+	        { key: 7, style: style },
+	        ' ',
+	        React.createElement(
+	          'h1',
+	          null,
+	          'Click on the ',
 	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'h3',
-	              null,
-	              'Database Integration'
-	            )
+	            'span',
+	            { style: blue },
+	            'portfolio'
 	          ),
-	          React.createElement(
-	            'li',
-	            null,
-	            React.createElement(
-	              'h3',
-	              null,
-	              'Real-Time Computing'
-	            )
-	          )
+	          ' tab to see my projects.'
 	        )
 	      )];
 	    }
@@ -27358,619 +27376,12 @@
 /* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
-	var SkillsMod = __webpack_require__(241).models;
+	'use strict';
 
-	var Skills = React.createClass({
-	  displayName: 'Skills',
-
-	  render: function () {
-	    var mainStyle = {
-	      backgroundColor: 'rgb(211, 212, 214)'
-	    };
-	    var thumbNailStyle = {
-	      textAlign: 'center'
-	    };
-	    var spanStyle = {
-	      fontSize: '50px'
-	    };
-	    var i = 0;
-	    var skills = SkillsMod.map(function (skill) {
-	      var j = 0;
-	      i++;
-	      var skill = skill.attributes;
-	      var content = skill.content.map(function (content) {
-	        j++;
-	        return React.createElement(
-	          'div',
-	          { key: 'hello' + j + i },
-	          React.createElement(
-	            'h4',
-	            null,
-	            content.title
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            content.content
-	          )
-	        );
-	      });
-	      return React.createElement(
-	        'div',
-	        { className: 'col-sm-6 col-md-3', style: thumbNailStyle, key: i },
-	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement(
-	            'div',
-	            { className: 'caption' },
-	            React.createElement('span', { className: skill.icon, 'aria-hidden': 'true', style: spanStyle }),
-	            React.createElement(
-	              'h3',
-	              null,
-	              skill.title
-	            ),
-	            content
-	          )
-	        )
-	      );
-	    });
-	    return React.createElement(
-	      'div',
-	      { className: 'container-fluid', style: mainStyle },
-	      React.createElement(
-	        'div',
-	        { className: 'col-lg-10 col-lg-offset-1' },
-	        skills
-	      )
-	    );
-	  }
-	});
-
-	module.exports = Skills;
+	module.exports = __webpack_require__(241);
 
 /***/ },
 /* 241 */
-/***/ function(module, exports) {
-
-	var Skill = Backbone.Model.extend({
-	  defaults: {
-	    icon: '',
-	    title: ''
-	  }
-	});
-
-	var education = new Skill({
-	  title: 'EDUCATION',
-	  icon: 'glyphicon glyphicon-apple',
-	  content: [{ title: 'Galvanise', content: 'Full Stack Web Development' }, { title: 'University of Humboldt', content: 'B.S. Geology' }, { title: 'University of Humboldt', content: 'Minir Applied Mathamatics' }]
-	});
-	var education1 = new Skill({
-	  title: 'SKILLS',
-	  icon: 'glyphicon glyphicon-knight',
-	  content: [{ title: 'Programing Langueages', content: 'JavaScript, Node.JS, HTML, CSS' }, { title: 'FrameWorks', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap' }, { title: 'Technologies', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI' }]
-	});
-	var education2 = new Skill({
-	  title: 'INTERESTS',
-	  icon: 'glyphicon glyphicon-fire',
-	  content: [{ title: 'Real time Data', content: 'I devoted much of my time to learing and creating app with real time components' }, { title: 'Full Stack Development', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap' }, { title: 'Software Engineer', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI' }]
-	});
-	var education3 = new Skill({
-	  title: 'CONTACT',
-	  icon: 'glyphicon glyphicon-user',
-	  content: [{ title: 'Boulder, CO' }, { title: 'Email', content: 'NickPMacIntyre@gmail.com' }, { title: 'Phone', content: '501-504-2851' }]
-	});
-
-	var Skills = Backbone.Collection.extend({ model: Skill });
-
-	var mySkills = new Skills([education, education1, education2, education3]);
-
-	module.exports = mySkills;
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-	var Footer = React.createClass({
-	  displayName: 'Footer',
-
-	  render: function () {
-	    var footerStyle = {
-	      width: '100%',
-	      borderTop: 'solid black 1px',
-	      padding: 10
-	    };
-	    return React.createElement(
-	      'footer',
-	      { style: footerStyle, className: 'col-lg-12' },
-	      React.createElement(
-	        'p',
-	        null,
-	        'Nick MacIntyre'
-	      )
-	    );
-	  }
-	});
-	module.exports = Footer;
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var myProjects = __webpack_require__(244);
-	var Link = __webpack_require__(175).Link;
-
-	var Projects = React.createClass({
-	  displayName: 'Projects',
-
-	  getInitialState: function () {
-	    return {
-	      filter: 'all'
-	    };
-	  },
-	  handleClick: function (filterBy) {
-	    this.setState({ filter: filterBy });
-	  },
-	  filter: function (filter) {
-
-	    var container = {
-	      padding: '10px'
-	    };
-	    var none = {
-	      opacity: '1',
-	      zIndex: '-1'
-	    };
-	    return myProjects.map(function (proj, index) {
-	      proj = proj.attributes;
-	      if (proj[filter]) {
-	        var divStyle = {
-	          height: '366px',
-	          width: '100%',
-	          display: 'inline-block',
-	          backgroundImage: 'url(' + proj.picture[0] + ')',
-	          backgroundSize: 'contain',
-	          backgroundRepeat: 'no-repeat'
-	        };
-	        return React.createElement(
-	          'div',
-	          { className: 'col-lg-4 col-md-4 col-sm-6', style: container, key: index },
-	          React.createElement(
-	            'div',
-	            { style: divStyle },
-	            React.createElement(
-	              Link,
-	              { to: '/project/' + proj.path },
-	              React.createElement(ImgFooter, { content: proj.footerContent })
-	            )
-	          )
-	        );
-	      }
-	    });
-	  },
-	  render: function () {
-	    var containerStyle = {
-	      backgroundColor: 'rgb(211, 212, 214)'
-	    };
-	    var catigorieStyle = {
-	      display: 'flex',
-	      justifyContent: 'space-around',
-	      color: 'rgb(41, 72, 134)',
-	      textAlign: 'center',
-	      fontWeight: 'bold',
-	      cursor: 'pointer'
-	    };
-	    var project = this.filter(this.state.filter);
-	    return React.createElement(
-	      'div',
-	      { className: 'container-fluid', style: containerStyle },
-	      React.createElement(
-	        'header',
-	        { className: 'col-lg-10 col-lg-offset-1' },
-	        React.createElement(
-	          'h1',
-	          { onClick: this.handleClick.bind(null, 'all') },
-	          ' Portfolio '
-	        ),
-	        React.createElement('hr', null),
-	        React.createElement(
-	          'h4',
-	          null,
-	          ' Here is what I can do for you:'
-	        ),
-	        React.createElement(
-	          'p',
-	          { style: catigorieStyle },
-	          React.createElement(
-	            'span',
-	            { onClick: this.handleClick.bind(null, 'web') },
-	            'Web Apps'
-	          ),
-	          React.createElement(
-	            'span',
-	            null,
-	            '|'
-	          ),
-	          React.createElement(
-	            'span',
-	            { onClick: this.handleClick.bind(null, 'mobile') },
-	            'Mobile Apps'
-	          ),
-	          React.createElement(
-	            'span',
-	            null,
-	            '|'
-	          ),
-	          React.createElement(
-	            'span',
-	            { onClick: this.handleClick.bind(null, 'desktop') },
-	            'Desktop Apps'
-	          ),
-	          React.createElement(
-	            'span',
-	            null,
-	            '|'
-	          ),
-	          React.createElement(
-	            'span',
-	            { onClick: this.handleClick.bind(null, 'socket') },
-	            'Real-Time Computing'
-	          ),
-	          React.createElement(
-	            'span',
-	            null,
-	            '|'
-	          ),
-	          React.createElement(
-	            'span',
-	            { onClick: this.handleClick.bind(null, 'dataBase') },
-	            'Database Integration'
-	          )
-	        ),
-	        React.createElement(
-	          'p',
-	          null,
-	          'Click on a project to get a more in depth view on technologies and arcitecture. '
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'col-lg-10 col-lg-offset-1' },
-	        project
-	      )
-	    );
-	  }
-	});
-
-	var ImgFooter = React.createClass({
-	  displayName: 'ImgFooter',
-
-	  getInitialState: function () {
-	    return {
-	      opacity: '0'
-	    };
-	  },
-	  handleOver: function () {
-	    var self = this;
-	    for (let i = 0; i < 8; i++) {
-	      window.setTimeout(function () {
-	        self.setState({ opacity: 0 + (i + 1) / 10 });
-	      }, 0 + i * 35);
-	    }
-	  },
-	  handleOut: function () {
-	    var self = this;
-	    for (let i = 0; i < 8; i++) {
-	      window.setTimeout(function () {
-	        self.setState({ opacity: 0.7 - (i + 1) / 10 });
-	      }, 0 + i * 35);
-	    }
-	  },
-	  render: function () {
-	    var footerStyle = {
-	      position: 'absolute',
-	      padding: '10px',
-	      top: '7px',
-	      left: '7px',
-	      height: '94%',
-	      width: '96%',
-	      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-	      opacity: this.state.opacity
-	    };
-	    var innerDiv = {
-	      textAlign: 'center',
-	      position: 'absolute',
-	      bottom: '0px',
-	      left: '0',
-	      width: '100%',
-	      padding: '10px',
-	      backgroundColor: 'black',
-	      color: 'white'
-	    };
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'footer',
-	        { style: footerStyle, onMouseOver: this.handleOver, onMouseOut: this.handleOut },
-	        React.createElement(
-	          'div',
-	          { style: innerDiv },
-	          React.createElement(
-	            'h4',
-	            null,
-	            this.props.content.title
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            this.props.content.content
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = Projects;
-
-/***/ },
-/* 244 */
-/***/ function(module, exports) {
-
-	var Project = Backbone.Model.extend({
-	  defaults: {
-	    picture: img + '',
-	    blurb: ''
-	  }
-	});
-
-	var img = './app/img/';
-
-	var whereAbouts = new Project({
-	  project: 'WhereAbouts',
-	  path: 'WhereAbouts',
-	  picture: [img + 'whereAbouts.png', img + 'where1.png', img + 'where2.png'],
-	  site: '',
-	  git: '',
-	  footerContent: { title: 'WhereAbouts', content: 'A community-powered map for overlooked points-of-interests' },
-	  mainContent: '  Whereabouts is a community-powered map for overlooked points-of-interest that was created as part of a week long group project. It captures hidden gems that only a true local would know, giving the user a more authentic experience than what other travel sites can offer. To create an entry a user can simply whip out their phone, and use Google maps API to lock onto their location. All posts are saved in a postgresql database which can be filtered and viewed by location and distance. Popular posts are upvoted allowing for community reliability and more exciting points of interest to be displayed to the user quicker.I created this project prior to me learning Angular. With the goal to seamlessly render new information to the page without a refresh I utilized socket.io and jQuery. Whereabouts gets its charm from its content and is in desperate need of more. Please visit the site and add your own. For more information about where I have been visit',
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  socket: true,
-	  dataBase: true,
-	  web: true
-	});
-	var asteroids = new Project({
-	  project: 'Asteroids',
-	  path: 'Asteroids',
-	  picture: [img + 'asteroid.png', img + 'asteroid1.png', img + 'asteroid2.png'],
-	  footerContent: { title: 'Asteroids', content: 'A remake of Atari\'s asteroids' },
-	  mainContent: "Thank you for your interest in Asteroid Field, my very first project. This game is a remake of Atari's Asteroids, an arcade style game in which a spaceship fights for survival in an asteroid field. Gameplay was made entirely using the HTML5 canvas element and JavaScript. Additionally I used CSS, SASS and Jquery for styling the site. The game includes four different ships, three asteroid types with different behaviors and an updating score tally. User’s high scores  are saved and compared in a Firebase database which I utilize for creating a high score leader board. Click below to visit the site and see if you can get the new high score. I hope you enjoy the game.",
-	  webSite: 'https://astroidz.firebaseapp.com/',
-	  git: 'https://github.com/nickmac23/astroid',
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-	  all: true,
-	  web: true
-	});
-	var socketChat = new Project({
-	  project: 'SocketChat',
-	  path: 'SocketChat',
-	  picture: [img + 'socketchat.png'],
-	  footerContent: { title: 'SocketChat', content: 'Real time messaging Chat App' },
-	  mainContent: "SocketChat was created in a day as part of a hackathon. In this project I worked with one other person to create an instant messaging CRUD app with the intent of learning socket.io. Users can create new chat rooms and message each other in real time. All messages are then saved and displayed only in the chat room in which they were created. Additional features include Google OAuth and Cookie based authentication.",
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-	  all: true,
-	  socket: true,
-	  dataBase: true,
-	  web: true
-	});
-	var musicPhone = new Project({
-	  project: 'Ionic Mobile Remote',
-	  path: 'Music Player',
-	  picture: [img + 'musicPhone.png'],
-	  footerContent: { title: 'Music Project Mobile Remote', content: 'Mobile remote for a Network of Music Player Apps' },
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  socket: true,
-	  mobile: true
-	});
-	var musicElectron = new Project({
-	  project: 'Electron Desktop Music Player',
-	  path: 'Music Player',
-	  picture: [img + 'musicPrj.png'],
-	  footerContent: { title: 'Music Project Desktop App', content: 'Desktop music player' },
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  socket: true,
-	  desktop: true
-	});
-	var musicWeb = new Project({
-	  project: 'Music Player',
-	  path: 'Music Player',
-	  picture: [img + 'musicPrj.png', img + 'musicPhone.png', img + 'system.png', img + 'music1.png', img + 'music2.png'],
-	  footerContent: { title: 'Music Project Web App', content: 'Web app compoent to a network of music player Apps' },
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  socket: true,
-	  web: true
-	});
-	var grasp = new Project({
-	  project: 'Grasp',
-	  path: 'Grasp',
-	  picture: [img + 'grasp.png', img + 'graspMobile.png', img + 'grasp1.png', img + 'grasp2.png', img + 'grasp3.png', img + 'grasp4.png'],
-	  footerContent: { title: 'Grasp Web App', content: 'A web app that monitors Student\'s understandings of a lecture' },
-	  mainContent: 'Grasp is an educational app. It utilizes socket.io and google charts api inorder to give teachers a realtime look at how much their class understands the lecture. By utilizing the web or phone app, students can indicate whether they understand the lecture or not. Every time a student changes state the graph is updated. ',
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  socket: true,
-	  dataBase: true,
-	  web: true
-	});
-	var graspMobile = new Project({
-	  project: 'Grasp Ionic Mobile App',
-	  path: 'Grasp',
-	  picture: [img + 'graspMobile.png'],
-	  footerContent: { title: 'Grasp Mobile App', content: 'A mobile app for students to share their understandings of a lecture' },
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  socket: true,
-	  dataBase: true,
-	  mobile: true
-	});
-	var redditClone = new Project({
-	  project: 'Reddit Clone',
-	  path: 'Reddit Clone',
-	  picture: [img + 'redditClone.png', img + 'reddit1.png', img + 'reddit2.png'],
-	  footerContent: { title: 'Reddit Clone', content: 'A remake of reddit' },
-	  content: "Reddit clone was created as a way to hone my Angular skills. I designed the site to look and feel like Reddit in order to give this unassuming CRUD app more flare. Security was a big interest of mine and as a result Reddit clone utilizes JSON Web Tokens and HTTP interceptors to check for user validity. ",
-	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
-
-	  all: true,
-	  dataBase: true,
-	  web: true
-	});
-
-	var Projects = Backbone.Collection.extend({ model: Project });
-
-	var myProjects = new Projects([musicPhone, asteroids, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
-
-	module.exports = myProjects;
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var projects = __webpack_require__(244).models;
-	var Carousel = __webpack_require__(239);
-
-	var Project = React.createClass({
-	  displayName: 'Project',
-
-	  render: function () {
-	    var containerStyle = {
-	      backgroundColor: 'rgb(211, 212, 214)'
-	    };
-	    var style = {
-	      height: '366px'
-	    };
-	    var test = {
-	      textAlign: 'center'
-	    };
-	    var self = this;
-	    var project = projects.filter(function (proj) {
-	      return proj.attributes.project === self.props.path;
-	    });
-	    project = project[0].attributes;
-	    var stack = project.stack.map((tec, index) => React.createElement(
-	      'span',
-	      { key: index },
-	      ' ',
-	      tec,
-	      ' '
-	    ));
-	    return React.createElement(
-	      'div',
-	      { className: 'container-fluid', style: containerStyle },
-	      React.createElement(
-	        'div',
-	        { className: 'col-lg-10 col-lg-offset-1' },
-	        React.createElement('br', null),
-	        React.createElement(
-	          'div',
-	          { className: 'col-lg-4 ', style: style },
-	          React.createElement(Carousel, { img: project.picture })
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'col-lg-7 col-lg-offset-1', style: test },
-	          React.createElement(
-	            'h1',
-	            null,
-	            project.project
-	          ),
-	          React.createElement('hr', null),
-	          React.createElement(
-	            'p',
-	            null,
-	            project.mainContent
-	          ),
-	          React.createElement('hr', null),
-	          React.createElement(
-	            'ul',
-	            null,
-	            React.createElement(
-	              'li',
-	              null,
-	              React.createElement(
-	                'strong',
-	                null,
-	                'Technology Stack:'
-	              ),
-	              ' ',
-	              stack,
-	              ' '
-	            ),
-	            React.createElement(
-	              'li',
-	              null,
-	              React.createElement(
-	                'strong',
-	                null,
-	                'Live site:'
-	              ),
-	              ' ',
-	              React.createElement(
-	                'a',
-	                { href: project.webSite },
-	                project.webSite
-	              )
-	            ),
-	            React.createElement(
-	              'li',
-	              null,
-	              React.createElement(
-	                'strong',
-	                null,
-	                'Github:'
-	              ),
-	              ' ',
-	              React.createElement(
-	                'a',
-	                { href: project.git },
-	                project.git
-	              )
-	            )
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = Project;
-
-/***/ },
-/* 246 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(247);
-
-/***/ },
-/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27979,21 +27390,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _innerSlider = __webpack_require__(248);
+	var _innerSlider = __webpack_require__(242);
 
 	var _objectAssign = __webpack_require__(4);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-	var _json2mq = __webpack_require__(259);
+	var _json2mq = __webpack_require__(253);
 
 	var _json2mq2 = _interopRequireDefault(_json2mq);
 
-	var _reactResponsiveMixin = __webpack_require__(261);
+	var _reactResponsiveMixin = __webpack_require__(255);
 
 	var _reactResponsiveMixin2 = _interopRequireDefault(_reactResponsiveMixin);
 
-	var _defaultProps = __webpack_require__(254);
+	var _defaultProps = __webpack_require__(248);
 
 	var _defaultProps2 = _interopRequireDefault(_defaultProps);
 
@@ -28083,7 +27494,7 @@
 	module.exports = Slider;
 
 /***/ },
-/* 248 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28097,31 +27508,31 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventHandlers = __webpack_require__(249);
+	var _eventHandlers = __webpack_require__(243);
 
 	var _eventHandlers2 = _interopRequireDefault(_eventHandlers);
 
-	var _helpers = __webpack_require__(251);
+	var _helpers = __webpack_require__(245);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
-	var _initialState = __webpack_require__(253);
+	var _initialState = __webpack_require__(247);
 
 	var _initialState2 = _interopRequireDefault(_initialState);
 
-	var _defaultProps = __webpack_require__(254);
+	var _defaultProps = __webpack_require__(248);
 
 	var _defaultProps2 = _interopRequireDefault(_defaultProps);
 
-	var _classnames = __webpack_require__(255);
+	var _classnames = __webpack_require__(249);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _track = __webpack_require__(256);
+	var _track = __webpack_require__(250);
 
-	var _dots = __webpack_require__(257);
+	var _dots = __webpack_require__(251);
 
-	var _arrows = __webpack_require__(258);
+	var _arrows = __webpack_require__(252);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28292,16 +27703,16 @@
 	});
 
 /***/ },
-/* 249 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _trackHelper = __webpack_require__(250);
+	var _trackHelper = __webpack_require__(244);
 
-	var _helpers = __webpack_require__(251);
+	var _helpers = __webpack_require__(245);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
@@ -28486,7 +27897,7 @@
 	exports.default = EventHandlers;
 
 /***/ },
-/* 250 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28609,7 +28020,7 @@
 	};
 
 /***/ },
-/* 251 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28624,11 +28035,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _ReactTransitionEvents = __webpack_require__(252);
+	var _ReactTransitionEvents = __webpack_require__(246);
 
 	var _ReactTransitionEvents2 = _interopRequireDefault(_ReactTransitionEvents);
 
-	var _trackHelper = __webpack_require__(250);
+	var _trackHelper = __webpack_require__(244);
 
 	var _objectAssign = __webpack_require__(4);
 
@@ -28910,7 +28321,7 @@
 	exports.default = helpers;
 
 /***/ },
-/* 252 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28988,7 +28399,7 @@
 	module.exports = ReactTransitionEvents;
 
 /***/ },
-/* 253 */
+/* 247 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29038,7 +28449,7 @@
 	module.exports = initialState;
 
 /***/ },
-/* 254 */
+/* 248 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29091,7 +28502,7 @@
 	module.exports = defaultProps;
 
 /***/ },
-/* 255 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -29145,7 +28556,7 @@
 
 
 /***/ },
-/* 256 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29161,7 +28572,7 @@
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-	var _classnames = __webpack_require__(255);
+	var _classnames = __webpack_require__(249);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -29296,7 +28707,7 @@
 	});
 
 /***/ },
-/* 257 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29308,7 +28719,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(255);
+	var _classnames = __webpack_require__(249);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -29374,7 +28785,7 @@
 	});
 
 /***/ },
-/* 258 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29388,7 +28799,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(255);
+	var _classnames = __webpack_require__(249);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -29487,10 +28898,10 @@
 	});
 
 /***/ },
-/* 259 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var camel2hyphen = __webpack_require__(260);
+	var camel2hyphen = __webpack_require__(254);
 
 	var isDimension = function (feature) {
 	  var re = /[height|width]$/;
@@ -29543,7 +28954,7 @@
 	module.exports = json2mq;
 
 /***/ },
-/* 260 */
+/* 254 */
 /***/ function(module, exports) {
 
 	var camel2hyphen = function (str) {
@@ -29557,12 +28968,12 @@
 	module.exports = camel2hyphen;
 
 /***/ },
-/* 261 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var canUseDOM = __webpack_require__(262);
-	var enquire = canUseDOM && __webpack_require__(263);
-	var json2mq = __webpack_require__(259);
+	var canUseDOM = __webpack_require__(256);
+	var enquire = canUseDOM && __webpack_require__(257);
+	var json2mq = __webpack_require__(253);
 
 	var ResponsiveMixin = {
 	  media: function (query, handler) {
@@ -29592,7 +29003,7 @@
 	module.exports = ResponsiveMixin;
 
 /***/ },
-/* 262 */
+/* 256 */
 /***/ function(module, exports) {
 
 	var canUseDOM = !!(
@@ -29604,7 +29015,7 @@
 	module.exports = canUseDOM;
 
 /***/ },
-/* 263 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -29900,6 +29311,613 @@
 		return new MediaQueryDispatch();
 
 	}));
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var SkillsMod = __webpack_require__(259).models;
+
+	var Skills = React.createClass({
+	  displayName: 'Skills',
+
+	  render: function () {
+	    var mainStyle = {
+	      backgroundColor: 'rgb(211, 212, 214)'
+	    };
+	    var thumbNailStyle = {
+	      textAlign: 'center'
+	    };
+	    var spanStyle = {
+	      fontSize: '50px'
+	    };
+	    var i = 0;
+	    var skills = SkillsMod.map(function (skill) {
+	      var j = 0;
+	      i++;
+	      var skill = skill.attributes;
+	      var content = skill.content.map(function (content) {
+	        j++;
+	        return React.createElement(
+	          'div',
+	          { key: 'hello' + j + i },
+	          React.createElement(
+	            'h4',
+	            null,
+	            content.title
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            content.content
+	          )
+	        );
+	      });
+	      return React.createElement(
+	        'div',
+	        { className: 'col-sm-6 col-md-3', style: thumbNailStyle, key: i },
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            'div',
+	            { className: 'caption' },
+	            React.createElement('span', { className: skill.icon, 'aria-hidden': 'true', style: spanStyle }),
+	            React.createElement(
+	              'h3',
+	              null,
+	              skill.title
+	            ),
+	            content
+	          )
+	        )
+	      );
+	    });
+	    return React.createElement(
+	      'div',
+	      { className: 'container-fluid', style: mainStyle },
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        skills
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Skills;
+
+/***/ },
+/* 259 */
+/***/ function(module, exports) {
+
+	var Skill = Backbone.Model.extend({
+	  defaults: {
+	    icon: '',
+	    title: ''
+	  }
+	});
+
+	var education = new Skill({
+	  title: 'EDUCATION',
+	  icon: 'glyphicon glyphicon-apple',
+	  content: [{ title: 'Galvanise', content: 'Full Stack Web Development' }, { title: 'University of Humboldt', content: 'B.S. Geology' }, { title: 'University of Humboldt', content: 'Minir Applied Mathamatics' }]
+	});
+	var education1 = new Skill({
+	  title: 'SKILLS',
+	  icon: 'glyphicon glyphicon-knight',
+	  content: [{ title: 'Programing Langueages', content: 'JavaScript, Node.JS, HTML, CSS' }, { title: 'FrameWorks', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap' }, { title: 'Technologies', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI' }]
+	});
+	var education2 = new Skill({
+	  title: 'INTERESTS',
+	  icon: 'glyphicon glyphicon-fire',
+	  content: [{ title: 'Real time Data', content: 'I devoted much of my time to learing and creating app with real time components' }, { title: 'Full Stack Development', content: 'React.JS, Angular.JS, Express, BackBone, BootStrap' }, { title: 'Software Engineer', content: 'Socket.io, Electron, Ionic, GoogleMapsAPI' }]
+	});
+	var education3 = new Skill({
+	  title: 'CONTACT',
+	  icon: 'glyphicon glyphicon-user',
+	  content: [{ title: 'Boulder, CO' }, { title: 'Email', content: 'NickPMacIntyre@gmail.com' }, { title: 'Phone', content: '501-504-2851' }]
+	});
+
+	var Skills = Backbone.Collection.extend({ model: Skill });
+
+	var mySkills = new Skills([education, education1, education2, education3]);
+
+	module.exports = mySkills;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+
+	var Footer = React.createClass({
+	  displayName: 'Footer',
+
+	  render: function () {
+	    var footerStyle = {
+	      width: '100%',
+	      borderTop: 'solid black 1px',
+	      padding: 10
+	    };
+	    return React.createElement(
+	      'footer',
+	      { style: footerStyle, className: 'col-lg-12' },
+	      React.createElement(
+	        'p',
+	        null,
+	        'Nick MacIntyre'
+	      )
+	    );
+	  }
+	});
+	module.exports = Footer;
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var myProjects = __webpack_require__(262);
+	var Link = __webpack_require__(175).Link;
+
+	var Projects = React.createClass({
+	  displayName: 'Projects',
+
+	  getInitialState: function () {
+	    return {
+	      filter: 'all'
+	    };
+	  },
+	  handleClick: function (filterBy) {
+	    this.setState({ filter: filterBy });
+	  },
+	  filter: function (filter) {
+
+	    var container = {
+	      padding: '10px'
+	    };
+	    var none = {
+	      opacity: '1',
+	      zIndex: '-1'
+	    };
+	    return myProjects.map(function (proj, index) {
+	      proj = proj.attributes;
+	      if (proj[filter]) {
+	        var divStyle = {
+	          height: '366px',
+	          width: '100%',
+	          display: 'inline-block',
+	          backgroundImage: 'url(' + proj.picture[0] + ')',
+	          backgroundSize: 'contain',
+	          backgroundRepeat: 'no-repeat'
+	        };
+	        return React.createElement(
+	          'div',
+	          { className: 'col-lg-4 col-md-4 col-sm-6', style: container, key: index },
+	          React.createElement(
+	            'div',
+	            { style: divStyle },
+	            React.createElement(
+	              Link,
+	              { to: '/project/' + proj.path },
+	              React.createElement(ImgFooter, { content: proj.footerContent })
+	            )
+	          )
+	        );
+	      }
+	    });
+	  },
+	  render: function () {
+	    var containerStyle = {
+	      backgroundColor: 'rgb(211, 212, 214)'
+	    };
+	    var catigorieStyle = {
+	      display: 'flex',
+	      justifyContent: 'space-around',
+	      color: 'rgb(41, 72, 134)',
+	      textAlign: 'center',
+	      fontWeight: 'bold',
+	      cursor: 'pointer'
+	    };
+	    var project = this.filter(this.state.filter);
+	    return React.createElement(
+	      'div',
+	      { className: 'container-fluid', style: containerStyle },
+	      React.createElement(
+	        'header',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        React.createElement(
+	          'h1',
+	          { onClick: this.handleClick.bind(null, 'all') },
+	          ' Portfolio '
+	        ),
+	        React.createElement('hr', null),
+	        React.createElement(
+	          'h4',
+	          null,
+	          ' Here is what I can do for you:'
+	        ),
+	        React.createElement(
+	          'p',
+	          { style: catigorieStyle },
+	          React.createElement(
+	            'span',
+	            { onClick: this.handleClick.bind(null, 'web') },
+	            'Web Apps'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            { onClick: this.handleClick.bind(null, 'mobile') },
+	            'Mobile Apps'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            { onClick: this.handleClick.bind(null, 'desktop') },
+	            'Desktop Apps'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            { onClick: this.handleClick.bind(null, 'socket') },
+	            'Real-Time Computing'
+	          ),
+	          React.createElement(
+	            'span',
+	            null,
+	            '|'
+	          ),
+	          React.createElement(
+	            'span',
+	            { onClick: this.handleClick.bind(null, 'dataBase') },
+	            'Database Integration'
+	          )
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'Click on a project to get a more in depth view on technologies and arcitecture. '
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        project
+	      )
+	    );
+	  }
+	});
+
+	var ImgFooter = React.createClass({
+	  displayName: 'ImgFooter',
+
+	  getInitialState: function () {
+	    return {
+	      opacity: '0'
+	    };
+	  },
+	  handleOver: function () {
+	    var self = this;
+	    for (let i = 0; i < 8; i++) {
+	      window.setTimeout(function () {
+	        self.setState({ opacity: 0 + (i + 1) / 10 });
+	      }, 0 + i * 35);
+	    }
+	  },
+	  handleOut: function () {
+	    var self = this;
+	    for (let i = 0; i < 8; i++) {
+	      window.setTimeout(function () {
+	        self.setState({ opacity: 0.7 - (i + 1) / 10 });
+	      }, 0 + i * 35);
+	    }
+	  },
+	  render: function () {
+	    var footerStyle = {
+	      position: 'absolute',
+	      padding: '10px',
+	      top: '7px',
+	      left: '7px',
+	      height: '94%',
+	      width: '96%',
+	      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+	      opacity: this.state.opacity
+	    };
+	    var innerDiv = {
+	      textAlign: 'center',
+	      position: 'absolute',
+	      bottom: '0px',
+	      left: '0',
+	      width: '100%',
+	      padding: '10px',
+	      backgroundColor: 'black',
+	      color: 'white'
+	    };
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'footer',
+	        { style: footerStyle, onMouseOver: this.handleOver, onMouseOut: this.handleOut },
+	        React.createElement(
+	          'div',
+	          { style: innerDiv },
+	          React.createElement(
+	            'h4',
+	            null,
+	            this.props.content.title
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            this.props.content.content
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Projects;
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	var Project = Backbone.Model.extend({
+	  defaults: {
+	    picture: img + '',
+	    blurb: ''
+	  }
+	});
+
+	var img = './app/img/';
+
+	var whereAbouts = new Project({
+	  project: 'WhereAbouts',
+	  path: 'WhereAbouts',
+	  picture: [img + 'whereAbouts.png', img + 'where1.png', img + 'where2.png'],
+	  site: '',
+	  git: '',
+	  footerContent: { title: 'WhereAbouts', content: 'A community-powered map for overlooked points-of-interests' },
+	  mainContent: '  Whereabouts is a community-powered map for overlooked points-of-interest that was created as part of a week long group project. It captures hidden gems that only a true local would know, giving the user a more authentic experience than what other travel sites can offer. To create an entry a user can simply whip out their phone, and use Google maps API to lock onto their location. All posts are saved in a postgresql database which can be filtered and viewed by location and distance. Popular posts are upvoted allowing for community reliability and more exciting points of interest to be displayed to the user quicker.I created this project prior to me learning Angular. With the goal to seamlessly render new information to the page without a refresh I utilized socket.io and jQuery. Whereabouts gets its charm from its content and is in desperate need of more. Please visit the site and add your own. For more information about where I have been visit',
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  web: true
+	});
+	var asteroids = new Project({
+	  project: 'Asteroids',
+	  path: 'Asteroids',
+	  picture: [img + 'asteroid.png', img + 'asteroid1.png', img + 'asteroid2.png'],
+	  footerContent: { title: 'Asteroids', content: 'A remake of Atari\'s asteroids' },
+	  mainContent: "Thank you for your interest in Asteroid Field, my very first project. This game is a remake of Atari's Asteroids, an arcade style game in which a spaceship fights for survival in an asteroid field. Gameplay was made entirely using the HTML5 canvas element and JavaScript. Additionally I used CSS, SASS and Jquery for styling the site. The game includes four different ships, three asteroid types with different behaviors and an updating score tally. User’s high scores  are saved and compared in a Firebase database which I utilize for creating a high score leader board. Click below to visit the site and see if you can get the new high score. I hope you enjoy the game.",
+	  webSite: 'https://astroidz.firebaseapp.com/',
+	  git: 'https://github.com/nickmac23/astroid',
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+	  all: true,
+	  web: true
+	});
+	var socketChat = new Project({
+	  project: 'SocketChat',
+	  path: 'SocketChat',
+	  picture: [img + 'socketchat.png'],
+	  footerContent: { title: 'SocketChat', content: 'Real time messaging Chat App' },
+	  mainContent: "SocketChat was created in a day as part of a hackathon. In this project I worked with one other person to create an instant messaging CRUD app with the intent of learning socket.io. Users can create new chat rooms and message each other in real time. All messages are then saved and displayed only in the chat room in which they were created. Additional features include Google OAuth and Cookie based authentication.",
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  web: true
+	});
+	var musicPhone = new Project({
+	  project: 'Ionic Mobile Remote',
+	  path: 'Music Player',
+	  picture: [img + 'musicPhone.png'],
+	  footerContent: { title: 'Music Project Mobile Remote', content: 'Mobile remote for a Network of Music Player Apps' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  socket: true,
+	  mobile: true
+	});
+	var musicElectron = new Project({
+	  project: 'Electron Desktop Music Player',
+	  path: 'Music Player',
+	  picture: [img + 'musicPrj.png'],
+	  footerContent: { title: 'Music Project Desktop App', content: 'Desktop music player' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  socket: true,
+	  desktop: true
+	});
+	var musicWeb = new Project({
+	  project: 'Music Player',
+	  path: 'Music Player',
+	  picture: [img + 'musicPrj.png', img + 'musicPhone.png', img + 'system.png', img + 'music1.png', img + 'music2.png'],
+	  footerContent: { title: 'Music Project Web App', content: 'Web app compoent to a network of music player Apps' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  socket: true,
+	  web: true
+	});
+	var grasp = new Project({
+	  project: 'Grasp',
+	  path: 'Grasp',
+	  picture: [img + 'grasp.png', img + 'graspMobile.png', img + 'grasp1.png', img + 'grasp2.png', img + 'grasp3.png', img + 'grasp4.png'],
+	  footerContent: { title: 'Grasp Web App', content: 'A web app that monitors Student\'s understandings of a lecture' },
+	  mainContent: 'Grasp is an educational app. It utilizes socket.io and google charts api inorder to give teachers a realtime look at how much their class understands the lecture. By utilizing the web or phone app, students can indicate whether they understand the lecture or not. Every time a student changes state the graph is updated. ',
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  web: true
+	});
+	var graspMobile = new Project({
+	  project: 'Grasp Ionic Mobile App',
+	  path: 'Grasp',
+	  picture: [img + 'graspMobile.png'],
+	  footerContent: { title: 'Grasp Mobile App', content: 'A mobile app for students to share their understandings of a lecture' },
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  socket: true,
+	  dataBase: true,
+	  mobile: true
+	});
+	var redditClone = new Project({
+	  project: 'Reddit Clone',
+	  path: 'Reddit Clone',
+	  picture: [img + 'redditClone.png', img + 'reddit1.png', img + 'reddit2.p'],
+	  footerContent: { title: 'Reddit Clone', content: 'A remake of reddit' },
+	  content: "Reddit clone was created as a way to hone my Angular skills. I designed the site to look and feel like Reddit in order to give this unassuming CRUD app more flare. Security was a big interest of mine and as a result Reddit clone utilizes JSON Web Tokens and HTTP interceptors to check for user validity. ",
+	  stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
+
+	  all: true,
+	  dataBase: true,
+	  web: true
+	});
+
+	var Projects = Backbone.Collection.extend({ model: Project });
+
+	var myProjects = new Projects([musicPhone, asteroids, socketChat, whereAbouts, musicElectron, grasp, musicWeb, graspMobile, redditClone]);
+
+	module.exports = myProjects;
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var projects = __webpack_require__(262).models;
+	var Carousel = __webpack_require__(239);
+
+	var Project = React.createClass({
+	  displayName: 'Project',
+
+	  render: function () {
+	    var containerStyle = {
+	      backgroundColor: 'rgb(211, 212, 214)'
+	    };
+	    var style = {
+	      height: '366px'
+	    };
+	    var test = {
+	      textAlign: 'center'
+	    };
+	    var self = this;
+	    var project = projects.filter(function (proj) {
+	      return proj.attributes.project === self.props.path;
+	    });
+	    project = project[0].attributes;
+	    var stack = project.stack.map((tec, index) => React.createElement(
+	      'span',
+	      { key: index },
+	      ' ',
+	      tec,
+	      ' '
+	    ));
+	    return React.createElement(
+	      'div',
+	      { className: 'container-fluid', style: containerStyle },
+	      React.createElement(
+	        'div',
+	        { className: 'col-lg-10 col-lg-offset-1' },
+	        React.createElement('br', null),
+	        React.createElement(
+	          'div',
+	          { className: 'col-lg-4 ', style: style },
+	          React.createElement(Carousel, { img: project.picture })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'col-lg-7 col-lg-offset-1', style: test },
+	          React.createElement(
+	            'h1',
+	            null,
+	            project.project
+	          ),
+	          React.createElement('hr', null),
+	          React.createElement(
+	            'p',
+	            null,
+	            project.mainContent
+	          ),
+	          React.createElement('hr', null),
+	          React.createElement(
+	            'ul',
+	            null,
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'strong',
+	                null,
+	                'Technology Stack:'
+	              ),
+	              ' ',
+	              stack,
+	              ' '
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'strong',
+	                null,
+	                'Live site:'
+	              ),
+	              ' ',
+	              React.createElement(
+	                'a',
+	                { href: project.webSite },
+	                project.webSite
+	              )
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement(
+	                'strong',
+	                null,
+	                'Github:'
+	              ),
+	              ' ',
+	              React.createElement(
+	                'a',
+	                { href: project.git },
+	                project.git
+	              )
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Project;
 
 /***/ }
 /******/ ]);

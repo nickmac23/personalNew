@@ -28,8 +28,6 @@ var Header = React.createClass({
           <Link to='portfolio' style={linkStyle}>PORTFOLIO</Link>
           <a href='http://github.com/nickmac23' style={linkStyle}>GITHUB</a>
           <a href='http://linkedin.com/in/nickmacintyre' style={linkStyle}>LINKEDIN</a>
-          <a href='#' style={linkStyle}>RESUME</a>
-          <a href='#' style={linkStyle}>CONTACT</a>
         </div>
       </main>
     )

@@ -108,7 +108,7 @@ var graspMobile = new Project ({
 var redditClone = new Project ({
   project: 'Reddit Clone',
   path: 'Reddit Clone',
-  picture: [img + 'redditClone.png', img + 'reddit1.png', img + 'reddit2.png'],
+  picture: [img + 'redditClone.png', img + 'reddit1.png', img + 'reddit2.p'],
   footerContent:{title: 'Reddit Clone', content: 'A remake of reddit'},
   content: "Reddit clone was created as a way to hone my Angular skills. I designed the site to look and feel like Reddit in order to give this unassuming CRUD app more flare. Security was a big interest of mine and as a result Reddit clone utilizes JSON Web Tokens and HTTP interceptors to check for user validity. ",
   stack: ['JavaScript,', 'Firebase,', 'HTML Canvas'],
