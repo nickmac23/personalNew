@@ -9,7 +9,7 @@ var Footer = React.createClass({
     }
     return(
       <footer style={footerStyle} className='col-lg-12'>
-        <p>Nick MacIntyre</p>
+        <p className='col-lg-offset-10'>2016 by Nick MacIntyre</p>
       </footer>
     )
   }

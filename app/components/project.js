@@ -6,6 +6,8 @@ var Project = React.createClass({
   render: function () {
     var containerStyle ={
       backgroundColor:'rgb(211, 212, 214)',
+      padding: '50px',
+      minHeight: '600px'
     }
     var style={
       height: '366px'
@@ -18,7 +20,10 @@ var Project = React.createClass({
       return proj.attributes.project === self.props.path
     })
     project = project[0].attributes
-    var stack = project.stack.map( (tec, index) => (<span key={index}> {tec} </span>))
+    var stack = project.stack.map( (tec, index) => {
+      var item = !!project.stack[index + 1] ? (<span key={index}> {tec}, </span>) : (<span key={index}> {tec} </span>)
+      return item
+    })
     return (
       <div className='container-fluid' style={containerStyle}>
         <div className='col-lg-10 col-lg-offset-1'>
@@ -29,12 +34,11 @@ var Project = React.createClass({
           <div className='col-lg-7 col-lg-offset-1' style={test}>
             <h1>{project.project}</h1>
             <hr />
-
             <p>{project.mainContent}</p>
             <hr />
             <ul>
               <li><strong>Technology Stack:</strong> {stack} </li>
-              <li><strong>Live site:</strong> <a href={project.webSite}>{project.webSite}</a></li>
+              <li><strong>Live site:</strong> <a href={project.site}>{project.site}</a></li>
               <li><strong>Github:</strong> <a href={project.git}>{project.git}</a></li>
             </ul>
           </div>

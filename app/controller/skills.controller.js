@@ -11,7 +11,7 @@ var education = new Skill({
   content: [
     {title: 'Galvanise', content: 'Full Stack Web Development'},
     {title: 'University of Humboldt', content: 'B.S. Geology'},
-    {title: 'University of Humboldt', content: 'Minir Applied Mathamatics'},
+    {title: 'University of Humboldt', content: 'Minir Applied Mathematics'},
   ]
 })
 var education1 = new Skill({

@@ -53,6 +53,7 @@ var ProjectPage = React.createClass({
     return (
       <div>
         <Project path={this.state.page} />
+        <Footer />
       </div>
     )
   }
